@@ -103,8 +103,9 @@ RUN apt-get update \
 RUN git clone "$OPSHIN_REPO" /src \
     && cd /src && git checkout "$OPSHIN_SHA"
 
-# Build secp256k1 from source
-RUN cd /src && bash install_secp256k1.sh
+# Build secp256k1 from source (script uses sudo, but we're root in Docker)
+RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/* \
+    && cd /src && bash install_secp256k1.sh
 
 WORKDIR /src
 RUN pip install --no-cache-dir .
