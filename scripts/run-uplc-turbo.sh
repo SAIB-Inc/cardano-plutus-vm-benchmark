@@ -28,3 +28,9 @@ cp -r target/criterion "$RUN_DIR/criterion-output" 2>/dev/null || true
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_criterion.py "$RUN_DIR/criterion-output" > "$RUN_DIR/uplc-turbo.csv"
+
+# Append failures from log as -1 entries
+grep "^EVAL_FAIL:" "$RUN_DIR/uplc-turbo-raw.log" | while read -r line; do
+    script=$(echo "$line" | sed 's/EVAL_FAIL: //')
+    echo "uplc-turbo,$script,-1,-1,-1,-1,-1,0" >> "$RUN_DIR/uplc-turbo.csv"
+done

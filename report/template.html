@@ -111,7 +111,10 @@
     opacity: 0.15;
   }
   .card .vm-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.05rem; }
-  .card .lang { color: var(--text-muted); font-size: 0.7rem; margin-bottom: 0.4rem; }
+  .card .lang { color: var(--text-muted); font-size: 0.7rem; margin-bottom: 0.15rem; }
+  .card .compat { color: var(--text-muted); font-size: 0.62rem; margin-bottom: 0.3rem; }
+  .card .compat .pass { color: var(--green); }
+  .card .compat .fail { color: #e05555; }
   .card .geo-mean { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
   .card .ratio { color: var(--text-muted); font-size: 0.72rem; font-weight: 500; margin-left: 0.3rem; }
 
@@ -179,6 +182,7 @@
   tr:hover td { background: var(--surface-hover); }
   td.fastest { color: var(--green); font-weight: 600; }
   td.missing { color: var(--text-muted); opacity: 0.4; }
+  td.failed { color: #e05555; font-weight: 500; font-size: 0.65rem; opacity: 0.7; }
 
   /* Toolchain */
   .toolchain {
@@ -341,7 +345,10 @@ const fastest = geoMeans[sorted[0]];
 document.getElementById('summary').innerHTML = sorted.map((vm,i) => {
   const m=VM_META[vm], geo=geoMeans[vm], ratio=(geo/fastest).toFixed(2);
   const cls=i===0?'gold':i===1?'silver':i===2?'bronze':'';
-  return `<div class="card ${cls}"><div class="rank">#${i+1}</div><div class="vm-name">${m.label}</div><div class="lang">${langLine(m)}</div><div class="geo-mean">${fmtNs(Math.round(geo))}<span class="ratio">${ratio}x</span></div></div>`;
+  const pass=scripts.filter(s=>data[s]?.[vm]>0).length;
+  const fail=scripts.filter(s=>data[s]?.[vm]<0).length;
+  const compatHtml=fail>0?`<div class="compat"><span class="pass">${pass}</span>/<span>${scripts.length}</span> passed \u00b7 <span class="fail">${fail} failed</span></div>`:`<div class="compat"><span class="pass">${pass}/${scripts.length}</span> passed</div>`;
+  return `<div class="card ${cls}"><div class="rank">#${i+1}</div><div class="vm-name">${m.label}</div><div class="lang">${langLine(m)}</div>${compatHtml}<div class="geo-mean">${fmtNs(Math.round(geo))}<span class="ratio">${ratio}x</span></div></div>`;
 }).join('');
 
 // Bars — labels inside, full width
@@ -374,7 +381,7 @@ function renderTable() {
   document.getElementById('table-body').innerHTML=scripts.map(script=>{
     const times={}; let min=Infinity;
     vms.forEach(vm=>{const t=data[script]?.[vm]||0;times[vm]=t;if(t>0&&t<min)min=t;});
-    return'<tr><td>'+script+'</td>'+vms.map(vm=>{const t=times[vm];if(!t)return'<td class="missing">\u2014</td>';return`<td${t===min&&vms.filter(v=>times[v]>0).length>1?' class="fastest"':''}>${fmtNs(t)}</td>`;}).join('')+'</tr>';
+    return'<tr><td>'+script+'</td>'+vms.map(vm=>{const t=times[vm];if(t===undefined||t===0)return'<td class="missing">\u2014</td>';if(t<0)return'<td class="failed">FAIL</td>';return`<td${t===min&&vms.filter(v=>times[v]>0).length>1?' class="fastest"':''}>${fmtNs(t)}</td>`;}).join('')+'</tr>';
   }).join('');
 }
 renderTable();

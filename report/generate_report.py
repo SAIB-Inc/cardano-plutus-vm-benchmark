@@ -124,6 +124,8 @@ def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> Non
                 if t == fastest and len([v for v in script_times.values() if v > 0]) > 1:
                     cell = f"**{cell}**"
                 row += f" {cell} |"
+            elif t < 0:
+                row += " FAIL |"
             else:
                 row += " - |"
         lines.append(row)
