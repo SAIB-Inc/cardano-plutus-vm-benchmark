@@ -10,7 +10,6 @@ on:
         required: false
         default: "all"
         type: string
-
 permissions:
   contents: write
 
