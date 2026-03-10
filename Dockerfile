@@ -78,9 +78,9 @@ RUN apt-get update \
     && apt-get install -y curl xz-utils git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL "https://ziglang.org/download/${ZIG_VERSION}/zig-linux-x86_64-${ZIG_VERSION}.tar.xz" \
+RUN curl -fsSL "https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz" \
     | tar -xJ -C /opt \
-    && ln -s /opt/zig-linux-x86_64-${ZIG_VERSION}/zig /usr/local/bin/zig
+    && ln -s /opt/zig-x86_64-linux-${ZIG_VERSION}/zig /usr/local/bin/zig
 
 RUN git clone "$PLUTUZ_REPO" /src \
     && cd /src && git checkout "$PLUTUZ_SHA"
