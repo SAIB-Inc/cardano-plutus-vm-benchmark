@@ -312,7 +312,7 @@ const VM_META = {
   'opshin':         { label: 'opshin',         lang: 'Python',      runtime: 'CPython',   color: '#4b8bbe', compiler: 'CPython 3.14' },
   'haskell':        { label: 'plutus-core',    lang: 'Haskell',     runtime: 'GHC',       color: '#5e5086', compiler: 'GHC 9.6.4' },
 };
-const VM_ORDER = ['plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin','haskell'];
+const VM_ORDER = ['haskell','plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin'];
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n'), header = lines[0].split(',');
