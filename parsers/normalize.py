@@ -15,6 +15,8 @@ VM_FILES = [
     "plutuz.csv",
     "opshin.csv",
     "haskell.csv",
+    "scalus-cek.csv",
+    "scalus-jit.csv",
 ]
 
 HEADER = ["vm", "script", "mean_ns", "median_ns", "min_ns", "max_ns", "stddev_ns", "iterations"]

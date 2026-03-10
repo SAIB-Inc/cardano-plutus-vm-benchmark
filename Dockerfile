@@ -118,6 +118,31 @@ WORKDIR /src
 RUN pip install --no-cache-dir .
 
 # =============================================================================
+# Build stage: Scalus (Scala / JVM / JMH)
+# =============================================================================
+FROM eclipse-temurin:21-jdk-jammy AS build-scalus
+
+ARG SCALUS_REPO=https://github.com/scalus3/scalus.git
+ARG SCALUS_SHA=8e88d1791f7ad7ff491391cc465bf54c8e4c7319
+
+RUN apt-get update \
+    && apt-get install -y git curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install sbt
+RUN curl -fsSL "https://github.com/sbt/sbt/releases/download/v1.10.11/sbt-1.10.11.tgz" \
+    | tar -xz -C /opt \
+    && ln -s /opt/sbt/bin/sbt /usr/local/bin/sbt
+
+RUN git clone "$SCALUS_REPO" /src \
+    && cd /src && git checkout "$SCALUS_SHA"
+
+WORKDIR /src
+
+# Pre-compile JMH benchmarks (this downloads deps + compiles everything)
+RUN sbt bench/Jmh/compile
+
+# =============================================================================
 # Build stage: plutus-core / Haskell (GHC / Criterion)
 # =============================================================================
 FROM debian:bookworm AS build-haskell
@@ -235,8 +260,16 @@ COPY scripts/opshin_bench.py /bench/opshin/bench_plutus_use_cases.py
 # Haskell: compiled Criterion benchmark binary (data loaded from /bench/data/ at runtime)
 COPY --from=build-haskell /src/dist-newstyle/build/x86_64-linux/ghc-9.6.4/plutus-benchmark-0.1.0.0/b/validation/build/validation/validation /bench/haskell/bin/validation
 
-# Install GHC runtime deps for Haskell benchmark binary
+# Scalus: full sbt project + compiled JMH benchmarks (JMH needs sbt at runtime)
+COPY --from=build-scalus /src /bench/scalus
+COPY --from=build-scalus /opt/sbt /opt/sbt
+COPY --from=build-scalus /root/.sbt /root/.sbt
+COPY --from=build-scalus /root/.cache /root/.cache
+RUN ln -sf /opt/sbt/bin/sbt /usr/local/bin/sbt
+
+# Install JDK for Scalus + GHC runtime deps for Haskell
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-21-jre-headless \
     libgmp10 libsodium-dev libsecp256k1-dev libstdc++6 \
     && rm -rf /var/lib/apt/lists/* \
     && ldconfig

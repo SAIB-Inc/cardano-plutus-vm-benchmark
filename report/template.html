@@ -315,8 +315,10 @@ const VM_META = {
   'blaze-v8':       { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Node (V8)', color: '#5b9bd5', compiler: 'Node.js 22' },
   'opshin':         { label: 'opshin',         lang: 'Python',      runtime: 'CPython',   color: '#4b8bbe', compiler: 'CPython 3.14' },
   'haskell':        { label: 'plutus-core',    lang: 'Haskell',     runtime: 'GHC',       color: '#5e5086', compiler: 'GHC 9.6.4' },
+  'scalus-cek':     { label: 'Scalus CEK',     lang: 'Scala',       runtime: 'JVM',       color: '#dc322f', compiler: 'JDK 21 / Scala 3' },
+  'scalus-jit':     { label: 'Scalus JIT',     lang: 'Scala',       runtime: 'JVM JIT',   color: '#ff6b6b', compiler: 'JDK 21 / Scala 3' },
 };
-const VM_ORDER = ['haskell','plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin'];
+const VM_ORDER = ['haskell','scalus-jit','scalus-cek','plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin'];
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n'), header = lines[0].split(',');
