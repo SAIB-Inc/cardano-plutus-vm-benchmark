@@ -1,5 +1,5 @@
 # cardano-plutus-vm-benchmark
-# Multi-stage Dockerfile: build all 6 VMs, single ubuntu:24.04 runtime
+# Multi-stage Dockerfile: build all VMs, single ubuntu:24.04 runtime
 #
 # Usage:
 #   docker build -t plutus-bench .
@@ -113,6 +113,49 @@ WORKDIR /src
 RUN pip install --no-cache-dir .
 
 # =============================================================================
+# Build stage: plutus-core / Haskell (GHC / Criterion)
+# =============================================================================
+FROM debian:bookworm AS build-haskell
+
+ARG HASKELL_REPO=https://github.com/IntersectMBO/plutus.git
+ARG HASKELL_SHA=318c729391d2af395970867964e5db7f58d8ff2a
+ARG GHC_VERSION=9.6.4
+
+ENV BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
+    BOOTSTRAP_HASKELL_GHC_VERSION=${GHC_VERSION} \
+    BOOTSTRAP_HASKELL_INSTALL_NO_STACK=1
+
+RUN apt-get update \
+    && apt-get install -y curl git pkg-config build-essential \
+       libsodium-dev libsecp256k1-dev zlib1g-dev libgmp-dev libnuma-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install libblst (BLS12-381 crypto required by cardano-crypto-class)
+RUN git clone --depth 1 --branch v0.3.14 https://github.com/supranational/blst.git /tmp/blst \
+    && cd /tmp/blst && ./build.sh \
+    && cp libblst.a /usr/local/lib/ \
+    && cp bindings/blst.h bindings/blst_aux.h /usr/local/include/ \
+    && mkdir -p /usr/local/lib/pkgconfig \
+    && printf 'prefix=/usr/local\nlibdir=${prefix}/lib\nincludedir=${prefix}/include\nName: libblst\nVersion: 0.3.14\nDescription: BLS12-381 library\nLibs: -L${libdir} -lblst\nCflags: -I${includedir}\n' > /usr/local/lib/pkgconfig/libblst.pc \
+    && rm -rf /tmp/blst
+
+# Install GHC + cabal via ghcup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+ENV PATH="/root/.ghcup/bin:${PATH}"
+
+RUN git clone "$HASKELL_REPO" /src \
+    && cd /src && git checkout "$HASKELL_SHA"
+
+WORKDIR /src
+
+# Disable inline-r (requires libR) and cert (requires extra deps) — not needed for benchmarks
+RUN sed -i 's/flags: +with-inline-r/flags: -with-inline-r/' cabal.project \
+    && sed -i 's/flags: +with-cert/flags: -with-cert/' cabal.project
+
+RUN cabal update
+RUN cabal build plutus-benchmark:bench:validation -j
+
+# =============================================================================
 # Runtime stage: single ubuntu:24.04 image for all benchmarks
 # =============================================================================
 FROM ubuntu:24.04 AS runner
@@ -183,6 +226,15 @@ RUN ldconfig
 COPY --from=build-opshin /src /bench/opshin
 # Copy our benchmark script into opshin dir (not part of upstream repo)
 COPY scripts/opshin_bench.py /bench/opshin/bench_plutus_use_cases.py
+
+# Haskell: compiled Criterion benchmark binary (data loaded from /bench/data/ at runtime)
+COPY --from=build-haskell /src/dist-newstyle/build/x86_64-linux/ghc-9.6.4/plutus-benchmark-0.1.0.0/b/validation/build/validation/validation /bench/haskell/bin/validation
+
+# Install GHC runtime deps for Haskell benchmark binary
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgmp10 libsodium-dev libsecp256k1-dev libstdc++6 \
+    && rm -rf /var/lib/apt/lists/* \
+    && ldconfig
 
 # --- Copy benchmark data and scripts ---
 COPY data/ /bench/data/

@@ -7,7 +7,7 @@ import os
 import sys
 from collections import defaultdict
 
-VM_ORDER = ["uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin"]
+VM_ORDER = ["uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin", "haskell"]
 VM_LABELS = {
     "uplc-turbo": "uplc-turbo (Rust)",
     "plutuz": "Plutuz (Zig)",
@@ -17,6 +17,7 @@ VM_LABELS = {
     "blaze-jsc": "blaze-plutus (TypeScript / Bun JSC)",
     "blaze-v8": "blaze-plutus (TypeScript / Node V8)",
     "opshin": "opshin (Python / CPython)",
+    "haskell": "plutus-core (Haskell / GHC)",
 }
 
 

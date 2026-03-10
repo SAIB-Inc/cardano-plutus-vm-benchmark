@@ -180,6 +180,32 @@
   td.fastest { color: var(--green); font-weight: 600; }
   td.missing { color: var(--text-muted); opacity: 0.4; }
 
+  /* Toolchain */
+  .toolchain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+  .tc-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+  }
+  .tc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tc-vm { color: var(--text); font-weight: 500; }
+  .tc-ver { color: var(--text-muted); }
+
   /* Filters */
   .filter-bar { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
   .filter-btn {
@@ -231,7 +257,7 @@
   </div>
 
   <div class="note">
-    <strong>Method:</strong> flat-decode + CEK evaluate on 78 Plutus scripts. Each VM uses its native benchmark framework. Sequential execution, single Docker container.
+    <strong>Method:</strong> flat-decode + CEK evaluate on 89 Plutus scripts. Each VM uses its native benchmark framework. Sequential execution, single Docker container.
   </div>
 
   <div class="section">
@@ -242,6 +268,11 @@
   <div class="section">
     <div class="section-title">Geometric Mean</div>
     <div class="bar-chart" id="bar-chart"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Toolchain</div>
+    <div class="toolchain" id="toolchain"></div>
   </div>
 
   <div class="section">
@@ -271,16 +302,17 @@
 const CSV_DATA = `{{CSV_DATA}}`;
 
 const VM_META = {
-  'uplc-turbo':     { label: 'uplc-turbo',    lang: 'Rust',        runtime: 'Native',    color: '#dea584' },
-  'plutuz':         { label: 'Plutuz',         lang: 'Zig',         runtime: 'Native',    color: '#f69d50' },
-  'chrysalis':      { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET JIT',  color: '#9b6dff' },
-  'chrysalis-aot':  { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET AOT',  color: '#c9a0ff' },
-  'plutigo':        { label: 'Plutigo',        lang: 'Go',          runtime: 'Native',    color: '#00d4aa' },
-  'blaze-jsc':      { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Bun (JSC)', color: '#f7df1e' },
-  'blaze-v8':       { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Node (V8)', color: '#5b9bd5' },
-  'opshin':         { label: 'opshin',         lang: 'Python',      runtime: 'CPython',   color: '#4b8bbe' },
+  'uplc-turbo':     { label: 'uplc-turbo',    lang: 'Rust',        runtime: 'Native',    color: '#dea584', compiler: 'rustc 1.94' },
+  'plutuz':         { label: 'Plutuz',         lang: 'Zig',         runtime: 'Native',    color: '#f69d50', compiler: 'Zig 0.15.2' },
+  'chrysalis':      { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET JIT',  color: '#9b6dff', compiler: '.NET SDK 10.0' },
+  'chrysalis-aot':  { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET AOT',  color: '#c9a0ff', compiler: '.NET SDK 10.0' },
+  'plutigo':        { label: 'Plutigo',        lang: 'Go',          runtime: 'Native',    color: '#00d4aa', compiler: 'Go 1.26' },
+  'blaze-jsc':      { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Bun (JSC)', color: '#f7df1e', compiler: 'Bun 1.3.10' },
+  'blaze-v8':       { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Node (V8)', color: '#5b9bd5', compiler: 'Node.js 22' },
+  'opshin':         { label: 'opshin',         lang: 'Python',      runtime: 'CPython',   color: '#4b8bbe', compiler: 'CPython 3.14' },
+  'haskell':        { label: 'plutus-core',    lang: 'Haskell',     runtime: 'GHC',       color: '#5e5086', compiler: 'GHC 9.6.4' },
 };
-const VM_ORDER = ['plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin'];
+const VM_ORDER = ['plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin','haskell'];
 
 function parseCSV(csv) {
   const lines = csv.trim().split('\n'), header = lines[0].split(',');
@@ -318,6 +350,12 @@ document.getElementById('bar-chart').innerHTML = sorted.map(vm => {
   const m=VM_META[vm], geo=geoMeans[vm], ratio=(geo/fastest).toFixed(2);
   const pct=5+95*(Math.log(geo)-logMin)/(logMax-logMin||1);
   return `<div class="bar-row"><div class="bar-fill" style="width:${pct}%;background:${m.color};opacity:0.35"></div><div class="bar-info"><div class="bar-info-left"><span class="bar-vm">${m.label}</span><span class="bar-lang">${langLine(m)}</span></div><div class="bar-info-right"><span class="bar-time">${fmtNs(Math.round(geo))}</span><span class="bar-ratio">${ratio}x</span></div></div></div>`;
+}).join('');
+
+// Toolchain tags
+document.getElementById('toolchain').innerHTML = sorted.map(vm => {
+  const m=VM_META[vm];
+  return `<div class="tc-tag"><span class="tc-dot" style="background:${m.color}"></span><span class="tc-vm">${m.label}</span><span class="tc-ver">${m.compiler}</span></div>`;
 }).join('');
 
 // Filters

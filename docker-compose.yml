@@ -16,6 +16,11 @@ services:
         - PLUTUZ_SHA=${PLUTUZ_SHA:-33b812dbcf88f6851286e54cb93a4a443353f94c}
         - OPSHIN_REPO=${OPSHIN_REPO:-https://github.com/OpShin/uplc.git}
         - OPSHIN_SHA=${OPSHIN_SHA:-8216a056fa8eacace597b9a335174cc054c12bbe}
+        - HASKELL_REPO=${HASKELL_REPO:-https://github.com/IntersectMBO/plutus.git}
+        - HASKELL_SHA=${HASKELL_SHA:-318c729391d2af395970867964e5db7f58d8ff2a}
+    cap_add:
+      - SYS_NICE
+    user: "${UID:-1000}:${GID:-1000}"
     env_file:
       - versions.env
     volumes:

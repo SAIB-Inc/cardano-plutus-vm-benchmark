@@ -14,6 +14,7 @@ VM_FILES = [
     "blaze-v8.csv",
     "plutuz.csv",
     "opshin.csv",
+    "haskell.csv",
 ]
 
 HEADER = ["vm", "script", "mean_ns", "median_ns", "min_ns", "max_ns", "stddev_ns", "iterations"]
