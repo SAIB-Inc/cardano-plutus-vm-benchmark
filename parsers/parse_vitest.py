@@ -6,21 +6,31 @@ import os
 import re
 import sys
 
-VM_NAME = "blaze-plutus"
+VM_NAME = "blaze-jsc"  # default; overridden by CLI arg
 HEADER = "vm,script,mean_ns,median_ns,min_ns,max_ns,stddev_ns,iterations"
 
-# Vitest text output line pattern (fallback)
-# name       x ops/sec    +-x% (N runs)    avg: x ms
-TEXT_RE = re.compile(
-    r"^\s*(\S+)\s+"                     # name
-    r"([\d,.]+)\s+ops/sec\s+"           # ops/sec
-    r"[±+-]?\s*([\d.]+)%\s+"            # rme%
-    r"\((\d+)\s+runs?\)\s+"             # runs
-    r"avg:\s*([\d.]+)\s*(ns|us|ms|s)",  # avg time + unit
+# Strip ANSI escape codes
+ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
+
+# Vitest bench table row (v4.x default reporter):
+#    · auction_1-1   1,849.66  0.4437  1.0553  0.5406  0.5325  0.9572  1.0099  1.0553  ±1.38%  926
+# Columns: name, hz, min, max, mean, p75, p99, p995, p999, rme, samples
+# Time values are in milliseconds.
+TABLE_RE = re.compile(
+    r"^\s*[·✓]\s+"                       # marker (· or ✓)
+    r"(\S+)\s+"                          # name
+    r"[\d,.]+\s+"                        # hz (ignored)
+    r"([\d.]+)\s+"                       # min (ms)
+    r"([\d.]+)\s+"                       # max (ms)
+    r"([\d.]+)\s+"                       # mean (ms)
+    r"[\d.]+\s+"                         # p75 (ignored)
+    r"[\d.]+\s+"                         # p99 (ignored)
+    r"[\d.]+\s+"                         # p995 (ignored)
+    r"[\d.]+\s+"                         # p999 (ignored)
+    r"[±+-]?([\d.]+)%\s+"               # rme%
+    r"(\d+)",                            # samples
     re.MULTILINE,
 )
-
-UNIT_TO_NS = {"ns": 1, "us": 1_000, "ms": 1_000_000, "s": 1_000_000_000}
 
 
 def parse_json(json_path: str) -> None:
@@ -40,10 +50,8 @@ def parse_json(json_path: str) -> None:
             name = result.get("ancestorTitles", [""])[-1] if result.get(
                 "ancestorTitles"
             ) else result.get("fullName", "unknown")
-            # Use the test title as name (last part)
             name = result.get("title", name)
 
-            # Vitest bench reports mean in seconds
             mean_s = bench.get("mean", 0)
             min_s = bench.get("min", 0)
             max_s = bench.get("max", 0)
@@ -53,7 +61,6 @@ def parse_json(json_path: str) -> None:
             min_ns = int(min_s * 1e9)
             max_ns = int(max_s * 1e9)
 
-            # Compute stddev from RME (relative margin of error) if available
             rme = bench.get("rme", 0)
             stddev_ns = int(mean_ns * rme / 100) if rme else 0
 
@@ -67,37 +74,44 @@ def parse_json(json_path: str) -> None:
 
 
 def parse_text(log_path: str) -> None:
-    """Parse Vitest bench default text output (fallback)."""
+    """Parse Vitest bench default text output (table format)."""
     print(HEADER)
 
     with open(log_path) as f:
         content = f.read()
 
-    for m in TEXT_RE.finditer(content):
-        name = m.group(1)
-        iterations = int(m.group(4))
-        avg_val = float(m.group(5))
-        unit = m.group(6)
-        rme_pct = float(m.group(3))
+    # Strip ANSI escape codes
+    content = ANSI_RE.sub("", content)
 
-        mean_ns = int(avg_val * UNIT_TO_NS[unit])
+    for m in TABLE_RE.finditer(content):
+        name = m.group(1)
+        min_ms = float(m.group(2))
+        max_ms = float(m.group(3))
+        mean_ms = float(m.group(4))
+        rme_pct = float(m.group(5))
+        iterations = int(m.group(6))
+
+        mean_ns = int(mean_ms * 1_000_000)
+        min_ns = int(min_ms * 1_000_000)
+        max_ns = int(max_ms * 1_000_000)
+        median_ns = mean_ns  # table doesn't show median separately
         stddev_ns = int(mean_ns * rme_pct / 100)
 
         print(
             f"{VM_NAME},{name},"
-            f"{mean_ns},{mean_ns},0,0,"
+            f"{mean_ns},{median_ns},{min_ns},{max_ns},"
             f"{stddev_ns},{iterations}"
         )
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <run-dir>", file=sys.stderr)
+    if len(sys.argv) < 3:
+        print(f"Usage: {sys.argv[0]} <vm-name> <log-file>", file=sys.stderr)
         sys.exit(1)
 
-    run_dir = sys.argv[1]
-    json_path = os.path.join(run_dir, "blaze-plutus-raw.json")
-    log_path = os.path.join(run_dir, "blaze-plutus-raw.log")
+    VM_NAME = sys.argv[1]
+    log_path = sys.argv[2]
+    json_path = log_path.replace("-raw.log", "-raw.json")
 
     if os.path.isfile(json_path) and os.path.getsize(json_path) > 0:
         parse_json(json_path)
@@ -105,4 +119,4 @@ if __name__ == "__main__":
         parse_text(log_path)
     else:
         print(HEADER)
-        print("Warning: no blaze-plutus output found", file=sys.stderr)
+        print(f"Warning: no {VM_NAME} output found", file=sys.stderr)

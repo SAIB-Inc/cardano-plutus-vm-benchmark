@@ -1,0 +1,707 @@
+{
+  "timestamp": 1773146195,
+  "benchmarks": [
+    {
+      "name": "auction_1-1",
+      "iterations": 10000,
+      "mean_ns": 197248,
+      "median_ns": 192030,
+      "min_ns": 186448,
+      "max_ns": 432111,
+      "stddev_ns": 12375
+    },
+    {
+      "name": "auction_1-2",
+      "iterations": 8118,
+      "mean_ns": 615987,
+      "median_ns": 610919,
+      "min_ns": 580405,
+      "max_ns": 2230210,
+      "stddev_ns": 28241
+    },
+    {
+      "name": "auction_1-3",
+      "iterations": 8308,
+      "mean_ns": 601876,
+      "median_ns": 597741,
+      "min_ns": 574531,
+      "max_ns": 2154236,
+      "stddev_ns": 26616
+    },
+    {
+      "name": "auction_1-4",
+      "iterations": 10000,
+      "mean_ns": 230916,
+      "median_ns": 225985,
+      "min_ns": 220251,
+      "max_ns": 353736,
+      "stddev_ns": 11405
+    },
+    {
+      "name": "auction_2-1",
+      "iterations": 10000,
+      "mean_ns": 196616,
+      "median_ns": 192289,
+      "min_ns": 186892,
+      "max_ns": 425987,
+      "stddev_ns": 11123
+    },
+    {
+      "name": "auction_2-2",
+      "iterations": 8102,
+      "mean_ns": 617184,
+      "median_ns": 611958,
+      "min_ns": 583179,
+      "max_ns": 1434131,
+      "stddev_ns": 22510
+    },
+    {
+      "name": "auction_2-3",
+      "iterations": 6830,
+      "mean_ns": 732136,
+      "median_ns": 730287,
+      "min_ns": 697201,
+      "max_ns": 1072129,
+      "stddev_ns": 23465
+    },
+    {
+      "name": "auction_2-4",
+      "iterations": 8297,
+      "mean_ns": 602697,
+      "median_ns": 600128,
+      "min_ns": 575365,
+      "max_ns": 825777,
+      "stddev_ns": 15773
+    },
+    {
+      "name": "auction_2-5",
+      "iterations": 10000,
+      "mean_ns": 229617,
+      "median_ns": 224985,
+      "min_ns": 218893,
+      "max_ns": 2013913,
+      "stddev_ns": 20942
+    },
+    {
+      "name": "crowdfunding-success-1",
+      "iterations": 10000,
+      "mean_ns": 226989,
+      "median_ns": 221822,
+      "min_ns": 216521,
+      "max_ns": 356861,
+      "stddev_ns": 10876
+    },
+    {
+      "name": "crowdfunding-success-2",
+      "iterations": 10000,
+      "mean_ns": 232301,
+      "median_ns": 225192,
+      "min_ns": 216340,
+      "max_ns": 574137,
+      "stddev_ns": 17412
+    },
+    {
+      "name": "crowdfunding-success-3",
+      "iterations": 10000,
+      "mean_ns": 227736,
+      "median_ns": 222494,
+      "min_ns": 217244,
+      "max_ns": 342049,
+      "stddev_ns": 11254
+    },
+    {
+      "name": "currency-1",
+      "iterations": 10000,
+      "mean_ns": 252798,
+      "median_ns": 246990,
+      "min_ns": 239692,
+      "max_ns": 541264,
+      "stddev_ns": 13410
+    },
+    {
+      "name": "escrow-redeem_1-1",
+      "iterations": 10000,
+      "mean_ns": 345907,
+      "median_ns": 341677,
+      "min_ns": 328454,
+      "max_ns": 512074,
+      "stddev_ns": 13745
+    },
+    {
+      "name": "escrow-redeem_1-2",
+      "iterations": 10000,
+      "mean_ns": 344666,
+      "median_ns": 340401,
+      "min_ns": 328178,
+      "max_ns": 480033,
+      "stddev_ns": 13249
+    },
+    {
+      "name": "escrow-redeem_2-1",
+      "iterations": 10000,
+      "mean_ns": 378014,
+      "median_ns": 373996,
+      "min_ns": 361590,
+      "max_ns": 1904590,
+      "stddev_ns": 20132
+    },
+    {
+      "name": "escrow-redeem_2-2",
+      "iterations": 10000,
+      "mean_ns": 383170,
+      "median_ns": 377618,
+      "min_ns": 360347,
+      "max_ns": 1480792,
+      "stddev_ns": 23911
+    },
+    {
+      "name": "escrow-redeem_2-3",
+      "iterations": 10000,
+      "mean_ns": 379809,
+      "median_ns": 375842,
+      "min_ns": 361569,
+      "max_ns": 553157,
+      "stddev_ns": 15806
+    },
+    {
+      "name": "escrow-refund-1",
+      "iterations": 10000,
+      "mean_ns": 223695,
+      "median_ns": 218983,
+      "min_ns": 212704,
+      "max_ns": 380270,
+      "stddev_ns": 11330
+    },
+    {
+      "name": "future-increase-margin-1",
+      "iterations": 10000,
+      "mean_ns": 252707,
+      "median_ns": 246197,
+      "min_ns": 239833,
+      "max_ns": 582745,
+      "stddev_ns": 14330
+    },
+    {
+      "name": "future-increase-margin-2",
+      "iterations": 10000,
+      "mean_ns": 461174,
+      "median_ns": 455560,
+      "min_ns": 435983,
+      "max_ns": 746844,
+      "stddev_ns": 20878
+    },
+    {
+      "name": "future-increase-margin-3",
+      "iterations": 10000,
+      "mean_ns": 467936,
+      "median_ns": 462051,
+      "min_ns": 436963,
+      "max_ns": 974222,
+      "stddev_ns": 22552
+    },
+    {
+      "name": "future-increase-margin-4",
+      "iterations": 8544,
+      "mean_ns": 585267,
+      "median_ns": 586134,
+      "min_ns": 540781,
+      "max_ns": 1297208,
+      "stddev_ns": 30900
+    },
+    {
+      "name": "future-increase-margin-5",
+      "iterations": 5968,
+      "mean_ns": 837915,
+      "median_ns": 837376,
+      "min_ns": 791534,
+      "max_ns": 1375046,
+      "stddev_ns": 28771
+    },
+    {
+      "name": "future-pay-out-1",
+      "iterations": 10000,
+      "mean_ns": 252153,
+      "median_ns": 246369,
+      "min_ns": 240036,
+      "max_ns": 930331,
+      "stddev_ns": 14453
+    },
+    {
+      "name": "future-pay-out-2",
+      "iterations": 10000,
+      "mean_ns": 455646,
+      "median_ns": 452515,
+      "min_ns": 434847,
+      "max_ns": 1152710,
+      "stddev_ns": 17066
+    },
+    {
+      "name": "future-pay-out-3",
+      "iterations": 10000,
+      "mean_ns": 455925,
+      "median_ns": 452688,
+      "min_ns": 435345,
+      "max_ns": 949013,
+      "stddev_ns": 16239
+    },
+    {
+      "name": "future-pay-out-4",
+      "iterations": 5983,
+      "mean_ns": 835780,
+      "median_ns": 831720,
+      "min_ns": 789913,
+      "max_ns": 2114892,
+      "stddev_ns": 34801
+    },
+    {
+      "name": "future-settle-early-1",
+      "iterations": 10000,
+      "mean_ns": 255313,
+      "median_ns": 248220,
+      "min_ns": 240317,
+      "max_ns": 354613,
+      "stddev_ns": 15710
+    },
+    {
+      "name": "future-settle-early-2",
+      "iterations": 10000,
+      "mean_ns": 461980,
+      "median_ns": 455626,
+      "min_ns": 436104,
+      "max_ns": 1809046,
+      "stddev_ns": 25394
+    },
+    {
+      "name": "future-settle-early-3",
+      "iterations": 10000,
+      "mean_ns": 456236,
+      "median_ns": 453049,
+      "min_ns": 434815,
+      "max_ns": 1254797,
+      "stddev_ns": 17692
+    },
+    {
+      "name": "future-settle-early-4",
+      "iterations": 7310,
+      "mean_ns": 684042,
+      "median_ns": 678564,
+      "min_ns": 645011,
+      "max_ns": 1229995,
+      "stddev_ns": 28877
+    },
+    {
+      "name": "game-sm-success_1-1",
+      "iterations": 10000,
+      "mean_ns": 452562,
+      "median_ns": 445920,
+      "min_ns": 428780,
+      "max_ns": 2008390,
+      "stddev_ns": 24825
+    },
+    {
+      "name": "game-sm-success_1-2",
+      "iterations": 10000,
+      "mean_ns": 197129,
+      "median_ns": 192642,
+      "min_ns": 188333,
+      "max_ns": 749279,
+      "stddev_ns": 11935
+    },
+    {
+      "name": "game-sm-success_1-3",
+      "iterations": 7982,
+      "mean_ns": 626418,
+      "median_ns": 625261,
+      "min_ns": 578821,
+      "max_ns": 1390150,
+      "stddev_ns": 33392
+    },
+    {
+      "name": "game-sm-success_1-4",
+      "iterations": 10000,
+      "mean_ns": 225251,
+      "median_ns": 217981,
+      "min_ns": 209670,
+      "max_ns": 961663,
+      "stddev_ns": 18459
+    },
+    {
+      "name": "game-sm-success_2-1",
+      "iterations": 10000,
+      "mean_ns": 451261,
+      "median_ns": 444786,
+      "min_ns": 428030,
+      "max_ns": 2124708,
+      "stddev_ns": 24383
+    },
+    {
+      "name": "game-sm-success_2-2",
+      "iterations": 10000,
+      "mean_ns": 197487,
+      "median_ns": 192490,
+      "min_ns": 188164,
+      "max_ns": 484545,
+      "stddev_ns": 11964
+    },
+    {
+      "name": "game-sm-success_2-3",
+      "iterations": 7103,
+      "mean_ns": 703953,
+      "median_ns": 638532,
+      "min_ns": 576459,
+      "max_ns": 2874974,
+      "stddev_ns": 138166
+    },
+    {
+      "name": "game-sm-success_2-4",
+      "iterations": 10000,
+      "mean_ns": 290277,
+      "median_ns": 305072,
+      "min_ns": 214705,
+      "max_ns": 3673639,
+      "stddev_ns": 74778
+    },
+    {
+      "name": "game-sm-success_2-5",
+      "iterations": 6588,
+      "mean_ns": 759016,
+      "median_ns": 679666,
+      "min_ns": 583811,
+      "max_ns": 3548169,
+      "stddev_ns": 162687
+    },
+    {
+      "name": "game-sm-success_2-6",
+      "iterations": 10000,
+      "mean_ns": 239053,
+      "median_ns": 221331,
+      "min_ns": 209700,
+      "max_ns": 5810162,
+      "stddev_ns": 87956
+    },
+    {
+      "name": "multisig-sm-1",
+      "iterations": 9242,
+      "mean_ns": 541035,
+      "median_ns": 502376,
+      "min_ns": 461784,
+      "max_ns": 3201342,
+      "stddev_ns": 105382
+    },
+    {
+      "name": "multisig-sm-10",
+      "iterations": 8200,
+      "mean_ns": 609807,
+      "median_ns": 598906,
+      "min_ns": 558363,
+      "max_ns": 2351771,
+      "stddev_ns": 65140
+    },
+    {
+      "name": "multisig-sm-2",
+      "iterations": 10000,
+      "mean_ns": 486717,
+      "median_ns": 478296,
+      "min_ns": 453145,
+      "max_ns": 951766,
+      "stddev_ns": 24772
+    },
+    {
+      "name": "multisig-sm-3",
+      "iterations": 9293,
+      "mean_ns": 538067,
+      "median_ns": 501076,
+      "min_ns": 455724,
+      "max_ns": 1478892,
+      "stddev_ns": 97863
+    },
+    {
+      "name": "multisig-sm-4",
+      "iterations": 8657,
+      "mean_ns": 577589,
+      "median_ns": 523895,
+      "min_ns": 463224,
+      "max_ns": 1380950,
+      "stddev_ns": 109868
+    },
+    {
+      "name": "multisig-sm-5",
+      "iterations": 8345,
+      "mean_ns": 599219,
+      "median_ns": 597890,
+      "min_ns": 558148,
+      "max_ns": 962133,
+      "stddev_ns": 28987
+    },
+    {
+      "name": "multisig-sm-6",
+      "iterations": 10000,
+      "mean_ns": 485647,
+      "median_ns": 478406,
+      "min_ns": 457175,
+      "max_ns": 861125,
+      "stddev_ns": 22233
+    },
+    {
+      "name": "multisig-sm-7",
+      "iterations": 8974,
+      "mean_ns": 557193,
+      "median_ns": 500595,
+      "min_ns": 455801,
+      "max_ns": 3352175,
+      "stddev_ns": 113757
+    },
+    {
+      "name": "multisig-sm-8",
+      "iterations": 9117,
+      "mean_ns": 548468,
+      "median_ns": 507628,
+      "min_ns": 458403,
+      "max_ns": 2336011,
+      "stddev_ns": 101235
+    },
+    {
+      "name": "multisig-sm-9",
+      "iterations": 9465,
+      "mean_ns": 528312,
+      "median_ns": 502173,
+      "min_ns": 457499,
+      "max_ns": 1748419,
+      "stddev_ns": 85086
+    },
+    {
+      "name": "ping-pong-1",
+      "iterations": 10000,
+      "mean_ns": 420367,
+      "median_ns": 405506,
+      "min_ns": 387787,
+      "max_ns": 911579,
+      "stddev_ns": 44317
+    },
+    {
+      "name": "ping-pong-2",
+      "iterations": 10000,
+      "mean_ns": 413918,
+      "median_ns": 404807,
+      "min_ns": 383132,
+      "max_ns": 813823,
+      "stddev_ns": 24342
+    },
+    {
+      "name": "ping-pong_2-1",
+      "iterations": 10000,
+      "mean_ns": 355706,
+      "median_ns": 325398,
+      "min_ns": 301777,
+      "max_ns": 1629716,
+      "stddev_ns": 65322
+    },
+    {
+      "name": "prism-1",
+      "iterations": 10000,
+      "mean_ns": 177006,
+      "median_ns": 172660,
+      "min_ns": 167408,
+      "max_ns": 1320195,
+      "stddev_ns": 15474
+    },
+    {
+      "name": "prism-2",
+      "iterations": 9784,
+      "mean_ns": 511044,
+      "median_ns": 481628,
+      "min_ns": 447120,
+      "max_ns": 1306641,
+      "stddev_ns": 83290
+    },
+    {
+      "name": "prism-3",
+      "iterations": 10000,
+      "mean_ns": 358936,
+      "median_ns": 342215,
+      "min_ns": 325440,
+      "max_ns": 967402,
+      "stddev_ns": 47445
+    },
+    {
+      "name": "pubkey-1",
+      "iterations": 10000,
+      "mean_ns": 180591,
+      "median_ns": 160344,
+      "min_ns": 150915,
+      "max_ns": 7312223,
+      "stddev_ns": 104578
+    },
+    {
+      "name": "stablecoin_1-1",
+      "iterations": 4530,
+      "mean_ns": 1103901,
+      "median_ns": 1036614,
+      "min_ns": 973939,
+      "max_ns": 3556965,
+      "stddev_ns": 189251
+    },
+    {
+      "name": "stablecoin_1-2",
+      "iterations": 10000,
+      "mean_ns": 197608,
+      "median_ns": 192694,
+      "min_ns": 186330,
+      "max_ns": 365052,
+      "stddev_ns": 11879
+    },
+    {
+      "name": "stablecoin_1-3",
+      "iterations": 3513,
+      "mean_ns": 1423434,
+      "median_ns": 1260541,
+      "min_ns": 1090308,
+      "max_ns": 5497621,
+      "stddev_ns": 315677
+    },
+    {
+      "name": "stablecoin_1-4",
+      "iterations": 10000,
+      "mean_ns": 253577,
+      "median_ns": 240269,
+      "min_ns": 195436,
+      "max_ns": 2275018,
+      "stddev_ns": 53853
+    },
+    {
+      "name": "stablecoin_1-5",
+      "iterations": 3257,
+      "mean_ns": 1535423,
+      "median_ns": 1433775,
+      "min_ns": 1324349,
+      "max_ns": 3627076,
+      "stddev_ns": 270375
+    },
+    {
+      "name": "stablecoin_1-6",
+      "iterations": 10000,
+      "mean_ns": 248762,
+      "median_ns": 236016,
+      "min_ns": 224900,
+      "max_ns": 718185,
+      "stddev_ns": 36395
+    },
+    {
+      "name": "stablecoin_2-1",
+      "iterations": 4646,
+      "mean_ns": 1076315,
+      "median_ns": 1033181,
+      "min_ns": 972367,
+      "max_ns": 2229796,
+      "stddev_ns": 135784
+    },
+    {
+      "name": "stablecoin_2-2",
+      "iterations": 10000,
+      "mean_ns": 197286,
+      "median_ns": 192711,
+      "min_ns": 187183,
+      "max_ns": 281828,
+      "stddev_ns": 10676
+    },
+    {
+      "name": "stablecoin_2-3",
+      "iterations": 4396,
+      "mean_ns": 1137569,
+      "median_ns": 1134550,
+      "min_ns": 1080820,
+      "max_ns": 2089741,
+      "stddev_ns": 38681
+    },
+    {
+      "name": "stablecoin_2-4",
+      "iterations": 10000,
+      "mean_ns": 204569,
+      "median_ns": 200293,
+      "min_ns": 194430,
+      "max_ns": 282699,
+      "stddev_ns": 10138
+    },
+    {
+      "name": "token-account-1",
+      "iterations": 10000,
+      "mean_ns": 217332,
+      "median_ns": 212520,
+      "min_ns": 207079,
+      "max_ns": 493887,
+      "stddev_ns": 11152
+    },
+    {
+      "name": "token-account-2",
+      "iterations": 10000,
+      "mean_ns": 296835,
+      "median_ns": 290433,
+      "min_ns": 281695,
+      "max_ns": 695475,
+      "stddev_ns": 15727
+    },
+    {
+      "name": "uniswap-1",
+      "iterations": 10000,
+      "mean_ns": 344004,
+      "median_ns": 338435,
+      "min_ns": 327964,
+      "max_ns": 754902,
+      "stddev_ns": 15266
+    },
+    {
+      "name": "uniswap-2",
+      "iterations": 10000,
+      "mean_ns": 245960,
+      "median_ns": 239083,
+      "min_ns": 230249,
+      "max_ns": 1106533,
+      "stddev_ns": 18076
+    },
+    {
+      "name": "uniswap-3",
+      "iterations": 3655,
+      "mean_ns": 1368305,
+      "median_ns": 1359371,
+      "min_ns": 1296990,
+      "max_ns": 3630946,
+      "stddev_ns": 74346
+    },
+    {
+      "name": "uniswap-4",
+      "iterations": 10000,
+      "mean_ns": 294898,
+      "median_ns": 290014,
+      "min_ns": 278958,
+      "max_ns": 648247,
+      "stddev_ns": 15866
+    },
+    {
+      "name": "uniswap-5",
+      "iterations": 5209,
+      "mean_ns": 959901,
+      "median_ns": 958046,
+      "min_ns": 916118,
+      "max_ns": 1689526,
+      "stddev_ns": 22726
+    },
+    {
+      "name": "uniswap-6",
+      "iterations": 10000,
+      "mean_ns": 282016,
+      "median_ns": 277639,
+      "min_ns": 268638,
+      "max_ns": 815060,
+      "stddev_ns": 12881
+    },
+    {
+      "name": "vesting-1",
+      "iterations": 10000,
+      "mean_ns": 345298,
+      "median_ns": 339905,
+      "min_ns": 325405,
+      "max_ns": 2059006,
+      "stddev_ns": 24724
+    }
+  ]
+}

@@ -7,10 +7,11 @@ BENCH_DIR="/bench/plutigo"
 
 echo "Plutigo (Go / testing.B)"
 
-# Symlink canonical flat files into expected location for the test binary
-mkdir -p "$BENCH_DIR/tests"
-rm -rf "$BENCH_DIR/tests/bench"
-ln -sf "$DATA_DIR" "$BENCH_DIR/tests/bench"
+# Go test binary uses runtime.Caller(0) which hardcodes the source path /src/tests/bench
+# We must place data at that exact path
+mkdir -p /src/tests
+rm -rf /src/tests/bench
+ln -sf "$DATA_DIR" /src/tests/bench
 
 cd "$BENCH_DIR"
 

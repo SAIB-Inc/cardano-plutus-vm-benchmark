@@ -86,6 +86,8 @@ RUN git clone "$PLUTUZ_REPO" /src \
     && cd /src && git checkout "$PLUTUZ_SHA"
 
 WORKDIR /src
+# Patch build.zig to install the bench binary (upstream only has a run step)
+RUN sed -i '/const run_bench = b.addRunArtifact(bench_exe);/i\    b.installArtifact(bench_exe);' build.zig
 RUN zig build -Doptimize=ReleaseFast
 
 # =============================================================================
@@ -137,9 +139,13 @@ RUN apt-get install -y --no-install-recommends curl unzip \
     && curl -fsSL https://bun.sh/install | bash \
     && ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
-# Install utilities
+# Install Node.js (for V8 benchmark variant)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs
+
+# Install ICU, NativeAOT prerequisites (clang, zlib), and utilities
 RUN apt-get install -y --no-install-recommends \
-    time procps \
+    libicu-dev clang zlib1g-dev time procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy secp256k1 libraries from opshin build
@@ -169,14 +175,20 @@ COPY --from=build-plutuz /src/zig-out /bench/plutuz/zig-out
 COPY --from=build-plutuz /src/bench /bench/plutuz/bench
 COPY --from=build-plutuz /src/build.zig /bench/plutuz/build.zig
 
-# opshin: Python packages already installed in build stage, copy them
+# opshin: Copy Python 3.14 runtime (Ubuntu 24.04 has 3.12, but opshin was built with 3.14)
+COPY --from=build-opshin /usr/local/bin/python3.14 /usr/local/bin/python3.14
 COPY --from=build-opshin /usr/local/lib/python3.14 /usr/local/lib/python3.14
+COPY --from=build-opshin /usr/local/lib/libpython3.14* /usr/local/lib/
+RUN ldconfig
 COPY --from=build-opshin /src /bench/opshin
+# Copy our benchmark script into opshin dir (not part of upstream repo)
+COPY scripts/opshin_bench.py /bench/opshin/bench_plutus_use_cases.py
 
 # --- Copy benchmark data and scripts ---
 COPY data/ /bench/data/
 COPY scripts/ /bench/scripts/
 COPY parsers/ /bench/parsers/
+COPY report/ /bench/report/
 
 RUN chmod +x /bench/scripts/*.sh
 

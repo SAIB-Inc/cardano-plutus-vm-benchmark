@@ -5,7 +5,7 @@ import json
 import os
 import sys
 
-VM_NAME = "chrysalis"
+VM_NAME = "chrysalis"  # default; overridden by CLI arg
 HEADER = "vm,script,mean_ns,median_ns,min_ns,max_ns,stddev_ns,iterations"
 
 # BenchmarkDotNet reports times with unit suffixes
@@ -76,7 +76,11 @@ def parse(run_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <run-dir>", file=sys.stderr)
+    if len(sys.argv) < 2:
+        print(f"Usage: {sys.argv[0]} [vm-name] <run-dir>", file=sys.stderr)
         sys.exit(1)
-    parse(sys.argv[1])
+    if len(sys.argv) == 3:
+        VM_NAME = sys.argv[1]
+        parse(sys.argv[2])
+    else:
+        parse(sys.argv[1])

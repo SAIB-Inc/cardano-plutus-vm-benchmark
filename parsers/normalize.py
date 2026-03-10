@@ -7,9 +7,11 @@ import sys
 
 VM_FILES = [
     "chrysalis.csv",
+    "chrysalis-aot.csv",
     "uplc-turbo.csv",
     "plutigo.csv",
-    "blaze-plutus.csv",
+    "blaze-jsc.csv",
+    "blaze-v8.csv",
     "plutuz.csv",
     "opshin.csv",
 ]

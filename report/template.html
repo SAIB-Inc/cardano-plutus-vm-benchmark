@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardano Plutus VM Benchmark &mdash; SAIB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #09090f;
+    --surface: #111119;
+    --surface-hover: #16161f;
+    --border: #1c1c2e;
+    --border-accent: #2a2a44;
+    --text: #e4e4ec;
+    --text-secondary: #9494b0;
+    --text-muted: #5c5c78;
+    --purple: #7660e3;
+    --purple-bright: #8b78ef;
+    --gold: #e8b83a;
+    --silver: #a8b0c0;
+    --bronze: #c48050;
+    --green: #4ade80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 1120px; margin: 0 auto; padding: 1.75rem 1.5rem 1rem; }
+
+  /* Header */
+  .header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+  .header h1 span { color: var(--purple-bright); }
+  .header p { color: var(--text-muted); font-size: 0.72rem; margin-top: 0.15rem; }
+  .header p code { color: var(--text-secondary); font-family: inherit; }
+
+  /* Note */
+  .note {
+    border-left: 2px solid var(--purple);
+    padding: 0.4rem 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+  }
+  .note strong { color: var(--text); }
+
+  /* Sections */
+  .section { margin-bottom: 1.5rem; }
+  .section-title {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  /* Ranking cards */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0.5rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem 0.75rem;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: var(--border-accent); }
+  .card .rank {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.7rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    opacity: 0.15;
+  }
+  .card .vm-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.05rem; }
+  .card .lang { color: var(--text-muted); font-size: 0.7rem; margin-bottom: 0.4rem; }
+  .card .geo-mean { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .card .ratio { color: var(--text-muted); font-size: 0.72rem; font-weight: 500; margin-left: 0.3rem; }
+
+  .card.gold { border-color: var(--gold); }
+  .card.gold .geo-mean { color: var(--gold); }
+  .card.gold .rank { color: var(--gold); opacity: 0.2; }
+  .card.silver { border-color: var(--silver); }
+  .card.silver .geo-mean { color: var(--silver); }
+  .card.silver .rank { color: var(--silver); opacity: 0.2; }
+  .card.bronze { border-color: var(--bronze); }
+  .card.bronze .geo-mean { color: var(--bronze); }
+  .card.bronze .rank { color: var(--bronze); opacity: 0.2; }
+
+  /* Bar chart — labels inside bars */
+  .bar-chart { display: flex; flex-direction: column; gap: 0.5rem; }
+  .bar-row { position: relative; height: 34px; background: var(--surface); border-radius: 4px; overflow: hidden; }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    min-width: 2px;
+  }
+  .bar-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    pointer-events: none;
+  }
+  .bar-info-left { display: flex; align-items: baseline; gap: 0.4rem; }
+  .bar-vm { font-size: 0.78rem; font-weight: 600; color: var(--text); }
+  .bar-lang { font-size: 0.62rem; color: var(--text-secondary); }
+  .bar-info-right { display: flex; align-items: baseline; gap: 0.6rem; }
+  .bar-time { font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text); }
+  .bar-ratio { font-size: 0.65rem; color: var(--text-muted); }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
+  th {
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    text-align: right;
+    padding: 0.4rem 0.55rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  th:first-child { text-align: left; }
+  th .th-lang { display: block; font-weight: 400; font-size: 0.6rem; color: var(--text-muted); }
+  td {
+    padding: 0.28rem 0.55rem;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: var(--text-secondary);
+  }
+  td:first-child { text-align: left; font-weight: 500; color: var(--text); }
+  tr:hover td { background: var(--surface-hover); }
+  td.fastest { color: var(--green); font-weight: 600; }
+  td.missing { color: var(--text-muted); opacity: 0.4; }
+
+  /* Filters */
+  .filter-bar { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.65rem;
+    font-family: inherit;
+    font-weight: 500;
+    transition: all 0.1s;
+  }
+  .filter-btn:hover { border-color: var(--purple); color: var(--text); }
+  .filter-btn.active { background: var(--surface); color: var(--text-secondary); border-color: var(--border-accent); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+  .footer-logo { height: 18px; margin-bottom: 0.4rem; }
+  .footer-line { margin-bottom: 0.2rem; }
+  footer a { color: var(--purple-bright); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .summary { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Cardano <span>Plutus VM</span> Benchmark</h1>
+    <p>Cross-language UPLC virtual machine comparison &mdash; {{ENV_BADGE}}</p>
+  </div>
+
+  <div class="note">
+    <strong>Method:</strong> flat-decode + CEK evaluate on 78 Plutus scripts. Each VM uses its native benchmark framework. Sequential execution, single Docker container.
+  </div>
+
+  <div class="section">
+    <div class="section-title">Rankings</div>
+    <div class="summary" id="summary"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Geometric Mean</div>
+    <div class="bar-chart" id="bar-chart"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Per-Script Results</div>
+    <div class="filter-bar" id="filters"></div>
+    <div class="table-wrap">
+      <table>
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <img src="saib-logo.png" alt="SAIB" class="footer-logo"><br>
+    <div class="footer-line">Built by <a href="https://saib.dev">SAIB Inc.</a></div>
+    <div class="footer-line">
+      <a href="https://github.com/saib-inc/cardano-plutus-vm-benchmark">Source</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/saib-inc/cardano-plutus-vm-benchmark/blob/main/METHODOLOGY.md">Methodology</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const CSV_DATA = `{{CSV_DATA}}`;
+
+const VM_META = {
+  'uplc-turbo':     { label: 'uplc-turbo',    lang: 'Rust',        runtime: 'Native',    color: '#dea584' },
+  'plutuz':         { label: 'Plutuz',         lang: 'Zig',         runtime: 'Native',    color: '#f69d50' },
+  'chrysalis':      { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET JIT',  color: '#9b6dff' },
+  'chrysalis-aot':  { label: 'Chrysalis',      lang: 'C#',          runtime: '.NET AOT',  color: '#c9a0ff' },
+  'plutigo':        { label: 'Plutigo',        lang: 'Go',          runtime: 'Native',    color: '#00d4aa' },
+  'blaze-jsc':      { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Bun (JSC)', color: '#f7df1e' },
+  'blaze-v8':       { label: 'blaze-plutus',   lang: 'TypeScript',  runtime: 'Node (V8)', color: '#5b9bd5' },
+  'opshin':         { label: 'opshin',         lang: 'Python',      runtime: 'CPython',   color: '#4b8bbe' },
+};
+const VM_ORDER = ['plutuz','uplc-turbo','chrysalis','chrysalis-aot','blaze-v8','blaze-jsc','plutigo','opshin'];
+
+function parseCSV(csv) {
+  const lines = csv.trim().split('\n'), header = lines[0].split(',');
+  return lines.slice(1).map(l => { const v=l.split(','),o={}; header.forEach((h,i)=>o[h.trim()]=v[i]?.trim()); return o; });
+}
+function fmtNs(ns) {
+  if (ns>=1e9) return (ns/1e9).toFixed(2)+' s';
+  if (ns>=1e6) return (ns/1e6).toFixed(2)+' ms';
+  if (ns>=1e3) return (ns/1e3).toFixed(0)+' \u00b5s';
+  return ns+' ns';
+}
+function geoMean(a) { const v=a.filter(x=>x>0); return v.length?Math.exp(v.reduce((s,x)=>s+Math.log(x),0)/v.length):0; }
+function langLine(m) { return m.runtime==='Native'?m.lang:m.lang+' \u00b7 '+m.runtime; }
+function fullLabel(vm) { const m=VM_META[vm]; return m.runtime==='Native'?m.label+' ('+m.lang+')':m.label+' ('+m.runtime+')'; }
+
+const rows = parseCSV(CSV_DATA), data = {};
+rows.forEach(r => { if(!data[r.script]) data[r.script]={}; data[r.script][r.vm]=parseInt(r.mean_ns); });
+const scripts = Object.keys(data).sort();
+const presentVMs = VM_ORDER.filter(vm => rows.some(r => r.vm===vm));
+const geoMeans = {};
+presentVMs.forEach(vm => { geoMeans[vm]=geoMean(scripts.map(s=>data[s]?.[vm]).filter(v=>v&&v>0)); });
+const sorted = [...presentVMs].sort((a,b) => geoMeans[a]-geoMeans[b]);
+const fastest = geoMeans[sorted[0]];
+
+// Cards
+document.getElementById('summary').innerHTML = sorted.map((vm,i) => {
+  const m=VM_META[vm], geo=geoMeans[vm], ratio=(geo/fastest).toFixed(2);
+  const cls=i===0?'gold':i===1?'silver':i===2?'bronze':'';
+  return `<div class="card ${cls}"><div class="rank">#${i+1}</div><div class="vm-name">${m.label}</div><div class="lang">${langLine(m)}</div><div class="geo-mean">${fmtNs(Math.round(geo))}<span class="ratio">${ratio}x</span></div></div>`;
+}).join('');
+
+// Bars — labels inside, full width
+const logMax=Math.log(geoMeans[sorted[sorted.length-1]]), logMin=Math.log(fastest);
+document.getElementById('bar-chart').innerHTML = sorted.map(vm => {
+  const m=VM_META[vm], geo=geoMeans[vm], ratio=(geo/fastest).toFixed(2);
+  const pct=5+95*(Math.log(geo)-logMin)/(logMax-logMin||1);
+  return `<div class="bar-row"><div class="bar-fill" style="width:${pct}%;background:${m.color};opacity:0.35"></div><div class="bar-info"><div class="bar-info-left"><span class="bar-vm">${m.label}</span><span class="bar-lang">${langLine(m)}</span></div><div class="bar-info-right"><span class="bar-time">${fmtNs(Math.round(geo))}</span><span class="bar-ratio">${ratio}x</span></div></div></div>`;
+}).join('');
+
+// Filters
+let activeVMs = new Set(presentVMs);
+const filtersEl = document.getElementById('filters');
+presentVMs.forEach(vm => {
+  const btn=document.createElement('button'); btn.className='filter-btn active'; btn.textContent=fullLabel(vm);
+  btn.onclick=()=>{ activeVMs.has(vm)?(activeVMs.delete(vm),btn.classList.remove('active')):(activeVMs.add(vm),btn.classList.add('active')); renderTable(); };
+  filtersEl.appendChild(btn);
+});
+
+// Table
+function renderTable() {
+  const vms=presentVMs.filter(vm=>activeVMs.has(vm));
+  document.getElementById('table-head').innerHTML='<tr><th>Script</th>'+vms.map(vm=>{const m=VM_META[vm];return`<th>${m.label}<span class="th-lang">${langLine(m)}</span></th>`;}).join('')+'</tr>';
+  document.getElementById('table-body').innerHTML=scripts.map(script=>{
+    const times={}; let min=Infinity;
+    vms.forEach(vm=>{const t=data[script]?.[vm]||0;times[vm]=t;if(t>0&&t<min)min=t;});
+    return'<tr><td>'+script+'</td>'+vms.map(vm=>{const t=times[vm];if(!t)return'<td class="missing">\u2014</td>';return`<td${t===min&&vms.filter(v=>times[v]>0).length>1?' class="fastest"':''}>${fmtNs(t)}</td>`;}).join('')+'</tr>';
+  }).join('');
+}
+renderTable();
+</script>
+</body>
+</html>

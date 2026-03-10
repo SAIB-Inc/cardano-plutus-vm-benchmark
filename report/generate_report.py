@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate markdown comparison report from unified.csv."""
+"""Generate markdown and HTML comparison reports from unified.csv."""
 
 import csv
 import math
@@ -7,14 +7,16 @@ import os
 import sys
 from collections import defaultdict
 
-VM_ORDER = ["uplc-turbo", "plutuz", "chrysalis", "plutigo", "blaze-plutus", "opshin"]
+VM_ORDER = ["uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin"]
 VM_LABELS = {
     "uplc-turbo": "uplc-turbo (Rust)",
     "plutuz": "Plutuz (Zig)",
-    "chrysalis": "Chrysalis (C#)",
+    "chrysalis": "Chrysalis (C# / .NET JIT)",
+    "chrysalis-aot": "Chrysalis (C# / .NET AOT)",
     "plutigo": "Plutigo (Go)",
-    "blaze-plutus": "blaze-plutus (TS)",
-    "opshin": "opshin (Python)",
+    "blaze-jsc": "blaze-plutus (TypeScript / Bun JSC)",
+    "blaze-v8": "blaze-plutus (TypeScript / Node V8)",
+    "opshin": "opshin (Python / CPython)",
 }
 
 
@@ -37,13 +39,13 @@ def geometric_mean(values: list[float]) -> float:
     return math.exp(log_sum / len(values))
 
 
-def generate(run_dir: str) -> None:
+def load_data(run_dir: str):
+    """Load unified.csv and return (data, scripts, present_vms, env_info)."""
     unified_path = os.path.join(run_dir, "unified.csv")
     if not os.path.isfile(unified_path):
         print("Error: unified.csv not found", file=sys.stderr)
         sys.exit(1)
 
-    # Load data: {script: {vm: mean_ns}}
     data: dict[str, dict[str, int]] = defaultdict(dict)
     with open(unified_path) as f:
         for row in csv.DictReader(f):
@@ -55,14 +57,17 @@ def generate(run_dir: str) -> None:
     scripts = sorted(data.keys())
     present_vms = [vm for vm in VM_ORDER if any(vm in data[s] for s in scripts)]
 
-    # Read environment info
     env_path = os.path.join(run_dir, "environment.txt")
     env_info = ""
     if os.path.isfile(env_path):
         with open(env_path) as f:
-            env_info = f.read()
+            env_info = f.read().strip()
 
-    # Compute geometric means per VM
+    return data, scripts, present_vms, env_info
+
+
+def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> None:
+    """Generate report.md."""
     geo_means: dict[str, float] = {}
     for vm in present_vms:
         values = [data[s][vm] for s in scripts if vm in data[s] and data[s][vm] > 0]
@@ -70,7 +75,6 @@ def generate(run_dir: str) -> None:
 
     fastest_geo = min(geo_means.values()) if geo_means else 1
 
-    # Generate markdown
     lines = []
     lines.append("# Cardano Plutus VM Benchmark Results")
     lines.append("")
@@ -81,11 +85,10 @@ def generate(run_dir: str) -> None:
     if env_info:
         lines.append("## Environment")
         lines.append("```")
-        lines.append(env_info.strip())
+        lines.append(env_info)
         lines.append("```")
         lines.append("")
 
-    # Summary table
     lines.append("## Summary (geometric mean across all scripts)")
     lines.append("")
     lines.append("| VM | Language | Geo Mean | vs Fastest |")
@@ -101,7 +104,6 @@ def generate(run_dir: str) -> None:
 
     lines.append("")
 
-    # Per-script table
     lines.append("## Per-Script Results")
     lines.append("")
     header = "| Script |" + "|".join(f" {VM_LABELS.get(vm, vm)} " for vm in present_vms) + "|"
@@ -136,6 +138,59 @@ def generate(run_dir: str) -> None:
 
     print(report)
     print(f"\nReport saved to: {report_path}", file=sys.stderr)
+
+
+def generate_html(run_dir: str, env_info: str) -> None:
+    """Generate docs/index.html from template + unified.csv data."""
+    unified_path = os.path.join(run_dir, "unified.csv")
+    template_path = os.path.join(os.path.dirname(__file__), "template.html")
+
+    if not os.path.isfile(template_path):
+        print("Warning: report/template.html not found, skipping HTML generation", file=sys.stderr)
+        return
+
+    with open(template_path) as f:
+        template = f.read()
+
+    with open(unified_path) as f:
+        csv_data = f.read().strip()
+
+    # Build environment badge
+    if env_info:
+        # Try to extract CPU, cores, RAM from environment.txt
+        env_badge = ""
+        for line in env_info.split("\n"):
+            line = line.strip()
+            if line.startswith("CPU:"):
+                env_badge += f"<code>{line.split(':', 1)[1].strip()}</code>"
+            elif line.startswith("Cores:"):
+                env_badge += f" &middot; {line.split(':', 1)[1].strip()} cores"
+            elif line.startswith("RAM:"):
+                env_badge += f" &middot; {line.split(':', 1)[1].strip()}"
+            elif line.startswith("OS:"):
+                env_badge += f" &middot; {line.split(':', 1)[1].strip()}"
+        date = os.path.basename(run_dir)
+        env_badge += f" &middot; {date}"
+    else:
+        env_badge = os.path.basename(run_dir)
+
+    html = template.replace("{{CSV_DATA}}", csv_data).replace("{{ENV_BADGE}}", env_badge)
+
+    # Write to docs/index.html (relative to repo root)
+    repo_root = os.path.dirname(os.path.dirname(__file__))
+    docs_dir = os.path.join(repo_root, "docs")
+    os.makedirs(docs_dir, exist_ok=True)
+    html_path = os.path.join(docs_dir, "index.html")
+    with open(html_path, "w") as f:
+        f.write(html)
+
+    print(f"HTML report saved to: {html_path}", file=sys.stderr)
+
+
+def generate(run_dir: str) -> None:
+    data, scripts, present_vms, env_info = load_data(run_dir)
+    generate_markdown(run_dir, data, scripts, present_vms, env_info)
+    generate_html(run_dir, env_info)
 
 
 if __name__ == "__main__":
