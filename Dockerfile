@@ -72,7 +72,7 @@ FROM debian:bookworm-slim AS build-plutuz
 
 ARG PLUTUZ_REPO=https://github.com/utxo-company/plutuz.git
 ARG PLUTUZ_SHA=33b812dbcf88f6851286e54cb93a4a443353f94c
-ARG ZIG_VERSION=0.15.1
+ARG ZIG_VERSION=0.15.2
 
 RUN apt-get update \
     && apt-get install -y curl xz-utils git \
