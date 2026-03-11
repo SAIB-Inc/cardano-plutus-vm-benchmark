@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       args:
         - CHRYSALIS_REPO=${CHRYSALIS_REPO:-https://github.com/SAIB-Inc/Chrysalis.git}
-        - CHRYSALIS_SHA=${CHRYSALIS_SHA:-18516d7f9d773ec2502bcccf62c380e399b3335e}
+        - CHRYSALIS_SHA=${CHRYSALIS_SHA:-78529da4280ebc2d0641b5a17115923c85503961}
         - UPLC_TURBO_REPO=${UPLC_TURBO_REPO:-https://github.com/pragma-org/uplc.git}
         - UPLC_TURBO_SHA=${UPLC_TURBO_SHA:-6152616cfb32b18c32aaaa0b0529b8711ac2fc26}
         - PLUTIGO_REPO=${PLUTIGO_REPO:-https://github.com/blinklabs-io/plutigo.git}
