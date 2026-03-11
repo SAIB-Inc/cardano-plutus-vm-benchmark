@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>PlutusUseCasesBenchmarks-20260311-213631</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.8, Linux Ubuntu 24.04.4 LTS (Noble Numbat)
+AMD Ryzen 9 9900X3D 4.40GHz, 1 CPU, 24 logical and 12 physical cores
+.NET SDK 10.0.200
+  [Host]         : .NET 10.0.4 (10.0.4, 10.0.426.12010), X64 RyuJIT x86-64-v4
+  NativeAOT 10.0 : .NET 10.0.4, X64 NativeAOT x86-64-v4
+</code></pre>
+<pre><code>Job=NativeAOT 10.0  Runtime=NativeAOT 10.0  Toolchain=Latest ILCompiler  
+IterationCount=3  LaunchCount=1  MinIterationCount=50  
+WarmupCount=3  
+</code></pre>
+
+<table>
+<thead><tr><th>Method </th><th>Script            </th><th>Mean </th><th>Error </th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>DecodeAndEval</td><td>auction_1-1</td><td>194.00 &mu;s</td><td>10.924 &mu;s</td><td>0.599 &mu;s</td><td>8.0566</td><td>3.1738</td><td>395.05 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_1-2</td><td>713.65 &mu;s</td><td>45.863 &mu;s</td><td>2.514 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1121.37 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_1-3</td><td>701.52 &mu;s</td><td>40.447 &mu;s</td><td>2.217 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1134.36 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_1-4</td><td>228.93 &mu;s</td><td>4.327 &mu;s</td><td>0.237 &mu;s</td><td>9.5215</td><td>3.9063</td><td>467.27 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_2-1</td><td>196.87 &mu;s</td><td>31.148 &mu;s</td><td>1.707 &mu;s</td><td>8.0566</td><td>3.1738</td><td>395.05 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_2-2</td><td>720.87 &mu;s</td><td>132.825 &mu;s</td><td>7.281 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1121.37 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_2-3</td><td>904.17 &mu;s</td><td>114.094 &mu;s</td><td>6.254 &mu;s</td><td>27.3438</td><td>24.4141</td><td>1365.21 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_2-4</td><td>713.02 &mu;s</td><td>105.851 &mu;s</td><td>5.802 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1134.36 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>auction_2-5</td><td>240.77 &mu;s</td><td>82.668 &mu;s</td><td>4.531 &mu;s</td><td>9.5215</td><td>3.9063</td><td>467.27 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-1</td><td>204.98 &mu;s</td><td>13.638 &mu;s</td><td>0.748 &mu;s</td><td>8.7891</td><td>2.9297</td><td>442.08 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-2</td><td>620.99 &mu;s</td><td>177.706 &mu;s</td><td>9.741 &mu;s</td><td>24.4141</td><td>9.7656</td><td>1224.8 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-3</td><td>2,154.84 &mu;s</td><td>3,086.248 &mu;s</td><td>169.168 &mu;s</td><td>62.5000</td><td>27.3438</td><td>3240.36 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-4</td><td>831.35 &mu;s</td><td>224.145 &mu;s</td><td>12.286 &mu;s</td><td>28.3203</td><td>17.5781</td><td>1414.31 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-5</td><td>388.88 &mu;s</td><td>92.126 &mu;s</td><td>5.050 &mu;s</td><td>15.6250</td><td>7.3242</td><td>771.91 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-6</td><td>539.63 &mu;s</td><td>11.906 &mu;s</td><td>0.653 &mu;s</td><td>21.4844</td><td>6.8359</td><td>1081.05 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>coop-7</td><td>280.72 &mu;s</td><td>56.804 &mu;s</td><td>3.114 &mu;s</td><td>11.7188</td><td>4.8828</td><td>585.91 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>crowdfunding-success-1</td><td>225.70 &mu;s</td><td>35.278 &mu;s</td><td>1.934 &mu;s</td><td>9.5215</td><td>3.9063</td><td>469.38 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>crowdfunding-success-2</td><td>222.53 &mu;s</td><td>8.480 &mu;s</td><td>0.465 &mu;s</td><td>9.5215</td><td>3.9063</td><td>469.38 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>crowdfunding-success-3</td><td>230.28 &mu;s</td><td>156.207 &mu;s</td><td>8.562 &mu;s</td><td>9.5215</td><td>3.9063</td><td>469.38 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>currency-1</td><td>279.27 &mu;s</td><td>19.976 &mu;s</td><td>1.095 &mu;s</td><td>10.2539</td><td>4.8828</td><td>505.27 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-redeem_1-1</td><td>377.60 &mu;s</td><td>73.724 &mu;s</td><td>4.041 &mu;s</td><td>13.6719</td><td>6.3477</td><td>683.77 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-redeem_1-2</td><td>385.06 &mu;s</td><td>65.340 &mu;s</td><td>3.582 &mu;s</td><td>13.6719</td><td>6.3477</td><td>683.77 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-redeem_2-1</td><td>423.86 &mu;s</td><td>67.672 &mu;s</td><td>3.709 &mu;s</td><td>15.1367</td><td>6.8359</td><td>758.52 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-redeem_2-2</td><td>423.59 &mu;s</td><td>101.239 &mu;s</td><td>5.549 &mu;s</td><td>15.1367</td><td>6.8359</td><td>758.52 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-redeem_2-3</td><td>417.62 &mu;s</td><td>35.133 &mu;s</td><td>1.926 &mu;s</td><td>15.1367</td><td>6.8359</td><td>758.52 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>escrow-refund-1</td><td>205.83 &mu;s</td><td>100.047 &mu;s</td><td>5.484 &mu;s</td><td>8.7891</td><td>3.6621</td><td>441.07 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-increase-margin-1</td><td>286.63 &mu;s</td><td>11.151 &mu;s</td><td>0.611 &mu;s</td><td>10.2539</td><td>4.3945</td><td>505.06 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-increase-margin-2</td><td>541.69 &mu;s</td><td>59.742 &mu;s</td><td>3.275 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-increase-margin-3</td><td>547.39 &mu;s</td><td>168.928 &mu;s</td><td>9.259 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-increase-margin-4</td><td>617.16 &mu;s</td><td>21.541 &mu;s</td><td>1.181 &mu;s</td><td>20.5078</td><td>14.6484</td><td>1016.19 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-increase-margin-5</td><td>927.43 &mu;s</td><td>26.681 &mu;s</td><td>1.463 &mu;s</td><td>26.3672</td><td>20.5078</td><td>1339.27 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-pay-out-1</td><td>290.35 &mu;s</td><td>63.628 &mu;s</td><td>3.488 &mu;s</td><td>10.2539</td><td>4.3945</td><td>505.06 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-pay-out-2</td><td>540.19 &mu;s</td><td>21.795 &mu;s</td><td>1.195 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-pay-out-3</td><td>542.76 &mu;s</td><td>104.905 &mu;s</td><td>5.750 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-pay-out-4</td><td>968.04 &mu;s</td><td>839.494 &mu;s</td><td>46.016 &mu;s</td><td>26.3672</td><td>21.4844</td><td>1337.74 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-settle-early-1</td><td>284.14 &mu;s</td><td>12.683 &mu;s</td><td>0.695 &mu;s</td><td>10.2539</td><td>4.3945</td><td>505.06 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-settle-early-2</td><td>549.61 &mu;s</td><td>124.481 &mu;s</td><td>6.823 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-settle-early-3</td><td>530.07 &mu;s</td><td>41.291 &mu;s</td><td>2.263 &mu;s</td><td>18.5547</td><td>8.7891</td><td>925.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>future-settle-early-4</td><td>730.30 &mu;s</td><td>113.920 &mu;s</td><td>6.244 &mu;s</td><td>21.4844</td><td>14.6484</td><td>1098.57 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_1-1</td><td>463.80 &mu;s</td><td>15.945 &mu;s</td><td>0.874 &mu;s</td><td>16.6016</td><td>13.1836</td><td>819.37 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_1-2</td><td>202.71 &mu;s</td><td>27.563 &mu;s</td><td>1.511 &mu;s</td><td>8.3008</td><td>2.9297</td><td>410.84 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_1-3</td><td>703.00 &mu;s</td><td>130.066 &mu;s</td><td>7.129 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1129.54 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_1-4</td><td>227.60 &mu;s</td><td>55.651 &mu;s</td><td>3.050 &mu;s</td><td>9.2773</td><td>3.4180</td><td>456.77 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-1</td><td>456.88 &mu;s</td><td>35.535 &mu;s</td><td>1.948 &mu;s</td><td>16.6016</td><td>13.1836</td><td>819.37 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-2</td><td>198.30 &mu;s</td><td>5.569 &mu;s</td><td>0.305 &mu;s</td><td>8.3008</td><td>2.9297</td><td>410.84 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-3</td><td>710.58 &mu;s</td><td>283.373 &mu;s</td><td>15.533 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1129.54 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-4</td><td>225.95 &mu;s</td><td>61.219 &mu;s</td><td>3.356 &mu;s</td><td>9.2773</td><td>3.4180</td><td>456.77 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-5</td><td>688.40 &mu;s</td><td>6.820 &mu;s</td><td>0.374 &mu;s</td><td>22.4609</td><td>16.6016</td><td>1129.56 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>game-sm-success_2-6</td><td>226.88 &mu;s</td><td>71.168 &mu;s</td><td>3.901 &mu;s</td><td>9.2773</td><td>3.4180</td><td>456.77 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>guardrail-sorted-large</td><td>422.00 &mu;s</td><td>45.672 &mu;s</td><td>2.503 &mu;s</td><td>16.6016</td><td>6.8359</td><td>818.66 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>guardrail-sorted-small</td><td>97.83 &mu;s</td><td>29.317 &mu;s</td><td>1.607 &mu;s</td><td>4.5166</td><td>1.3428</td><td>222.13 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>guardrail-unsorted-large</td><td>579.19 &mu;s</td><td>193.020 &mu;s</td><td>10.580 &mu;s</td><td>20.5078</td><td>8.7891</td><td>1036.33 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>guardrail-unsorted-small</td><td>97.50 &mu;s</td><td>2.420 &mu;s</td><td>0.133 &mu;s</td><td>4.3945</td><td>0.9766</td><td>219.31 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-01</td><td>492.43 &mu;s</td><td>10.599 &mu;s</td><td>0.581 &mu;s</td><td>16.6016</td><td>12.6953</td><td>857.14 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-02</td><td>481.05 &mu;s</td><td>31.529 &mu;s</td><td>1.728 &mu;s</td><td>17.0898</td><td>12.6953</td><td>843.59 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-03</td><td>484.53 &mu;s</td><td>31.274 &mu;s</td><td>1.714 &mu;s</td><td>16.6016</td><td>11.7188</td><td>848.36 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-04</td><td>502.79 &mu;s</td><td>10.424 &mu;s</td><td>0.571 &mu;s</td><td>16.6016</td><td>10.7422</td><td>853.12 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-05</td><td>648.21 &mu;s</td><td>137.643 &mu;s</td><td>7.545 &mu;s</td><td>20.5078</td><td>17.5781</td><td>1044.64 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-06</td><td>493.10 &mu;s</td><td>4.010 &mu;s</td><td>0.220 &mu;s</td><td>16.6016</td><td>11.7188</td><td>856.92 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-07</td><td>491.50 &mu;s</td><td>83.434 &mu;s</td><td>4.573 &mu;s</td><td>17.0898</td><td>13.1836</td><td>843.37 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-08</td><td>492.88 &mu;s</td><td>91.998 &mu;s</td><td>5.043 &mu;s</td><td>17.0898</td><td>13.1836</td><td>848.14 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-09</td><td>497.13 &mu;s</td><td>167.240 &mu;s</td><td>9.167 &mu;s</td><td>16.6016</td><td>12.6953</td><td>852.9 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>multisig-sm-10</td><td>647.39 &mu;s</td><td>39.159 &mu;s</td><td>2.146 &mu;s</td><td>20.5078</td><td>17.5781</td><td>1044.53 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>ping-pong_2-1</td><td>288.69 &mu;s</td><td>7.624 &mu;s</td><td>0.418 &mu;s</td><td>11.7188</td><td>7.3242</td><td>584.38 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>ping-pong-1</td><td>417.88 &mu;s</td><td>45.285 &mu;s</td><td>2.482 &mu;s</td><td>14.6484</td><td>14.1602</td><td>731.71 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>ping-pong-2</td><td>415.82 &mu;s</td><td>42.690 &mu;s</td><td>2.340 &mu;s</td><td>14.6484</td><td>14.1602</td><td>731.71 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>prism-1</td><td>170.96 &mu;s</td><td>4.525 &mu;s</td><td>0.248 &mu;s</td><td>7.3242</td><td>2.6855</td><td>362.68 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>prism-2</td><td>489.38 &mu;s</td><td>135.622 &mu;s</td><td>7.434 &mu;s</td><td>17.0898</td><td>12.6953</td><td>856.59 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>prism-3</td><td>385.83 &mu;s</td><td>160.743 &mu;s</td><td>8.811 &mu;s</td><td>13.1836</td><td>5.3711</td><td>665.11 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>pubkey-1</td><td>157.85 &mu;s</td><td>124.451 &mu;s</td><td>6.822 &mu;s</td><td>6.5918</td><td>2.4414</td><td>333.81 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-1</td><td>1,090.87 &mu;s</td><td>139.684 &mu;s</td><td>7.657 &mu;s</td><td>27.3438</td><td>21.4844</td><td>1375.67 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-2</td><td>200.57 &mu;s</td><td>24.241 &mu;s</td><td>1.329 &mu;s</td><td>8.0566</td><td>3.9063</td><td>406.17 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-3</td><td>1,222.78 &mu;s</td><td>245.904 &mu;s</td><td>13.479 &mu;s</td><td>29.2969</td><td>23.4375</td><td>1512.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-4</td><td>209.54 &mu;s</td><td>91.451 &mu;s</td><td>5.013 &mu;s</td><td>8.5449</td><td>3.4180</td><td>422.2 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-5</td><td>1,512.36 &mu;s</td><td>164.219 &mu;s</td><td>9.001 &mu;s</td><td>35.1563</td><td>33.2031</td><td>1793.31 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_1-6</td><td>247.64 &mu;s</td><td>21.342 &mu;s</td><td>1.170 &mu;s</td><td>9.7656</td><td>3.9063</td><td>489.63 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_2-1</td><td>1,106.37 &mu;s</td><td>130.547 &mu;s</td><td>7.156 &mu;s</td><td>27.3438</td><td>21.4844</td><td>1375.67 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_2-2</td><td>198.89 &mu;s</td><td>1.605 &mu;s</td><td>0.088 &mu;s</td><td>8.0566</td><td>3.9063</td><td>406.17 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_2-3</td><td>1,221.97 &mu;s</td><td>380.250 &mu;s</td><td>20.843 &mu;s</td><td>29.2969</td><td>23.4375</td><td>1512.42 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>stablecoin_2-4</td><td>207.65 &mu;s</td><td>5.160 &mu;s</td><td>0.283 &mu;s</td><td>8.5449</td><td>3.4180</td><td>422.2 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>token-account-1</td><td>233.37 &mu;s</td><td>122.745 &mu;s</td><td>6.728 &mu;s</td><td>8.5449</td><td>3.6621</td><td>427.24 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>token-account-2</td><td>344.61 &mu;s</td><td>5.077 &mu;s</td><td>0.278 &mu;s</td><td>12.2070</td><td>5.3711</td><td>619.17 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-1</td><td>441.40 &mu;s</td><td>31.700 &mu;s</td><td>1.738 &mu;s</td><td>14.6484</td><td>6.3477</td><td>719.97 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-2</td><td>257.42 &mu;s</td><td>14.711 &mu;s</td><td>0.806 &mu;s</td><td>9.2773</td><td>3.9063</td><td>474.06 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-3</td><td>1,669.23 &mu;s</td><td>470.090 &mu;s</td><td>25.767 &mu;s</td><td>46.8750</td><td>41.0156</td><td>2338.52 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-4</td><td>304.17 &mu;s</td><td>24.893 &mu;s</td><td>1.364 &mu;s</td><td>12.2070</td><td>4.8828</td><td>600.84 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-5</td><td>1,107.36 &mu;s</td><td>169.849 &mu;s</td><td>9.310 &mu;s</td><td>33.2031</td><td>21.4844</td><td>1709.53 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>uniswap-6</td><td>303.17 &mu;s</td><td>8.961 &mu;s</td><td>0.491 &mu;s</td><td>11.7188</td><td>4.8828</td><td>579.73 KB</td>
+</tr><tr><td>DecodeAndEval</td><td>vesting-1</td><td>400.62 &mu;s</td><td>39.553 &mu;s</td><td>2.168 &mu;s</td><td>13.6719</td><td>6.3477</td><td>680.84 KB</td>
+</tr></tbody></table>
+</body>
+</html>
