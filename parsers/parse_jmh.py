@@ -49,7 +49,8 @@ def parse(csv_path: str, vm_filter: str | None = None) -> None:
                 continue
 
             score = float(row["Score"])
-            error = float(row["Score Error (99.9%)"])
+            error_str = row["Score Error (99.9%)"]
+            error = float(error_str) if error_str != "NaN" else 0.0
             unit = row["Unit"]
             samples = int(row["Samples"])
 

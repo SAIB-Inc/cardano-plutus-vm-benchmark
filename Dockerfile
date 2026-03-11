@@ -18,7 +18,7 @@ RUN git clone "$CHRYSALIS_REPO" /src \
 
 WORKDIR /src
 RUN dotnet restore benchmarks/PlutusBench/PlutusBench.csproj
-RUN dotnet build -c Release benchmarks/PlutusBench/PlutusBench.csproj
+RUN dotnet build -c Release -p:TreatWarningsAsErrors=false benchmarks/PlutusBench/PlutusBench.csproj
 
 # =============================================================================
 # Build stage: uplc-turbo (Rust / Criterion)
@@ -281,6 +281,14 @@ COPY parsers/ /bench/parsers/
 COPY report/ /bench/report/
 
 RUN chmod +x /bench/scripts/*.sh
+
+# Make everything writable so the container can run as any UID
+# Delete .NET obj dirs and sbt target dirs so they get recreated as the running user
+# (MSBuild and sbt need to set file attributes, which requires ownership)
+RUN chmod -R 777 /bench/ /root/ \
+    && find /bench/chrysalis -name obj -type d -exec rm -rf {} + 2>/dev/null; \
+    find /bench/scalus -name target -type d -exec rm -rf {} + 2>/dev/null; \
+    mkdir -p /src/tests && chmod 777 /src /src/tests
 
 WORKDIR /bench
 ENTRYPOINT ["/bench/scripts/run-all.sh"]

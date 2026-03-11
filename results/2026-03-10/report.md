@@ -4,7 +4,7 @@
 
 ## Environment
 ```
-date: 2026-03-10T14:53:00+00:00
+date: 2026-03-10T23:14:04+00:00
 kernel: 5.15.167.4-microsoft-standard-WSL2
 cpu: AMD Ryzen 9 9900X3D 12-Core Processor
 cores: 24
@@ -15,118 +15,111 @@ memory: 47Gi
 
 | VM | Language | Geo Mean | vs Fastest |
 |---|---|---|---|
-| **plutus-core (Haskell / GHC)** | Haskell / GHC | 190.03 us | 1.00x |
-| **Plutuz (Zig)** | Zig | 390.04 us | 2.05x |
-| **uplc-turbo (Rust)** | Rust | 495.36 us | 2.61x |
-| **Chrysalis (C# / .NET JIT)** | C# / .NET JIT | 544.35 us | 2.86x |
-| **Chrysalis (C# / .NET AOT)** | C# / .NET AOT | 561.05 us | 2.95x |
-| **blaze-plutus (TypeScript / Node V8)** | TypeScript / Node V8 | 1.21 ms | 6.37x |
-| **blaze-plutus (TypeScript / Bun JSC)** | TypeScript / Bun JSC | 1.25 ms | 6.57x |
-| **Plutigo (Go)** | Go | 2.28 ms | 11.98x |
-| **opshin (Python / CPython)** | Python / CPython | 121.99 ms | 641.96x |
+| **Scalus Hybrid JIT (Scala / JVM)** | Scala / JVM | 116.89 us | 1.00x |
+| **plutus-core (Haskell / GHC)** | Haskell / GHC | 195.48 us | 1.67x |
+| **Scalus CEK (Scala / JVM)** | Scala / JVM | 275.13 us | 2.35x |
+| **Plutuz (Zig)** | Zig | 393.40 us | 3.37x |
+| **uplc-turbo (Rust)** | Rust | 435.92 us | 3.73x |
+| **Chrysalis (C# / .NET JIT)** | C# / .NET JIT | 548.01 us | 4.69x |
+| **Chrysalis (C# / .NET AOT)** | C# / .NET AOT | 564.63 us | 4.83x |
+| **blaze-plutus (TypeScript / Node V8)** | TypeScript / Node V8 | 1.24 ms | 10.61x |
+| **blaze-plutus (TypeScript / Bun JSC)** | TypeScript / Bun JSC | 1.25 ms | 10.67x |
+| **Plutigo (Go)** | Go | 2.31 ms | 19.72x |
+| **opshin (Python / CPython)** | Python / CPython | 124.94 ms | 1068.88x |
 
 ## Per-Script Results
 
-| Script | plutus-core (Haskell / GHC) | uplc-turbo (Rust) | Plutuz (Zig) | Chrysalis (C# / .NET JIT) | Chrysalis (C# / .NET AOT) | Plutigo (Go) | blaze-plutus (TypeScript / Bun JSC) | blaze-plutus (TypeScript / Node V8) | opshin (Python / CPython) |
-|---|---|---|---|---|---|---|---|---|---|
-| auction_1-1 | **85.58 us** | 259.40 us | 200.95 us | 281.39 us | 279.49 us | 1.09 ms | 556.60 us | 547.50 us | 90.22 ms |
-| auction_1-2 | **321.53 us** | 789.73 us | 628.59 us | 894.45 us | 925.24 us | 3.59 ms | 1.78 ms | 1.75 ms | 324.21 ms |
-| auction_1-3 | **313.97 us** | 752.83 us | 615.90 us | 893.44 us | 915.43 us | 3.65 ms | 1.77 ms | 1.76 ms | 324.48 ms |
-| auction_1-4 | **110.33 us** | 321.99 us | 231.38 us | 315.07 us | 318.53 us | 1.37 ms | 699.80 us | 677.40 us | 105.79 ms |
-| auction_2-1 | **85.58 us** | 263.47 us | 196.93 us | 262.08 us | 268.29 us | 1.09 ms | 544.60 us | 532.50 us | 90.27 ms |
-| auction_2-2 | **317.53 us** | 758.33 us | 619.27 us | 886.02 us | 914.75 us | 3.62 ms | 1.74 ms | 1.75 ms | 323.44 ms |
-| auction_2-3 | **412.29 us** | 945.35 us | 735.05 us | 1.15 ms | 1.12 ms | 4.65 ms | 2.22 ms | 2.20 ms | 411.94 ms |
-| auction_2-4 | **309.66 us** | 763.26 us | 614.87 us | 893.15 us | 934.14 us | 3.66 ms | 1.77 ms | 1.74 ms | 326.00 ms |
-| auction_2-5 | **109.05 us** | 312.30 us | 234.65 us | 315.53 us | 322.19 us | 1.39 ms | 763.00 us | 666.80 us | 108.72 ms |
-| coop-1 | **111.83 us** | - | 195.73 us | 281.41 us | 275.35 us | 1.46 ms | 829.10 us | 724.50 us | 14.76 ms |
-| coop-2 | **367.40 us** | - | 567.97 us | 828.16 us | 831.06 us | 4.39 ms | 2.61 ms | 2.38 ms | 34.62 ms |
-| coop-3 | **1.08 ms** | - | 1.40 ms | 2.50 ms | 2.68 ms | 12.04 ms | 6.07 ms | 5.87 ms | 34.48 ms |
-| coop-4 | **483.22 us** | - | 691.54 us | 1.03 ms | 1.04 ms | 5.13 ms | 2.89 ms | 2.84 ms | 38.65 ms |
-| coop-5 | **198.99 us** | - | 370.05 us | 539.46 us | 539.56 us | 2.51 ms | 1.33 ms | 1.28 ms | 36.93 ms |
-| coop-6 | **329.54 us** | - | 493.00 us | 737.29 us | 722.88 us | 4.03 ms | 2.11 ms | 2.06 ms | 18.06 ms |
-| coop-7 | **155.18 us** | - | 265.48 us | 379.65 us | 375.51 us | 2.04 ms | 1.05 ms | 1.03 ms | 16.98 ms |
-| crowdfunding-success-1 | **103.33 us** | 292.86 us | 228.90 us | 300.76 us | 314.90 us | 1.29 ms | 649.80 us | 643.70 us | 106.07 ms |
-| crowdfunding-success-2 | **102.18 us** | 295.83 us | 230.23 us | 309.68 us | 320.65 us | 1.29 ms | 648.10 us | 649.20 us | 105.08 ms |
-| crowdfunding-success-3 | **102.62 us** | 289.72 us | 229.88 us | 306.30 us | 316.18 us | 1.29 ms | 651.50 us | 647.40 us | 106.06 ms |
-| currency-1 | **122.06 us** | 324.14 us | 259.40 us | 359.55 us | 377.94 us | 1.50 ms | 720.30 us | 703.80 us | 132.62 ms |
-| escrow-redeem_1-1 | **174.20 us** | 436.67 us | 346.83 us | 484.68 us | 517.56 us | 2.06 ms | 1.01 ms | 1.07 ms | 175.12 ms |
-| escrow-redeem_1-2 | **172.81 us** | 435.93 us | 347.83 us | 496.83 us | 505.71 us | 2.05 ms | 1.02 ms | 1.01 ms | 178.82 ms |
-| escrow-redeem_2-1 | **202.53 us** | 491.99 us | 381.49 us | 561.93 us | 558.79 us | 2.36 ms | 1.15 ms | 1.15 ms | 208.89 ms |
-| escrow-redeem_2-2 | **199.12 us** | 491.65 us | 381.13 us | 553.13 us | 562.59 us | 2.36 ms | 1.16 ms | 1.18 ms | 207.87 ms |
-| escrow-redeem_2-3 | **199.89 us** | 492.62 us | 387.24 us | 545.63 us | 557.65 us | 2.40 ms | 1.16 ms | 1.20 ms | 204.37 ms |
-| escrow-refund-1 | **75.74 us** | 260.20 us | 229.79 us | 287.52 us | 307.44 us | 1.06 ms | 541.20 us | 564.40 us | 95.86 ms |
-| future-increase-margin-1 | **121.73 us** | 321.47 us | 265.13 us | 360.94 us | 377.11 us | 1.49 ms | 716.10 us | 690.20 us | 132.36 ms |
-| future-increase-margin-2 | **263.41 us** | 620.99 us | 469.40 us | 698.49 us | 712.37 us | 3.06 ms | 1.48 ms | 1.44 ms | 262.88 ms |
-| future-increase-margin-3 | **260.01 us** | 620.92 us | 471.05 us | 689.17 us | 703.29 us | 3.07 ms | 1.48 ms | 1.43 ms | 262.11 ms |
-| future-increase-margin-4 | **244.79 us** | 666.98 us | 586.42 us | 777.17 us | 834.06 us | 2.98 ms | 1.47 ms | 1.41 ms | - |
-| future-increase-margin-5 | **416.04 us** | 958.03 us | 859.43 us | 1.16 ms | 1.20 ms | 4.39 ms | 3.62 ms | 3.51 ms | - |
-| future-pay-out-1 | **121.46 us** | 319.91 us | 255.31 us | 362.68 us | 380.52 us | 1.49 ms | 744.90 us | 718.50 us | 133.48 ms |
-| future-pay-out-2 | **264.13 us** | 615.01 us | 469.07 us | 693.97 us | 704.54 us | 3.06 ms | 1.53 ms | 1.44 ms | 263.55 ms |
-| future-pay-out-3 | **258.78 us** | 618.37 us | 468.99 us | 684.00 us | 712.93 us | 3.09 ms | 1.55 ms | 1.44 ms | 261.53 ms |
-| future-pay-out-4 | **420.70 us** | 951.61 us | 861.99 us | 1.17 ms | 1.19 ms | 4.38 ms | 3.59 ms | 3.52 ms | - |
-| future-settle-early-1 | **122.22 us** | 321.55 us | 254.13 us | 363.86 us | 389.04 us | 1.51 ms | 744.80 us | 693.10 us | 132.87 ms |
-| future-settle-early-2 | **258.95 us** | 618.58 us | 461.47 us | 695.64 us | 699.65 us | 3.07 ms | 1.52 ms | 1.44 ms | 260.98 ms |
-| future-settle-early-3 | **261.10 us** | 632.26 us | 471.15 us | 685.40 us | 702.78 us | 3.07 ms | 1.53 ms | 1.44 ms | 260.41 ms |
-| future-settle-early-4 | **315.86 us** | 777.02 us | 694.36 us | 933.68 us | 950.41 us | 3.35 ms | 3.14 ms | 2.95 ms | - |
-| game-sm-success_1-1 | **195.48 us** | 526.20 us | 462.09 us | 602.99 us | 637.57 us | 2.36 ms | 1.28 ms | 1.22 ms | 214.44 ms |
-| game-sm-success_1-2 | **95.07 us** | 275.64 us | 199.27 us | 268.53 us | 275.59 us | 1.20 ms | 621.40 us | 587.80 us | 94.30 ms |
-| game-sm-success_1-3 | **309.61 us** | 754.31 us | 630.19 us | 890.19 us | 905.90 us | 3.66 ms | 1.92 ms | 1.84 ms | 325.17 ms |
-| game-sm-success_1-4 | **109.57 us** | 305.77 us | 225.64 us | 300.90 us | 315.52 us | 1.38 ms | 721.30 us | 685.10 us | 104.89 ms |
-| game-sm-success_2-1 | **195.69 us** | 531.53 us | 463.44 us | 605.34 us | 630.91 us | 2.38 ms | 1.28 ms | 1.24 ms | 211.59 ms |
-| game-sm-success_2-2 | **96.08 us** | 267.43 us | 198.84 us | 290.13 us | 273.10 us | 1.21 ms | 617.70 us | 601.00 us | 94.97 ms |
-| game-sm-success_2-3 | **311.27 us** | 759.43 us | 613.57 us | 881.33 us | 927.18 us | 3.67 ms | 1.93 ms | 1.86 ms | 322.87 ms |
-| game-sm-success_2-4 | **113.27 us** | 306.96 us | 221.00 us | 303.11 us | 310.42 us | 1.39 ms | 720.50 us | 710.30 us | 106.43 ms |
-| game-sm-success_2-5 | **313.77 us** | 752.20 us | 611.13 us | 886.00 us | 902.35 us | 3.66 ms | 1.92 ms | 1.86 ms | 326.09 ms |
-| game-sm-success_2-6 | **110.72 us** | 304.39 us | 221.06 us | 300.97 us | 313.62 us | 1.38 ms | 719.20 us | 710.60 us | 105.79 ms |
-| guardrail-sorted-large | **215.04 us** | - | 322.78 us | 519.23 us | 540.63 us | 2.80 ms | 1.49 ms | 1.46 ms | 19.82 ms |
-| guardrail-sorted-small | **32.73 us** | - | 93.19 us | 128.83 us | 147.62 us | 469.62 us | 275.20 us | 263.70 us | 15.31 ms |
-| guardrail-unsorted-large | **294.34 us** | - | 414.24 us | 695.41 us | 710.78 us | 3.63 ms | 1.98 ms | 1.79 ms | 19.80 ms |
-| guardrail-unsorted-small | **32.56 us** | - | 91.07 us | 130.45 us | 148.66 us | 460.81 us | 268.70 us | 265.90 us | 15.49 ms |
-| multisig-sm-01 | **203.45 us** | - | 487.82 us | 655.41 us | 686.88 us | 2.47 ms | 1.34 ms | 1.30 ms | - |
-| multisig-sm-02 | **200.80 us** | - | 490.20 us | 638.50 us | 663.04 us | 2.41 ms | 1.31 ms | 1.27 ms | - |
-| multisig-sm-03 | **196.29 us** | - | 485.34 us | 642.96 us | 669.88 us | 2.41 ms | 1.34 ms | 1.27 ms | - |
-| multisig-sm-04 | **201.24 us** | - | 486.46 us | 655.26 us | 680.72 us | 2.42 ms | 1.37 ms | 1.28 ms | - |
-| multisig-sm-05 | **286.62 us** | - | 594.54 us | 843.42 us | 860.71 us | 3.28 ms | 1.75 ms | 1.66 ms | - |
-| multisig-sm-06 | **200.41 us** | - | 490.62 us | 652.65 us | 690.27 us | 2.44 ms | 1.34 ms | 1.29 ms | - |
-| multisig-sm-07 | **194.75 us** | - | 484.40 us | 635.13 us | 666.57 us | 2.40 ms | 1.37 ms | 1.25 ms | - |
-| multisig-sm-08 | **198.89 us** | - | 484.56 us | 638.77 us | 677.87 us | 2.42 ms | 1.33 ms | 1.28 ms | - |
-| multisig-sm-09 | **200.75 us** | - | 496.48 us | 647.63 us | 681.63 us | 2.44 ms | 1.32 ms | 1.28 ms | - |
-| multisig-sm-1 | - | 558.89 us | - | - | - | - | - | - | - |
-| multisig-sm-10 | **278.86 us** | 702.10 us | 595.21 us | 837.87 us | 849.88 us | 3.31 ms | 1.74 ms | 1.68 ms | - |
-| multisig-sm-2 | - | 545.42 us | - | - | - | - | - | - | - |
-| multisig-sm-3 | - | 551.14 us | - | - | - | - | - | - | - |
-| multisig-sm-4 | - | 550.94 us | - | - | - | - | - | - | - |
-| multisig-sm-5 | - | 703.24 us | - | - | - | - | - | - | - |
-| multisig-sm-6 | - | 554.27 us | - | - | - | - | - | - | - |
-| multisig-sm-7 | - | 554.12 us | - | - | - | - | - | - | - |
-| multisig-sm-8 | - | 556.83 us | - | - | - | - | - | - | - |
-| multisig-sm-9 | - | 555.77 us | - | - | - | - | - | - | - |
-| ping-pong-1 | **169.72 us** | 496.79 us | 411.45 us | 536.96 us | 564.27 us | 2.07 ms | 1.07 ms | 1.04 ms | 189.76 ms |
-| ping-pong-2 | **164.04 us** | 462.47 us | 412.87 us | 539.30 us | 562.59 us | 2.06 ms | 1.07 ms | 1.04 ms | 189.49 ms |
-| ping-pong_2-1 | **100.27 us** | 339.05 us | 315.09 us | 405.26 us | 426.14 us | 1.41 ms | 756.50 us | 727.90 us | 135.95 ms |
-| prism-1 | **80.59 us** | 226.77 us | 175.92 us | 234.85 us | 239.84 us | 1.02 ms | 520.80 us | 508.50 us | 84.21 ms |
-| prism-2 | **206.30 us** | 559.89 us | 477.77 us | 634.87 us | 677.97 us | 2.52 ms | 1.27 ms | 1.23 ms | 223.25 ms |
-| prism-3 | **181.74 us** | 453.84 us | 342.60 us | 486.26 us | 510.51 us | 2.16 ms | 1.05 ms | 1.02 ms | 175.97 ms |
-| pubkey-1 | **68.66 us** | 201.12 us | 163.03 us | 214.87 us | 218.68 us | 897.93 us | 440.90 us | 435.20 us | 71.82 ms |
-| stablecoin_1-1 | **492.02 us** | 1.13 ms | 1.02 ms | 1.35 ms | 1.36 ms | 4.56 ms | 5.36 ms | 5.33 ms | - |
-| stablecoin_1-2 | **93.46 us** | 266.40 us | 201.15 us | 270.86 us | 279.60 us | 1.20 ms | 619.10 us | 592.50 us | 94.86 ms |
-| stablecoin_1-3 | **559.64 us** | 1.28 ms | 1.14 ms | 1.52 ms | 1.53 ms | 5.21 ms | 5.83 ms | 6.15 ms | - |
-| stablecoin_1-4 | **101.18 us** | 279.43 us | 209.00 us | 275.81 us | 284.95 us | 1.27 ms | 648.40 us | 618.90 us | 99.64 ms |
-| stablecoin_1-5 | **706.72 us** | 1.61 ms | 1.41 ms | 1.87 ms | 1.90 ms | 6.57 ms | 7.02 ms | 6.67 ms | - |
-| stablecoin_1-6 | **123.13 us** | 335.73 us | 240.19 us | 327.03 us | 326.77 us | 1.53 ms | 780.40 us | 750.50 us | 116.56 ms |
-| stablecoin_2-1 | **487.03 us** | 1.12 ms | 1.04 ms | 1.37 ms | 1.38 ms | 4.54 ms | 5.34 ms | 5.25 ms | - |
-| stablecoin_2-2 | **93.95 us** | 266.22 us | 199.25 us | 268.91 us | 274.75 us | 1.20 ms | 612.30 us | 590.60 us | 94.59 ms |
-| stablecoin_2-3 | **550.07 us** | 1.28 ms | 1.14 ms | 1.53 ms | 1.54 ms | 5.24 ms | 5.78 ms | 5.67 ms | - |
-| stablecoin_2-4 | **102.12 us** | 277.22 us | 205.39 us | 273.79 us | 283.59 us | 1.28 ms | 636.00 us | 620.40 us | 99.30 ms |
-| token-account-1 | **92.10 us** | 266.15 us | 218.97 us | 297.72 us | 308.66 us | 1.18 ms | 587.30 us | 568.10 us | 105.78 ms |
-| token-account-2 | **161.85 us** | 402.57 us | 303.82 us | 441.00 us | 468.14 us | 1.98 ms | 914.90 us | 886.10 us | 163.31 ms |
-| uniswap-1 | **193.91 us** | 461.48 us | 352.34 us | 535.73 us | 557.73 us | 2.41 ms | 1.11 ms | 1.07 ms | 209.18 ms |
-| uniswap-2 | **106.93 us** | 307.46 us | 244.79 us | 332.20 us | 349.26 us | 1.38 ms | 704.00 us | 706.50 us | 115.52 ms |
-| uniswap-3 | **868.66 us** | 1.74 ms | 1.37 ms | 2.02 ms | 2.07 ms | 8.84 ms | 5.14 ms | 4.97 ms | 731.93 ms |
-| uniswap-4 | **159.44 us** | 427.77 us | 293.35 us | 419.74 us | 414.85 us | 1.98 ms | 1.00 ms | 975.60 us | 144.14 ms |
-| uniswap-5 | **585.20 us** | 1.24 ms | 963.44 us | 1.44 ms | 1.44 ms | 6.03 ms | 3.58 ms | 3.42 ms | 507.31 ms |
-| uniswap-6 | **153.67 us** | 445.85 us | 284.63 us | 397.49 us | 405.68 us | 1.90 ms | 954.50 us | 925.90 us | 140.67 ms |
-| vesting-1 | **173.39 us** | 431.56 us | 344.05 us | 499.71 us | 515.67 us | 2.07 ms | 1.02 ms | 1.03 ms | 183.11 ms |
+| Script | plutus-core (Haskell / GHC) | Scalus Hybrid JIT (Scala / JVM) | Scalus CEK (Scala / JVM) | uplc-turbo (Rust) | Plutuz (Zig) | Chrysalis (C# / .NET JIT) | Chrysalis (C# / .NET AOT) | Plutigo (Go) | blaze-plutus (TypeScript / Bun JSC) | blaze-plutus (TypeScript / Node V8) | opshin (Python / CPython) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| auction_1-1 | 87.69 us | **31.84 us** | 122.32 us | 253.04 us | 199.26 us | 266.20 us | 277.51 us | 1.12 ms | 567.10 us | 547.30 us | 91.64 ms |
+| auction_1-2 | **325.89 us** | 777.40 us | 498.94 us | 764.87 us | 627.20 us | 909.13 us | 955.24 us | 3.64 ms | 1.83 ms | 1.77 ms | 342.19 ms |
+| auction_1-3 | **310.68 us** | 586.83 us | 476.84 us | 777.90 us | 617.12 us | 900.37 us | 916.61 us | 3.64 ms | 1.83 ms | 1.79 ms | 338.62 ms |
+| auction_1-4 | 114.60 us | **49.15 us** | 154.56 us | 322.56 us | 234.81 us | 321.80 us | 324.51 us | 1.39 ms | 698.60 us | 697.20 us | 109.81 ms |
+| auction_2-1 | 86.51 us | **38.12 us** | 119.18 us | 253.76 us | 200.53 us | 265.50 us | 269.95 us | 1.12 ms | 566.80 us | 551.90 us | 89.42 ms |
+| auction_2-2 | **328.29 us** | 1.13 ms | 480.55 us | 776.73 us | 638.45 us | 889.17 us | 923.52 us | 3.66 ms | 1.85 ms | 1.78 ms | 334.33 ms |
+| auction_2-3 | **417.89 us** | 828.28 us | 613.21 us | 947.25 us | 754.40 us | 1.10 ms | 1.12 ms | 4.72 ms | 2.34 ms | 2.26 ms | 428.52 ms |
+| auction_2-4 | **314.61 us** | 543.10 us | 466.90 us | 773.14 us | 616.12 us | 900.29 us | 924.30 us | 3.72 ms | 1.85 ms | 1.81 ms | 343.85 ms |
+| auction_2-5 | 108.25 us | **43.34 us** | 152.92 us | 315.88 us | 233.90 us | 315.92 us | 316.20 us | 1.39 ms | 707.40 us | 699.80 us | 108.26 ms |
+| coop-1 | **112.62 us** | - | - | 117.96 us | 195.64 us | 277.82 us | 296.75 us | 1.48 ms | 761.40 us | 774.50 us | 14.69 ms |
+| coop-2 | 366.76 us | - | - | **202.24 us** | 573.70 us | 842.85 us | 856.68 us | 4.46 ms | 2.50 ms | 2.49 ms | 35.30 ms |
+| coop-3 | 1.10 ms | - | - | **192.86 us** | 1.43 ms | 2.51 ms | 2.48 ms | 12.09 ms | 6.08 ms | 6.09 ms | 35.24 ms |
+| coop-4 | 484.79 us | - | - | **213.27 us** | 695.02 us | 1.06 ms | 1.09 ms | 5.19 ms | 2.90 ms | 2.98 ms | 39.74 ms |
+| coop-5 | 203.60 us | - | - | **192.96 us** | 368.62 us | 521.91 us | 544.45 us | 2.52 ms | 1.34 ms | 1.36 ms | 38.24 ms |
+| coop-6 | 332.56 us | - | - | **147.51 us** | 499.28 us | 729.12 us | 723.88 us | 4.12 ms | 2.13 ms | 2.19 ms | 17.97 ms |
+| coop-7 | 155.87 us | - | - | **123.15 us** | 269.24 us | 385.92 us | 381.48 us | 2.09 ms | 1.05 ms | 1.07 ms | 17.27 ms |
+| crowdfunding-success-1 | 104.05 us | **32.13 us** | 140.35 us | 293.24 us | 236.28 us | 304.37 us | 314.25 us | 1.31 ms | 636.60 us | 659.00 us | 109.95 ms |
+| crowdfunding-success-2 | 103.99 us | **33.57 us** | 140.31 us | 292.46 us | 236.92 us | 306.67 us | 325.71 us | 1.30 ms | 635.50 us | 664.00 us | 113.07 ms |
+| crowdfunding-success-3 | 101.67 us | **32.05 us** | 139.28 us | 299.38 us | 232.91 us | 309.51 us | 313.41 us | 1.31 ms | 634.80 us | 659.90 us | 110.11 ms |
+| currency-1 | 123.17 us | **29.62 us** | 221.14 us | 323.09 us | 258.78 us | 366.98 us | 375.51 us | 1.52 ms | 709.70 us | 708.00 us | 134.88 ms |
+| escrow-redeem_1-1 | 178.37 us | **62.12 us** | 245.38 us | 457.32 us | 352.18 us | 490.22 us | 505.70 us | 2.10 ms | 986.70 us | 1.03 ms | 179.49 ms |
+| escrow-redeem_1-2 | 174.44 us | **61.50 us** | 247.28 us | 448.64 us | 356.25 us | 487.56 us | 545.27 us | 2.07 ms | 989.90 us | 1.02 ms | 182.20 ms |
+| escrow-redeem_2-1 | 201.25 us | **71.29 us** | 288.25 us | 506.08 us | 388.32 us | 560.26 us | 576.14 us | 2.38 ms | 1.13 ms | 1.16 ms | 210.10 ms |
+| escrow-redeem_2-2 | 205.65 us | **70.49 us** | 293.48 us | 502.17 us | 388.82 us | 591.29 us | 565.48 us | 2.40 ms | 1.13 ms | 1.17 ms | 210.87 ms |
+| escrow-redeem_2-3 | 207.42 us | **67.40 us** | 297.99 us | 502.21 us | 390.79 us | 550.00 us | 564.62 us | 2.42 ms | 1.13 ms | 1.15 ms | 209.53 ms |
+| escrow-refund-1 | 80.62 us | **15.84 us** | 104.08 us | 268.48 us | 227.33 us | 291.77 us | 300.78 us | 1.08 ms | 525.40 us | 545.00 us | 100.81 ms |
+| future-increase-margin-1 | 126.21 us | **27.36 us** | 177.74 us | 322.49 us | 257.13 us | 362.33 us | 375.49 us | 1.52 ms | 693.10 us | 695.10 us | 140.49 ms |
+| future-increase-margin-2 | 264.26 us | **99.11 us** | 394.35 us | 646.67 us | 466.24 us | 702.46 us | 712.78 us | 3.11 ms | 1.45 ms | 1.49 ms | 268.71 ms |
+| future-increase-margin-3 | 307.55 us | **112.73 us** | 411.28 us | 632.53 us | 470.90 us | 735.44 us | 698.51 us | 3.10 ms | 1.46 ms | 1.47 ms | 263.51 ms |
+| future-increase-margin-4 | **276.75 us** | 614.19 us | 362.42 us | 683.84 us | 593.25 us | 785.28 us | 817.98 us | 3.02 ms | 1.45 ms | 1.46 ms | FAIL |
+| future-increase-margin-5 | **497.16 us** | 1.23 ms | 635.38 us | 990.29 us | 856.70 us | 1.17 ms | 1.21 ms | 4.46 ms | 3.63 ms | 3.54 ms | FAIL |
+| future-pay-out-1 | 139.83 us | **32.03 us** | 175.67 us | 320.68 us | 257.44 us | 361.79 us | 389.61 us | 1.50 ms | 725.80 us | 713.60 us | 134.94 ms |
+| future-pay-out-2 | 274.75 us | **114.93 us** | 391.56 us | 633.50 us | 462.79 us | 703.50 us | 705.47 us | 3.08 ms | 1.53 ms | 1.49 ms | 267.48 ms |
+| future-pay-out-3 | 288.63 us | **97.65 us** | 391.02 us | 622.75 us | 465.64 us | 689.01 us | 713.43 us | 3.09 ms | 1.58 ms | 1.50 ms | 266.55 ms |
+| future-pay-out-4 | **443.42 us** | 1.36 ms | 623.85 us | 980.84 us | 850.50 us | 1.17 ms | 1.19 ms | 4.48 ms | 3.65 ms | 3.55 ms | FAIL |
+| future-settle-early-1 | 140.75 us | **27.51 us** | 182.01 us | 319.99 us | 260.17 us | 370.60 us | 380.47 us | 1.52 ms | 748.60 us | 724.20 us | 134.82 ms |
+| future-settle-early-2 | 273.91 us | **105.01 us** | 388.29 us | 629.63 us | 470.93 us | 701.45 us | 728.58 us | 3.12 ms | 1.54 ms | 1.50 ms | 263.74 ms |
+| future-settle-early-3 | 266.81 us | **93.96 us** | 388.50 us | 632.67 us | 467.91 us | 693.13 us | 713.26 us | 3.10 ms | 1.53 ms | 1.50 ms | 268.20 ms |
+| future-settle-early-4 | **341.14 us** | 1.16 ms | 476.15 us | 772.69 us | 690.61 us | 932.48 us | 977.59 us | 3.40 ms | 3.08 ms | 3.01 ms | FAIL |
+| game-sm-success_1-1 | **222.38 us** | 407.09 us | 274.51 us | 539.18 us | 457.52 us | 611.36 us | 651.47 us | 2.40 ms | 1.30 ms | 1.25 ms | 220.46 ms |
+| game-sm-success_1-2 | 103.94 us | **31.63 us** | 135.26 us | 269.89 us | 200.23 us | 273.28 us | 277.90 us | 1.22 ms | 673.60 us | 598.00 us | 98.39 ms |
+| game-sm-success_1-3 | **359.94 us** | 525.66 us | 479.31 us | 768.73 us | 618.67 us | 909.03 us | 935.90 us | 3.71 ms | 2.10 ms | 1.88 ms | 326.14 ms |
+| game-sm-success_1-4 | 116.38 us | **36.13 us** | 155.79 us | 308.38 us | 225.38 us | 301.09 us | 310.87 us | 1.40 ms | 732.50 us | 704.30 us | 108.50 ms |
+| game-sm-success_2-1 | **200.30 us** | 431.62 us | 273.54 us | 540.25 us | 470.20 us | 611.09 us | 643.99 us | 2.39 ms | 1.26 ms | 1.25 ms | 219.88 ms |
+| game-sm-success_2-2 | 97.41 us | **32.44 us** | 137.19 us | 267.76 us | 205.22 us | 275.55 us | 278.95 us | 1.23 ms | 615.90 us | 601.10 us | 97.33 ms |
+| game-sm-success_2-3 | **322.11 us** | 557.04 us | 464.18 us | 767.78 us | 625.27 us | 891.13 us | 902.88 us | 3.72 ms | 1.93 ms | 1.86 ms | 332.62 ms |
+| game-sm-success_2-4 | 110.58 us | **36.65 us** | 155.38 us | 305.23 us | 222.06 us | 306.49 us | 307.05 us | 1.39 ms | 723.20 us | 708.70 us | 108.70 ms |
+| game-sm-success_2-5 | **313.31 us** | 564.59 us | 492.07 us | 769.31 us | 628.82 us | 895.70 us | 943.82 us | 3.76 ms | 1.91 ms | 1.89 ms | 331.15 ms |
+| game-sm-success_2-6 | 112.25 us | **36.99 us** | 157.66 us | 309.83 us | 226.89 us | 306.38 us | 305.05 us | 1.42 ms | 727.70 us | 737.00 us | 107.57 ms |
+| guardrail-sorted-large | **216.03 us** | - | - | 218.18 us | 322.03 us | 520.60 us | 540.48 us | 2.85 ms | 1.53 ms | 1.44 ms | 19.63 ms |
+| guardrail-sorted-small | **32.96 us** | - | - | 111.96 us | 93.82 us | 129.38 us | 156.96 us | 476.36 us | 278.30 us | 264.00 us | 15.35 ms |
+| guardrail-unsorted-large | 294.51 us | - | - | **198.38 us** | 418.87 us | 709.53 us | 717.66 us | 3.69 ms | 2.03 ms | 1.91 ms | 19.69 ms |
+| guardrail-unsorted-small | **32.80 us** | - | - | 109.79 us | 93.54 us | 129.20 us | 144.10 us | 465.95 us | 272.00 us | 259.90 us | 15.63 ms |
+| multisig-sm-01 | **203.38 us** | 502.24 us | 281.13 us | 560.85 us | 503.51 us | 655.99 us | 724.09 us | 2.48 ms | 1.34 ms | 1.31 ms | FAIL |
+| multisig-sm-02 | **245.79 us** | 539.76 us | 279.12 us | 557.56 us | 494.49 us | 643.07 us | 674.50 us | 2.44 ms | 1.31 ms | 1.29 ms | FAIL |
+| multisig-sm-03 | **200.34 us** | 559.21 us | 300.96 us | 558.46 us | 492.81 us | 645.23 us | 683.26 us | 2.46 ms | 1.33 ms | 1.32 ms | FAIL |
+| multisig-sm-04 | **201.49 us** | 512.92 us | 290.44 us | 558.23 us | 502.34 us | 649.85 us | 676.24 us | 2.44 ms | 1.34 ms | 1.40 ms | FAIL |
+| multisig-sm-05 | **288.36 us** | 756.37 us | 414.28 us | 724.51 us | 610.88 us | 851.87 us | 848.55 us | 3.30 ms | 1.75 ms | 1.91 ms | FAIL |
+| multisig-sm-06 | **207.34 us** | 530.58 us | 283.94 us | 570.53 us | 508.67 us | 660.46 us | 682.56 us | 2.47 ms | 1.34 ms | 1.52 ms | FAIL |
+| multisig-sm-07 | **203.94 us** | 552.52 us | 280.50 us | 555.90 us | 492.92 us | 637.90 us | 682.75 us | 2.48 ms | 1.31 ms | 1.30 ms | FAIL |
+| multisig-sm-08 | **201.51 us** | 549.47 us | 285.88 us | 552.54 us | 495.90 us | 636.13 us | 679.38 us | 2.47 ms | 1.31 ms | 1.34 ms | FAIL |
+| multisig-sm-09 | **204.33 us** | 505.65 us | 287.88 us | 572.90 us | 491.07 us | 648.37 us | 673.98 us | 2.47 ms | 1.31 ms | 1.34 ms | FAIL |
+| multisig-sm-10 | **285.61 us** | 723.89 us | 410.14 us | 723.06 us | 593.85 us | 838.96 us | 868.18 us | 3.28 ms | 1.73 ms | 1.75 ms | FAIL |
+| ping-pong-1 | **168.72 us** | 231.53 us | 253.18 us | 473.71 us | 420.25 us | 548.37 us | 575.15 us | 2.07 ms | 1.09 ms | 1.09 ms | 194.66 ms |
+| ping-pong-2 | **165.57 us** | 223.28 us | 243.64 us | 464.79 us | 417.80 us | 544.54 us | 560.88 us | 2.08 ms | 1.10 ms | 1.11 ms | 194.59 ms |
+| ping-pong_2-1 | 102.33 us | **85.34 us** | 146.92 us | 345.77 us | 321.57 us | 410.65 us | 435.33 us | 1.44 ms | 764.90 us | 774.70 us | 141.05 ms |
+| prism-1 | 80.72 us | **13.37 us** | 112.22 us | 237.60 us | 178.05 us | 234.75 us | 243.79 us | 1.03 ms | 533.40 us | 537.60 us | 85.31 ms |
+| prism-2 | **207.42 us** | 405.46 us | 287.33 us | 571.41 us | 487.71 us | 649.36 us | 662.46 us | 2.54 ms | 1.30 ms | 1.26 ms | 228.79 ms |
+| prism-3 | 186.10 us | **68.35 us** | 268.53 us | 470.63 us | 344.46 us | 489.02 us | 498.14 us | 2.16 ms | 1.07 ms | 1.05 ms | 178.02 ms |
+| pubkey-1 | 69.26 us | **11.77 us** | 104.08 us | 204.47 us | 159.96 us | 211.26 us | 221.88 us | 918.32 us | 454.80 us | 444.10 us | 72.74 ms |
+| stablecoin_1-1 | **501.80 us** | - | 707.21 us | 1.17 ms | 1.03 ms | 1.36 ms | 1.38 ms | 4.69 ms | 5.35 ms | 5.55 ms | FAIL |
+| stablecoin_1-2 | 93.82 us | **31.58 us** | 132.28 us | 269.19 us | 199.25 us | 268.43 us | 282.94 us | 1.22 ms | 604.50 us | 608.70 us | 94.27 ms |
+| stablecoin_1-3 | **553.69 us** | - | 796.45 us | 1.31 ms | 1.15 ms | 1.53 ms | 1.57 ms | 5.21 ms | 5.77 ms | 5.84 ms | FAIL |
+| stablecoin_1-4 | 102.08 us | **34.05 us** | 141.55 us | 285.85 us | 208.89 us | 281.31 us | 288.21 us | 1.27 ms | 634.90 us | 641.00 us | 99.77 ms |
+| stablecoin_1-5 | **713.00 us** | - | 1.01 ms | 1.65 ms | 1.43 ms | 1.89 ms | 1.90 ms | 6.66 ms | 6.79 ms | 6.81 ms | FAIL |
+| stablecoin_1-6 | 122.35 us | **41.08 us** | 170.90 us | 333.26 us | 242.90 us | 333.64 us | 328.15 us | 1.56 ms | 763.90 us | 773.00 us | 122.16 ms |
+| stablecoin_2-1 | **493.64 us** | - | 697.40 us | 1.16 ms | 1.05 ms | 1.37 ms | 1.39 ms | 4.60 ms | 5.29 ms | 5.38 ms | FAIL |
+| stablecoin_2-2 | 96.69 us | **32.37 us** | 134.06 us | 273.51 us | 201.01 us | 267.52 us | 279.15 us | 1.21 ms | 605.90 us | 611.00 us | 96.44 ms |
+| stablecoin_2-3 | **556.60 us** | - | 790.75 us | 1.30 ms | 1.14 ms | 1.54 ms | 1.55 ms | 5.25 ms | 5.80 ms | 5.80 ms | FAIL |
+| stablecoin_2-4 | 99.27 us | **32.82 us** | 139.62 us | 284.81 us | 206.39 us | 279.99 us | 282.11 us | 1.29 ms | 641.20 us | 648.60 us | 103.32 ms |
+| token-account-1 | 93.56 us | **23.06 us** | 134.52 us | 267.77 us | 217.82 us | 299.34 us | 307.78 us | 1.19 ms | 581.70 us | 582.20 us | 109.58 ms |
+| token-account-2 | 162.22 us | **40.11 us** | 242.30 us | 412.03 us | 300.23 us | 447.67 us | 452.08 us | 2.01 ms | 916.00 us | 897.10 us | 170.27 ms |
+| uniswap-1 | 196.25 us | **43.09 us** | 319.01 us | 466.10 us | 351.54 us | 551.62 us | 555.38 us | 2.49 ms | 1.12 ms | 1.07 ms | 218.83 ms |
+| uniswap-2 | 108.66 us | **32.99 us** | 157.25 us | 310.97 us | 245.75 us | 339.28 us | 348.11 us | 1.40 ms | 691.00 us | 674.70 us | 121.50 ms |
+| uniswap-3 | **867.12 us** | - | 1.19 ms | 1.77 ms | 1.39 ms | 2.06 ms | 2.09 ms | 8.97 ms | 5.20 ms | 5.03 ms | 757.84 ms |
+| uniswap-4 | 159.26 us | **55.95 us** | 224.31 us | 439.69 us | 300.58 us | 416.87 us | 422.12 us | 2.01 ms | 1.00 ms | 993.90 us | 147.94 ms |
+| uniswap-5 | **570.76 us** | - | 759.10 us | 1.29 ms | 973.83 us | 1.46 ms | 1.45 ms | 6.07 ms | 3.57 ms | 3.46 ms | 516.95 ms |
+| uniswap-6 | 152.09 us | **53.60 us** | 215.53 us | 408.90 us | 285.46 us | 401.17 us | 410.15 us | 1.91 ms | 952.50 us | 936.20 us | 145.85 ms |
+| vesting-1 | 173.47 us | **80.64 us** | 249.63 us | 441.15 us | 350.02 us | 501.84 us | 510.61 us | 2.09 ms | 1.01 ms | 980.40 us | 187.12 ms |
 
 ---
 *Generated by [cardano-plutus-vm-benchmark](https://github.com/saib-inc/cardano-plutus-vm-benchmark)*

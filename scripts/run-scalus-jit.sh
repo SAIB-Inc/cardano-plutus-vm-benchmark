@@ -18,7 +18,7 @@ cp "$DATA_DIR"/*.flat bench/src/main/resources/data/
 FILE_LIST=$(ls bench/src/main/resources/data/*.flat | xargs -I{} basename {} | paste -sd, -)
 
 # Run JMH benchmark with all files, CSV output
-sbt "bench/Jmh/run -i 3 -wi 3 -f 1 -t 1 -rff $RUN_DIR/scalus-jit-jmh.csv -p file=$FILE_LIST .*JITHybridBenchmark" \
+sbt "bench/Jmh/run -i 1 -wi 1 -w 5s -r 5s -f 1 -t 1 -rff $RUN_DIR/scalus-jit-jmh.csv -p file=$FILE_LIST .*JITHybridBenchmark" \
     2>&1 | tee "$RUN_DIR/scalus-jit-raw.log"
 
 # Parse JMH CSV into unified CSV

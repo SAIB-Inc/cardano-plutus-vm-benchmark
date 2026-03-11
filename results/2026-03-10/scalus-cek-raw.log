@@ -1,0 +1,109 @@
+copying runtime jar...
+[info] [launcher] getting org.scala-sbt sbt 1.12.2  (this may take some time)...
+[info] [launcher] getting Scala 2.12.21 (for sbt)...
+[info] welcome to sbt 1.12.2 (Ubuntu Java 21.0.10)
+[info] loading settings for project scalus-build from plugins.sbt...
+[info] loading project definition from /bench/scalus/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (20491 settings) ...
+[info] 
+[info]   ███████╗ ██████╗ █████╗ ██╗     ██╗   ██╗███████╗
+[info]   ██╔════╝██╔════╝██╔══██╗██║     ██║   ██║██╔════╝
+[info]   ███████╗██║     ███████║██║     ██║   ██║███████╗
+[info]   ╚════██║██║     ██╔══██║██║     ██║   ██║╚════██║
+[info]   ███████║╚██████╗██║  ██║███████╗╚██████╔╝███████║
+[info]   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+[info] 
+[info]   Version: HEAD+20260310-2314 Scala 3.3.7
+[info] 
+[info] Useful sbt tasks:
+[info] a. ~compile - Compile with file-watch enabled
+[info] b. quick - Format all, compile and quick test everything on JVM
+[info] c. precommit - Format all, clean compile and test everything on JVM
+[info] d. ci - Clean compile, check formatting and test everything, build docs, run MiMa
+[info] e. benchmark - Run benchmarks
+[info] f. mima - Check binary compatibility with the previous version using MiMa
+[info] Copied shared files to target /bench/scalus/scalus-plugin/src/main/shared/scala
+[error] java.nio.file.FileSystemException: /bench/scalus/scalus-core/jvm/target/scala-3.3.7/update/update_cache_3/output: Operation not permitted
+[error] 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[error] 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[error] 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[error] 	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.setTimes(UnixFileAttributeViews.java:142)
+[error] 	at java.base/java.nio.file.Files.setLastModifiedTime(Files.java:2437)
+[error] 	at sbt.io.JavaMilli$.$anonfun$setModifiedTime$1(JavaMilli.scala:26)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] 	at sbt.io.JavaMilli$.mapNoSuchFileException(JavaMilli.scala:32)
+[error] 	at sbt.io.JavaMilli$.setModifiedTime(JavaMilli.scala:25)
+[error] 	at sbt.internal.io.Milli$.setModifiedTime(Milli.scala:34)
+[error] 	at sbt.io.IO$.$anonfun$setModifiedTimeOrFalse$1(IO.scala:1461)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] 	at sbt.internal.io.Retry$.sbt$internal$io$Retry$$impl(Retry.scala:114)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:58)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:40)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:30)
+[error] 	at sbt.io.IO$.setModifiedTimeOrFalse(IO.scala:1461)
+[error] 	at sbt.internal.InMemoryCacheStore$CacheStoreImpl.write(InMemoryCacheStore.scala:78)
+[error] 	at sbt.util.Tracked$.$anonfun$lastOutput$1(Tracked.scala:75)
+[error] 	at sbt.internal.LibraryManagement$.$anonfun$cachedUpdate$11(LibraryManagement.scala:146)
+[error] 	at sbt.internal.LibraryManagement$.$anonfun$cachedUpdate$11$adapted(LibraryManagement.scala:133)
+[error] 	at sbt.util.Tracked$.$anonfun$inputChangedW$1(Tracked.scala:220)
+[error] 	at sbt.internal.LibraryManagement$.cachedUpdate(LibraryManagement.scala:182)
+[error] 	at sbt.Classpaths$.$anonfun$updateTask0$1(Defaults.scala:3840)
+[error] 	at scala.Function1.$anonfun$compose$1(Function1.scala:49)
+[error] 	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:63)
+[error] 	at sbt.std.Transform$$anon$4.work(Transform.scala:69)
+[error] 	at sbt.Execute.$anonfun$submit$2(Execute.scala:283)
+[error] 	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:24)
+[error] 	at sbt.Execute.work(Execute.scala:292)
+[error] 	at sbt.Execute.$anonfun$submit$1(Execute.scala:283)
+[error] 	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)
+[error] 	at sbt.CompletionService$$anon$2.call(CompletionService.scala:65)
+[error] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[error] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[error] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[error] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[error] java.nio.file.FileSystemException: /bench/scalus/scalus-plugin/target/scala-3.3.7/update/update_cache_3/output: Operation not permitted
+[error] 	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[error] 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[error] 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[error] 	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.setTimes(UnixFileAttributeViews.java:142)
+[error] 	at java.base/java.nio.file.Files.setLastModifiedTime(Files.java:2437)
+[error] 	at sbt.io.JavaMilli$.$anonfun$setModifiedTime$1(JavaMilli.scala:26)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] 	at sbt.io.JavaMilli$.mapNoSuchFileException(JavaMilli.scala:32)
+[error] 	at sbt.io.JavaMilli$.setModifiedTime(JavaMilli.scala:25)
+[error] 	at sbt.internal.io.Milli$.setModifiedTime(Milli.scala:34)
+[error] 	at sbt.io.IO$.$anonfun$setModifiedTimeOrFalse$1(IO.scala:1461)
+[error] 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[error] 	at sbt.internal.io.Retry$.sbt$internal$io$Retry$$impl(Retry.scala:114)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:58)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:40)
+[error] 	at sbt.internal.io.Retry$.apply$mVc$sp(Retry.scala:30)
+[error] 	at sbt.io.IO$.setModifiedTimeOrFalse(IO.scala:1461)
+[error] 	at sbt.internal.InMemoryCacheStore$CacheStoreImpl.write(InMemoryCacheStore.scala:78)
+[error] 	at sbt.util.Tracked$.$anonfun$lastOutput$1(Tracked.scala:75)
+[error] 	at sbt.internal.LibraryManagement$.$anonfun$cachedUpdate$11(LibraryManagement.scala:146)
+[error] 	at sbt.internal.LibraryManagement$.$anonfun$cachedUpdate$11$adapted(LibraryManagement.scala:133)
+[error] 	at sbt.util.Tracked$.$anonfun$inputChangedW$1(Tracked.scala:220)
+[error] 	at sbt.internal.LibraryManagement$.cachedUpdate(LibraryManagement.scala:182)
+[error] 	at sbt.Classpaths$.$anonfun$updateTask0$1(Defaults.scala:3840)
+[error] 	at scala.Function1.$anonfun$compose$1(Function1.scala:49)
+[error] 	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:63)
+[error] 	at sbt.std.Transform$$anon$4.work(Transform.scala:69)
+[error] 	at sbt.Execute.$anonfun$submit$2(Execute.scala:283)
+[error] 	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:24)
+[error] 	at sbt.Execute.work(Execute.scala:292)
+[error] 	at sbt.Execute.$anonfun$submit$1(Execute.scala:283)
+[error] 	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)
+[error] 	at sbt.CompletionService$$anon$2.call(CompletionService.scala:65)
+[error] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[error] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[error] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[error] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[error] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[error] (scalusJVM / update) java.nio.file.FileSystemException: /bench/scalus/scalus-core/jvm/target/scala-3.3.7/update/update_cache_3/output: Operation not permitted
+[error] (scalusPlugin / update) java.nio.file.FileSystemException: /bench/scalus/scalus-plugin/target/scala-3.3.7/update/update_cache_3/output: Operation not permitted
+[error] Total time: 6 s, completed Mar 10, 2026, 11:14:36 PM
