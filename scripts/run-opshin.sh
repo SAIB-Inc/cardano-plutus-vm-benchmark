@@ -28,3 +28,9 @@ python3.14 bench_plutus_use_cases.py 2>&1 | tee "$RUN_DIR/opshin-raw.log"
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_opshin.py "$RUN_DIR/opshin-raw.log" > "$RUN_DIR/opshin.csv"
+
+# Append failures from log as -1 entries
+grep "SKIP (eval error)" "$RUN_DIR/opshin-raw.log" | while read -r line; do
+    script=$(echo "$line" | awk '{print $1}')
+    echo "opshin,$script,-1,-1,-1,-1,-1,0" >> "$RUN_DIR/opshin.csv"
+done

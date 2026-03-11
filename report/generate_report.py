@@ -7,7 +7,7 @@ import os
 import sys
 from collections import defaultdict
 
-VM_ORDER = ["uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin"]
+VM_ORDER = ["haskell", "scalus-jit", "scalus-cek", "uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin"]
 VM_LABELS = {
     "uplc-turbo": "uplc-turbo (Rust)",
     "plutuz": "Plutuz (Zig)",
@@ -17,6 +17,9 @@ VM_LABELS = {
     "blaze-jsc": "blaze-plutus (TypeScript / Bun JSC)",
     "blaze-v8": "blaze-plutus (TypeScript / Node V8)",
     "opshin": "opshin (Python / CPython)",
+    "haskell": "plutus-core (Haskell / GHC)",
+    "scalus-cek": "Scalus CEK (Scala / JVM)",
+    "scalus-jit": "Scalus Hybrid JIT (Scala / JVM)",
 }
 
 
@@ -123,6 +126,8 @@ def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> Non
                 if t == fastest and len([v for v in script_times.values() if v > 0]) > 1:
                     cell = f"**{cell}**"
                 row += f" {cell} |"
+            elif t < 0:
+                row += " FAIL |"
             else:
                 row += " - |"
         lines.append(row)
