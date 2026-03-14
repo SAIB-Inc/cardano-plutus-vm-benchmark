@@ -4,26 +4,28 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - CHRYSALIS_REPO=${CHRYSALIS_REPO:-https://github.com/SAIB-Inc/Chrysalis.git}
-        - CHRYSALIS_SHA=${CHRYSALIS_SHA:-78529da4280ebc2d0641b5a17115923c85503961}
-        - UPLC_TURBO_REPO=${UPLC_TURBO_REPO:-https://github.com/pragma-org/uplc.git}
-        - UPLC_TURBO_SHA=${UPLC_TURBO_SHA:-6152616cfb32b18c32aaaa0b0529b8711ac2fc26}
-        - PLUTIGO_REPO=${PLUTIGO_REPO:-https://github.com/blinklabs-io/plutigo.git}
-        - PLUTIGO_SHA=${PLUTIGO_SHA:-83aaa7cf28c5de697f6fa062361e56793766c3cc}
-        - BLAZE_REPO=${BLAZE_REPO:-https://github.com/butaneprotocol/blaze-cardano.git}
-        - BLAZE_SHA=${BLAZE_SHA:-28367d38e18103daf9da42abce227d06486eea87}
-        - PLUTUZ_REPO=${PLUTUZ_REPO:-https://github.com/utxo-company/plutuz.git}
-        - PLUTUZ_SHA=${PLUTUZ_SHA:-33b812dbcf88f6851286e54cb93a4a443353f94c}
-        - OPSHIN_REPO=${OPSHIN_REPO:-https://github.com/OpShin/uplc.git}
-        - OPSHIN_SHA=${OPSHIN_SHA:-8216a056fa8eacace597b9a335174cc054c12bbe}
-        - HASKELL_REPO=${HASKELL_REPO:-https://github.com/IntersectMBO/plutus.git}
-        - HASKELL_SHA=${HASKELL_SHA:-318c729391d2af395970867964e5db7f58d8ff2a}
-        - SCALUS_REPO=${SCALUS_REPO:-https://github.com/scalus3/scalus.git}
-        - SCALUS_SHA=${SCALUS_SHA:-8e88d1791f7ad7ff491391cc465bf54c8e4c7319}
+        - CHRYSALIS_REPO
+        - CHRYSALIS_SHA
+        - UPLC_TURBO_REPO
+        - UPLC_TURBO_SHA
+        - PLUTIGO_REPO
+        - PLUTIGO_SHA
+        - BLAZE_REPO
+        - BLAZE_SHA
+        - PLUTUZ_REPO
+        - PLUTUZ_SHA
+        - OPSHIN_REPO
+        - OPSHIN_SHA
+        - HASKELL_REPO
+        - HASKELL_SHA
+        - SCALUS_REPO
+        - SCALUS_SHA
+        - ZIG_VERSION
+        - GHC_VERSION
     cap_add:
       - SYS_NICE
     user: "${UID:-1000}:${GID:-1000}"
     env_file:
-      - versions.env
+      - .env
     volumes:
       - ./results:/results

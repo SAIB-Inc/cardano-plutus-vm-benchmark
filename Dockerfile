@@ -10,8 +10,8 @@
 # =============================================================================
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build-chrysalis
 
-ARG CHRYSALIS_REPO=https://github.com/SAIB-Inc/Chrysalis.git
-ARG CHRYSALIS_SHA=d50ae2cf7fa4e3df0cba10986908b95fe3f1714f
+ARG CHRYSALIS_REPO
+ARG CHRYSALIS_SHA
 
 RUN git clone "$CHRYSALIS_REPO" /src \
     && cd /src && git checkout "$CHRYSALIS_SHA"
@@ -25,8 +25,8 @@ RUN dotnet build -c Release -p:TreatWarningsAsErrors=false benchmarks/PlutusBenc
 # =============================================================================
 FROM rust:1.94-bookworm AS build-uplc-turbo
 
-ARG UPLC_TURBO_REPO=https://github.com/pragma-org/uplc.git
-ARG UPLC_TURBO_SHA=6152616cfb32b18c32aaaa0b0529b8711ac2fc26
+ARG UPLC_TURBO_REPO
+ARG UPLC_TURBO_SHA
 
 RUN git clone "$UPLC_TURBO_REPO" /src \
     && cd /src && git checkout "$UPLC_TURBO_SHA"
@@ -44,8 +44,8 @@ RUN cargo build --release --bench use_cases --manifest-path crates/uplc/Cargo.to
 # =============================================================================
 FROM golang:1.26-bookworm AS build-plutigo
 
-ARG PLUTIGO_REPO=https://github.com/blinklabs-io/plutigo.git
-ARG PLUTIGO_SHA=1c4cc7b3061eee4a670d96d3f453d491148bc640
+ARG PLUTIGO_REPO
+ARG PLUTIGO_SHA
 
 RUN git clone "$PLUTIGO_REPO" /src \
     && cd /src && git checkout "$PLUTIGO_SHA"
@@ -59,8 +59,8 @@ RUN CGO_ENABLED=0 go test -c -o /plutigo-bench ./tests/
 # =============================================================================
 FROM oven/bun:1.3.10-debian AS build-blaze
 
-ARG BLAZE_REPO=https://github.com/butaneprotocol/blaze-cardano.git
-ARG BLAZE_SHA=28367d38e18103daf9da42abce227d06486eea87
+ARG BLAZE_REPO
+ARG BLAZE_SHA
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
@@ -75,9 +75,9 @@ RUN bun install
 # =============================================================================
 FROM debian:bookworm-slim AS build-plutuz
 
-ARG PLUTUZ_REPO=https://github.com/utxo-company/plutuz.git
-ARG PLUTUZ_SHA=33b812dbcf88f6851286e54cb93a4a443353f94c
-ARG ZIG_VERSION=0.15.2
+ARG PLUTUZ_REPO
+ARG PLUTUZ_SHA
+ARG ZIG_VERSION
 
 RUN apt-get update \
     && apt-get install -y curl xz-utils git \
@@ -100,8 +100,8 @@ RUN zig build -Doptimize=ReleaseFast
 # =============================================================================
 FROM python:3.14-bookworm AS build-opshin
 
-ARG OPSHIN_REPO=https://github.com/OpShin/uplc.git
-ARG OPSHIN_SHA=8216a056fa8eacace597b9a335174cc054c12bbe
+ARG OPSHIN_REPO
+ARG OPSHIN_SHA
 
 RUN apt-get update \
     && apt-get install -y git autoconf automake libtool \
@@ -122,8 +122,8 @@ RUN pip install --no-cache-dir .
 # =============================================================================
 FROM eclipse-temurin:21-jdk-jammy AS build-scalus
 
-ARG SCALUS_REPO=https://github.com/scalus3/scalus.git
-ARG SCALUS_SHA=8e88d1791f7ad7ff491391cc465bf54c8e4c7319
+ARG SCALUS_REPO
+ARG SCALUS_SHA
 
 RUN apt-get update \
     && apt-get install -y git curl \
@@ -147,9 +147,9 @@ RUN sbt bench/Jmh/compile
 # =============================================================================
 FROM debian:bookworm AS build-haskell
 
-ARG HASKELL_REPO=https://github.com/IntersectMBO/plutus.git
-ARG HASKELL_SHA=318c729391d2af395970867964e5db7f58d8ff2a
-ARG GHC_VERSION=9.6.4
+ARG HASKELL_REPO
+ARG HASKELL_SHA
+ARG GHC_VERSION
 
 ENV BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
     BOOTSTRAP_HASKELL_GHC_VERSION=${GHC_VERSION} \
