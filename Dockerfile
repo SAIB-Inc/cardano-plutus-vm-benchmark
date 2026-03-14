@@ -45,7 +45,7 @@ RUN cargo build --release --bench use_cases --manifest-path crates/uplc/Cargo.to
 FROM golang:1.26-bookworm AS build-plutigo
 
 ARG PLUTIGO_REPO=https://github.com/blinklabs-io/plutigo.git
-ARG PLUTIGO_SHA=83aaa7cf28c5de697f6fa062361e56793766c3cc
+ARG PLUTIGO_SHA=1c4cc7b3061eee4a670d96d3f453d491148bc640
 
 RUN git clone "$PLUTIGO_REPO" /src \
     && cd /src && git checkout "$PLUTIGO_SHA"
