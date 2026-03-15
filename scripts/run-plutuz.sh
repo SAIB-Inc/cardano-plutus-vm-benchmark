@@ -24,3 +24,6 @@ cp bench/results/plutus_use_cases.json "$RUN_DIR/plutuz-raw.json" 2>/dev/null ||
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_plutuz_json.py "$RUN_DIR/plutuz-raw.json" > "$RUN_DIR/plutuz.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/plutuz.csv" "$DATA_DIR" plutuz "$RUN_DIR/plutuz-raw.log"

@@ -26,3 +26,6 @@ cp -r BenchmarkDotNet.Artifacts/results/* "$RUN_DIR/" 2>/dev/null || true
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_benchmarkdotnet.py chrysalis-aot "$RUN_DIR" > "$RUN_DIR/chrysalis-aot.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/chrysalis-aot.csv" "$DATA_DIR" chrysalis-aot "$RUN_DIR/chrysalis-aot-raw.log"

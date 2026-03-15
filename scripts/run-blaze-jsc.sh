@@ -19,3 +19,6 @@ bun run vitest bench --run \
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_vitest.py blaze-jsc "$RUN_DIR/blaze-jsc-raw.log" > "$RUN_DIR/blaze-jsc.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/blaze-jsc.csv" "$DATA_DIR" blaze-jsc "$RUN_DIR/blaze-jsc-raw.log"
