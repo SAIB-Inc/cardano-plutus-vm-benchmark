@@ -2,8 +2,20 @@
 set -euo pipefail
 
 RESULTS_DIR="${RESULTS_DIR:-/results}"
-DATE=$(date +%Y-%m-%d)
-RUN_DIR="${RESULTS_DIR}/${DATE}"
+
+# Use RUN_DIR if set (for updating an existing run), otherwise create a new one
+if [[ -z "${RUN_DIR:-}" ]]; then
+    DATE=$(date +%Y-%m-%d)
+    RUN_DIR="${RESULTS_DIR}/${DATE}"
+    # Avoid clobbering an existing run — append a suffix if needed
+    if [[ -d "$RUN_DIR" ]]; then
+        N=0
+        while [[ -d "${RUN_DIR}-${N}" ]]; do
+            N=$((N + 1))
+        done
+        RUN_DIR="${RUN_DIR}-${N}"
+    fi
+fi
 mkdir -p "$RUN_DIR"
 
 echo "============================================="
@@ -24,7 +36,7 @@ cat "$RUN_DIR/environment.txt"
 echo ""
 
 # Track which VMs to run (default: all)
-VMS="${BENCH_VMS:-chrysalis,chrysalis-aot,uplc-turbo,plutigo,blaze-jsc,blaze-v8,plutuz,opshin,haskell,scalus-cek,scalus-jit}"
+VMS="${BENCH_VMS:-chrysalis,chrysalis-aot,uplc-turbo,uplc-turbo-bc,plutigo,blaze-jsc,blaze-v8,plutuz,opshin,haskell,scalus-cek,scalus-jit}"
 
 run_vm() {
     local vm_name="$1"
