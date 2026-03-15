@@ -59,10 +59,10 @@ Results are written to `./results/<date>/`:
 
 ## Updating VM Versions
 
-Edit `versions.env` to change pinned git SHAs, then rebuild:
+Edit `.env` to change pinned git SHAs, then rebuild:
 
 ```bash
-# Edit versions.env with new SHAs
+# Edit .env with new SHAs
 docker compose build --no-cache
 docker compose run --rm benchmark
 ```
@@ -73,7 +73,7 @@ docker compose run --rm benchmark
 data/plutus_use_cases/    # 78 canonical .flat benchmark scripts
 Dockerfile                # Multi-stage: build all VMs, single ubuntu:24.04 runtime
 docker-compose.yml        # One-command orchestration
-versions.env              # Pinned git SHAs and toolchain versions
+.env              # Pinned git SHAs and toolchain versions
 scripts/                  # Per-VM runner scripts + orchestrator
 parsers/                  # Output normalizers (one per framework)
 report/                   # Unified CSV -> markdown report generator

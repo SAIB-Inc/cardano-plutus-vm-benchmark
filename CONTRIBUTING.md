@@ -105,7 +105,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) for clear an
 ```
 feat(docker): add Haskell plutus-core as 7th VM
 fix(parsers): handle missing stddev in Go bench output
-chore: update pinned SHAs in versions.env
+chore: update pinned SHAs in .env
 bench: results 2026-03-15
 docs: add methodology section on geometric mean
 ```
@@ -139,12 +139,12 @@ To add a new Plutus VM implementation:
 3. Add an output parser in `parsers/parse_<vm_name>.py`
 4. Add the VM's CSV filename to `parsers/normalize.py`
 5. Add the VM to `VM_ORDER` and `VM_LABELS` in `report/generate_report.py`
-6. Add pinned SHA to `versions.env`
+6. Add pinned SHA to `.env`
 7. Update `README.md` and `METHODOLOGY.md`
 
 ## Updating VM Versions
 
-1. Update the relevant `*_SHA` in `versions.env`
+1. Update the relevant `*_SHA` in `.env`
 2. Test with `docker compose build --no-cache && docker compose run --rm benchmark`
 3. Submit PR with commit message: `chore: update <vm-name> to <commit/tag>`
 
