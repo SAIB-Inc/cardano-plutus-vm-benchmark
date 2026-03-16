@@ -19,3 +19,6 @@ npx vitest bench --run \
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_vitest.py blaze-v8 "$RUN_DIR/blaze-v8-raw.log" > "$RUN_DIR/blaze-v8.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/blaze-v8.csv" "$DATA_DIR" blaze-v8 "$RUN_DIR/blaze-v8-raw.log"

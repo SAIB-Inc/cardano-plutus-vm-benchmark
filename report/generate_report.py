@@ -7,9 +7,15 @@ import os
 import sys
 from collections import defaultdict
 
-VM_ORDER = ["haskell", "scalus-jit", "scalus-cek", "uplc-turbo", "plutuz", "chrysalis", "chrysalis-aot", "plutigo", "blaze-jsc", "blaze-v8", "opshin"]
+VM_ORDER = [
+    "haskell", "scalus-jit", "scalus-cek",
+    "uplc-turbo-bc", "uplc-turbo",
+    "plutuz", "chrysalis", "chrysalis-aot",
+    "plutigo", "blaze-jsc", "blaze-v8", "opshin",
+]
 VM_LABELS = {
-    "uplc-turbo": "uplc-turbo (Rust)",
+    "uplc-turbo": "uplc-turbo AST (Rust)",
+    "uplc-turbo-bc": "uplc-turbo Bytecode (Rust / AOT)",
     "plutuz": "Plutuz (Zig)",
     "chrysalis": "Chrysalis (C# / .NET JIT)",
     "chrysalis-aot": "Chrysalis (C# / .NET AOT)",
@@ -69,12 +75,40 @@ def load_data(run_dir: str):
     return data, scripts, present_vms, env_info
 
 
+def compute_geo_means(data, scripts, present_vms):
+    """Compute geometric means with penalty for missing scripts.
+
+    When a VM hasn't implemented a benchmark script, it gets assigned
+    the score of the slowest competitor on that script. This prevents
+    VMs from gaming the leaderboard by selectively skipping slow tests.
+    """
+    geo_means: dict[str, float] = {}
+
+    for vm in present_vms:
+        values = []
+        for s in scripts:
+            t = data[s].get(vm, 0)
+            if t > 0:
+                values.append(t)
+            else:
+                # Missing or failed: assign the slowest successful time
+                # from any other VM on this script
+                worst = max(
+                    (data[s].get(other_vm, 0) for other_vm in present_vms if other_vm != vm),
+                    default=0,
+                )
+                if worst > 0:
+                    values.append(worst)
+                # If no VM has a result for this script, skip it entirely
+
+        geo_means[vm] = geometric_mean(values)
+
+    return geo_means
+
+
 def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> None:
     """Generate report.md."""
-    geo_means: dict[str, float] = {}
-    for vm in present_vms:
-        values = [data[s][vm] for s in scripts if vm in data[s] and data[s][vm] > 0]
-        geo_means[vm] = geometric_mean(values)
+    geo_means = compute_geo_means(data, scripts, present_vms)
 
     fastest_geo = min(geo_means.values()) if geo_means else 1
 
@@ -94,6 +128,8 @@ def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> Non
 
     lines.append("## Summary (geometric mean across all scripts)")
     lines.append("")
+    lines.append("*Note: VMs that fail or skip a script are assigned the slowest competitor's time for that script.*")
+    lines.append("")
     lines.append("| VM | Language | Geo Mean | vs Fastest |")
     lines.append("|---|---|---|---|")
 
@@ -104,6 +140,18 @@ def generate_markdown(run_dir: str, data, scripts, present_vms, env_info) -> Non
         geo = geo_means[vm]
         ratio = geo / fastest_geo if fastest_geo > 0 else 0
         lines.append(f"| **{label}** | {lang} | {fmt_ns(int(geo))} | {ratio:.2f}x |")
+
+    # Count scripts per VM
+    lines.append("")
+    lines.append("### Script Coverage")
+    lines.append("")
+    lines.append("| VM | Passed | Failed | Missing | Total |")
+    lines.append("|---|---|---|---|---|")
+    for vm in sorted_vms:
+        success = sum(1 for s in scripts if data[s].get(vm, 0) > 0)
+        fail = sum(1 for s in scripts if data[s].get(vm, 0) < 0)
+        missing = len(scripts) - success - fail
+        lines.append(f"| {VM_LABELS.get(vm, vm)} | {success} | {fail} | {missing} | {len(scripts)} |")
 
     lines.append("")
 
@@ -162,7 +210,6 @@ def generate_html(run_dir: str, env_info: str) -> None:
 
     # Build environment badge
     if env_info:
-        # Try to extract CPU, cores, RAM from environment.txt
         env_badge = ""
         for line in env_info.split("\n"):
             line = line.strip()

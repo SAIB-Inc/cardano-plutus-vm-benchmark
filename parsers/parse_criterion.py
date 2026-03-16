@@ -5,11 +5,10 @@ import json
 import os
 import sys
 
-VM_NAME = "uplc-turbo"
 HEADER = "vm,script,mean_ns,median_ns,min_ns,max_ns,stddev_ns,iterations"
 
 
-def parse(criterion_dir: str) -> None:
+def parse(criterion_dir: str, vm_name: str = "uplc-turbo") -> None:
     print(HEADER)
 
     if not os.path.isdir(criterion_dir):
@@ -54,14 +53,15 @@ def parse(criterion_dir: str) -> None:
         script_name = bench_name.split("/")[-1] if "/" in bench_name else bench_name
 
         print(
-            f"{VM_NAME},{script_name},"
+            f"{vm_name},{script_name},"
             f"{mean_ns},{median_ns},{min_ns},{max_ns},"
             f"{stddev_ns},{iterations}"
         )
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <criterion-output-dir>", file=sys.stderr)
+    if len(sys.argv) < 2:
+        print(f"Usage: {sys.argv[0]} <criterion-output-dir> [vm-name]", file=sys.stderr)
         sys.exit(1)
-    parse(sys.argv[1])
+    vm = sys.argv[2] if len(sys.argv) > 2 else "uplc-turbo"
+    parse(sys.argv[1], vm)

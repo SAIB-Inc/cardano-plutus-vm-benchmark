@@ -24,3 +24,6 @@ rm -f "$RUN_DIR/haskell-criterion.csv"
 
 # Parse Criterion CSV into unified CSV format
 python3 /bench/parsers/parse_criterion_hs.py "$RUN_DIR/haskell-criterion.csv" > "$RUN_DIR/haskell.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/haskell.csv" /bench/data/plutus_use_cases haskell "$RUN_DIR/haskell-raw.log"

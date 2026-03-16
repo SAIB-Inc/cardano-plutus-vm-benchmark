@@ -26,3 +26,6 @@ cd "$BENCH_DIR"
 
 # Parse into unified CSV
 python3 /bench/parsers/parse_go_bench.py "$RUN_DIR/plutigo-raw.log" > "$RUN_DIR/plutigo.csv"
+
+# Fill in -1 for any scripts that were given but produced no result
+python3 /bench/parsers/fill_failures.py "$RUN_DIR/plutigo.csv" "$DATA_DIR" plutigo "$RUN_DIR/plutigo-raw.log"

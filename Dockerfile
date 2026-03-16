@@ -25,17 +25,13 @@ RUN dotnet build -c Release -p:TreatWarningsAsErrors=false benchmarks/PlutusBenc
 # =============================================================================
 FROM rust:1.94-bookworm AS build-uplc-turbo
 
-ARG UPLC_TURBO_REPO
-ARG UPLC_TURBO_SHA
+ARG UPLC_TURBO_REPO=https://github.com/pragma-org/uplc.git
+ARG UPLC_TURBO_SHA=6f0ef8e42d79654691677eb3ad3033aff35f99ad
 
 RUN git clone "$UPLC_TURBO_REPO" /src \
     && cd /src && git checkout "$UPLC_TURBO_SHA"
 
 WORKDIR /src
-
-# Patch benchmark to skip scripts that fail evaluation instead of panicking
-RUN sed -i 's/let _term = result\.term\.expect("Failed to evaluate");/if result.term.is_err() { eprintln!("EVAL_FAIL: {}", \&file_name); return; }/' \
-    crates/uplc/benches/use_cases/main.rs
 
 RUN cargo build --release --bench use_cases --manifest-path crates/uplc/Cargo.toml
 
