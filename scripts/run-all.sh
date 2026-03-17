@@ -52,7 +52,7 @@ run_vm() {
     echo " Running: ${vm_name}"
     echo "---------------------------------------------"
 
-    if bash "$script" "$RUN_DIR"; then
+    if nice -n -20 bash "$script" "$RUN_DIR"; then
         echo "OK: ${vm_name} completed"
     else
         echo "FAIL: ${vm_name} exited with code $?"

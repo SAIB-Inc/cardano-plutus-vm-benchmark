@@ -25,8 +25,8 @@ RUN dotnet build -c Release -p:TreatWarningsAsErrors=false benchmarks/PlutusBenc
 # =============================================================================
 FROM rust:1.94-bookworm AS build-uplc-turbo
 
-ARG UPLC_TURBO_REPO=https://github.com/pragma-org/uplc.git
-ARG UPLC_TURBO_SHA=6f0ef8e42d79654691677eb3ad3033aff35f99ad
+ARG UPLC_TURBO_REPO
+ARG UPLC_TURBO_SHA
 
 RUN git clone "$UPLC_TURBO_REPO" /src \
     && cd /src && git checkout "$UPLC_TURBO_SHA"
