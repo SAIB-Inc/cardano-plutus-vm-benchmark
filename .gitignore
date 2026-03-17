@@ -31,3 +31,6 @@ Thumbs.db
 
 # Benchmark raw output (intermediate)
 /tmp-results/
+
+# Benchmark results (generated, not tracked)
+results/
