@@ -1,0 +1,1916 @@
+copying runtime jar...
+[info] [launcher] getting org.scala-sbt sbt 1.12.2  (this may take some time)...
+[info] [launcher] getting Scala 2.12.21 (for sbt)...
+[info] welcome to sbt 1.12.2 (Ubuntu Java 21.0.10)
+[info] loading settings for project scalus-build from plugins.sbt...
+[info] loading project definition from /bench/scalus/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (20491 settings) ...
+[info] 
+[info]   ███████╗ ██████╗ █████╗ ██╗     ██╗   ██╗███████╗
+[info]   ██╔════╝██╔════╝██╔══██╗██║     ██║   ██║██╔════╝
+[info]   ███████╗██║     ███████║██║     ██║   ██║███████╗
+[info]   ╚════██║██║     ██╔══██║██║     ██║   ██║╚════██║
+[info]   ███████║╚██████╗██║  ██║███████╗╚██████╔╝███████║
+[info]   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+[info] 
+[info]   Version: HEAD+20260316-1450 Scala 3.3.7
+[info] 
+[info] Useful sbt tasks:
+[info] a. ~compile - Compile with file-watch enabled
+[info] b. quick - Format all, compile and quick test everything on JVM
+[info] c. precommit - Format all, clean compile and test everything on JVM
+[info] d. ci - Clean compile, check formatting and test everything, build docs, run MiMa
+[info] e. benchmark - Run benchmarks
+[info] f. mima - Check binary compatibility with the previous version using MiMa
+[info] Copied shared files to target /bench/scalus/scalus-plugin/src/main/shared/scala
+[info] compiling 41 Scala sources to /bench/scalus/scalus-plugin/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] compiling 256 Scala sources to /bench/scalus/scalus-core/jvm/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] compiling 17 Scala sources to /bench/scalus/scalus-uplc-jit-compiler/target/scala-3.3.7/classes ...
+[info] compiling 83 Scala sources to /bench/scalus/scalus-cardano-ledger/jvm/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] done compiling
+[info] compiling 9 Scala sources and 2 Java sources to /bench/scalus/bloxbean-cardano-client-lib/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] compiling 15 Scala sources to /bench/scalus/bloxbean-cardano-client-lib/target/scala-3.3.7/test-classes ...
+[info] done compiling
+[info] compiling 5 Scala sources to /bench/scalus/bench/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /bench/scalus/bench/target/scala-3.3.7/classes /bench/scalus/bench/target/scala-3.3.7/src_managed/jmh /bench/scalus/bench/target/scala-3.3.7/resource_managed/jmh default
+[info] Processing 11 classes from /bench/scalus/bench/target/scala-3.3.7/classes with "reflection" generator
+[info] Writing out Java source to /bench/scalus/bench/target/scala-3.3.7/src_managed/jmh and resources to /bench/scalus/bench/target/scala-3.3.7/resource_managed/jmh
+[info] compiling 31 Java sources to /bench/scalus/bench/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.Main -i 1 -wi 1 -w 5s -r 5s -f 1 -t 1 -rff /results/2026-03-16/scalus-cek-jmh.csv -p file=auction_1-1.flat,auction_1-2.flat,auction_1-3.flat,auction_1-4.flat,auction_2-1.flat,auction_2-2.flat,auction_2-3.flat,auction_2-4.flat,auction_2-5.flat,coop-1.flat,coop-2.flat,coop-3.flat,coop-4.flat,coop-5.flat,coop-6.flat,coop-7.flat,crowdfunding-success-1.flat,crowdfunding-success-2.flat,crowdfunding-success-3.flat,currency-1.flat,escrow-redeem_1-1.flat,escrow-redeem_1-2.flat,escrow-redeem_2-1.flat,escrow-redeem_2-2.flat,escrow-redeem_2-3.flat,escrow-refund-1.flat,future-increase-margin-1.flat,future-increase-margin-2.flat,future-increase-margin-3.flat,future-increase-margin-4.flat,future-increase-margin-5.flat,future-pay-out-1.flat,future-pay-out-2.flat,future-pay-out-3.flat,future-pay-out-4.flat,future-settle-early-1.flat,future-settle-early-2.flat,future-settle-early-3.flat,future-settle-early-4.flat,game-sm-success_1-1.flat,game-sm-success_1-2.flat,game-sm-success_1-3.flat,game-sm-success_1-4.flat,game-sm-success_2-1.flat,game-sm-success_2-2.flat,game-sm-success_2-3.flat,game-sm-success_2-4.flat,game-sm-success_2-5.flat,game-sm-success_2-6.flat,guardrail-sorted-large.flat,guardrail-sorted-small.flat,guardrail-unsorted-large.flat,guardrail-unsorted-small.flat,multisig-sm-01.flat,multisig-sm-02.flat,multisig-sm-03.flat,multisig-sm-04.flat,multisig-sm-05.flat,multisig-sm-06.flat,multisig-sm-07.flat,multisig-sm-08.flat,multisig-sm-09.flat,multisig-sm-10.flat,ping-pong-1.flat,ping-pong-2.flat,ping-pong_2-1.flat,prism-1.flat,prism-2.flat,prism-3.flat,pubkey-1.flat,stablecoin_1-1.flat,stablecoin_1-2.flat,stablecoin_1-3.flat,stablecoin_1-4.flat,stablecoin_1-5.flat,stablecoin_1-6.flat,stablecoin_2-1.flat,stablecoin_2-2.flat,stablecoin_2-3.flat,stablecoin_2-4.flat,token-account-1.flat,token-account-2.flat,uniswap-1.flat,uniswap-2.flat,uniswap-3.flat,uniswap-4.flat,uniswap-5.flat,uniswap-6.flat,vesting-1.flat .*CekJVMBenchmark
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_1-1.flat)
+[info] # Run progress: 0.00% complete, ETA 00:14:50
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 137.185 us/op
+[info] Iteration   1: 131.345 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   131.345 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_1-2.flat)
+[info] # Run progress: 1.12% complete, ETA 00:15:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 547.977 us/op
+[info] Iteration   1: 514.609 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   514.609 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_1-3.flat)
+[info] # Run progress: 2.25% complete, ETA 00:15:19
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 537.542 us/op
+[info] Iteration   1: 514.910 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   514.910 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_1-4.flat)
+[info] # Run progress: 3.37% complete, ETA 00:15:09
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 173.137 us/op
+[info] Iteration   1: 167.255 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   167.255 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_2-1.flat)
+[info] # Run progress: 4.49% complete, ETA 00:14:58
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 136.090 us/op
+[info] Iteration   1: 131.202 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   131.202 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_2-2.flat)
+[info] # Run progress: 5.62% complete, ETA 00:14:47
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 547.862 us/op
+[info] Iteration   1: 528.345 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   528.345 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_2-3.flat)
+[info] # Run progress: 6.74% complete, ETA 00:14:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 708.706 us/op
+[info] Iteration   1: 684.646 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   684.646 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_2-4.flat)
+[info] # Run progress: 7.87% complete, ETA 00:14:26
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 537.088 us/op
+[info] Iteration   1: 516.400 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   516.400 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = auction_2-5.flat)
+[info] # Run progress: 8.99% complete, ETA 00:14:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 174.093 us/op
+[info] Iteration   1: 167.598 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   167.598 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-1.flat)
+[info] # Run progress: 10.11% complete, ETA 00:14:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(true))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-2.flat)
+[info] # Run progress: 11.24% complete, ETA 00:12:35
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-3.flat)
+[info] # Run progress: 12.36% complete, ETA 00:11:22
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(true))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-4.flat)
+[info] # Run progress: 13.48% complete, ETA 00:10:21
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-5.flat)
+[info] # Run progress: 14.61% complete, ETA 00:09:29
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(true))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-6.flat)
+[info] # Run progress: 15.73% complete, ETA 00:08:44
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = coop-7.flat)
+[info] # Run progress: 16.85% complete, ETA 00:08:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(true))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = crowdfunding-success-1.flat)
+[info] # Run progress: 17.98% complete, ETA 00:07:32
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 157.628 us/op
+[info] Iteration   1: 151.984 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   151.984 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = crowdfunding-success-2.flat)
+[info] # Run progress: 19.10% complete, ETA 00:07:44
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 157.360 us/op
+[info] Iteration   1: 149.196 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   149.196 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = crowdfunding-success-3.flat)
+[info] # Run progress: 20.22% complete, ETA 00:07:54
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 156.132 us/op
+[info] Iteration   1: 151.777 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   151.777 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = currency-1.flat)
+[info] # Run progress: 21.35% complete, ETA 00:08:01
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 207.511 us/op
+[info] Iteration   1: 199.839 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   199.839 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-redeem_1-1.flat)
+[info] # Run progress: 22.47% complete, ETA 00:08:07
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 281.249 us/op
+[info] Iteration   1: 269.969 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   269.969 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-redeem_1-2.flat)
+[info] # Run progress: 23.60% complete, ETA 00:08:11
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 278.461 us/op
+[info] Iteration   1: 269.167 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   269.167 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-redeem_2-1.flat)
+[info] # Run progress: 24.72% complete, ETA 00:08:14
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 333.136 us/op
+[info] Iteration   1: 318.579 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   318.579 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-redeem_2-2.flat)
+[info] # Run progress: 25.84% complete, ETA 00:08:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 333.718 us/op
+[info] Iteration   1: 310.932 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   310.932 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-redeem_2-3.flat)
+[info] # Run progress: 26.97% complete, ETA 00:08:17
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 326.055 us/op
+[info] Iteration   1: 316.806 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   316.806 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = escrow-refund-1.flat)
+[info] # Run progress: 28.09% complete, ETA 00:08:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 123.342 us/op
+[info] Iteration   1: 118.071 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   118.071 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-increase-margin-1.flat)
+[info] # Run progress: 29.21% complete, ETA 00:08:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 205.755 us/op
+[info] Iteration   1: 199.819 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   199.819 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-increase-margin-2.flat)
+[info] # Run progress: 30.34% complete, ETA 00:08:14
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 455.470 us/op
+[info] Iteration   1: 433.151 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   433.151 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-increase-margin-3.flat)
+[info] # Run progress: 31.46% complete, ETA 00:08:12
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 452.628 us/op
+[info] Iteration   1: 416.918 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   416.918 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-increase-margin-4.flat)
+[info] # Run progress: 32.58% complete, ETA 00:08:09
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 412.603 us/op
+[info] Iteration   1: 388.635 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   388.635 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-increase-margin-5.flat)
+[info] # Run progress: 33.71% complete, ETA 00:08:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 743.560 us/op
+[info] Iteration   1: 706.098 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   706.098 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-pay-out-1.flat)
+[info] # Run progress: 34.83% complete, ETA 00:08:01
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 206.560 us/op
+[info] Iteration   1: 192.918 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   192.918 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-pay-out-2.flat)
+[info] # Run progress: 35.96% complete, ETA 00:07:57
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 451.077 us/op
+[info] Iteration   1: 433.371 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   433.371 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-pay-out-3.flat)
+[info] # Run progress: 37.08% complete, ETA 00:07:53
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 442.639 us/op
+[info] Iteration   1: 419.852 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   419.852 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-pay-out-4.flat)
+[info] # Run progress: 38.20% complete, ETA 00:07:48
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 729.754 us/op
+[info] Iteration   1: 688.669 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   688.669 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-settle-early-1.flat)
+[info] # Run progress: 39.33% complete, ETA 00:07:42
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 205.673 us/op
+[info] Iteration   1: 199.807 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   199.807 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-settle-early-2.flat)
+[info] # Run progress: 40.45% complete, ETA 00:07:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 436.800 us/op
+[info] Iteration   1: 417.361 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   417.361 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-settle-early-3.flat)
+[info] # Run progress: 41.57% complete, ETA 00:07:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 449.958 us/op
+[info] Iteration   1: 424.888 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   424.888 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = future-settle-early-4.flat)
+[info] # Run progress: 42.70% complete, ETA 00:07:25
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 566.514 us/op
+[info] Iteration   1: 519.873 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   519.873 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_1-1.flat)
+[info] # Run progress: 43.82% complete, ETA 00:07:18
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 313.529 us/op
+[info] Iteration   1: 292.429 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   292.429 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_1-2.flat)
+[info] # Run progress: 44.94% complete, ETA 00:07:12
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 153.437 us/op
+[info] Iteration   1: 145.675 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   145.675 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_1-3.flat)
+[info] # Run progress: 46.07% complete, ETA 00:07:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 540.315 us/op
+[info] Iteration   1: 513.575 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   513.575 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_1-4.flat)
+[info] # Run progress: 47.19% complete, ETA 00:06:58
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 181.023 us/op
+[info] Iteration   1: 173.886 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   173.886 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-1.flat)
+[info] # Run progress: 48.31% complete, ETA 00:06:51
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 310.564 us/op
+[info] Iteration   1: 294.556 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   294.556 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-2.flat)
+[info] # Run progress: 49.44% complete, ETA 00:06:44
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 155.784 us/op
+[info] Iteration   1: 148.133 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   148.133 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-3.flat)
+[info] # Run progress: 50.56% complete, ETA 00:06:36
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 556.784 us/op
+[info] Iteration   1: 510.338 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   510.338 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-4.flat)
+[info] # Run progress: 51.69% complete, ETA 00:06:29
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 178.947 us/op
+[info] Iteration   1: 169.337 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   169.337 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-5.flat)
+[info] # Run progress: 52.81% complete, ETA 00:06:21
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 537.881 us/op
+[info] Iteration   1: 519.872 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   519.872 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = game-sm-success_2-6.flat)
+[info] # Run progress: 53.93% complete, ETA 00:06:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 183.281 us/op
+[info] Iteration   1: 169.914 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   169.914 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = guardrail-sorted-large.flat)
+[info] # Run progress: 55.06% complete, ETA 00:06:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = guardrail-sorted-small.flat)
+[info] # Run progress: 56.18% complete, ETA 00:05:49
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = guardrail-unsorted-large.flat)
+[info] # Run progress: 57.30% complete, ETA 00:05:34
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = guardrail-unsorted-small.flat)
+[info] # Run progress: 58.43% complete, ETA 00:05:19
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: <failure>
+[info] scalus.uplc.eval.NonConstrScrutinized: A non-constructor value was scrutinized in a case expression: VCon(Bool(false))
+[info] 	at scalus.uplc.eval.CekMachine.returnCek(Cek.scala:1069)
+[info] 	at scalus.uplc.eval.CekMachine.loop$1(Cek.scala:821)
+[info] 	at scalus.uplc.eval.CekMachine.evaluateTerm(Cek.scala:833)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateDeBruijnedTerm(PlutusVM.scala:119)
+[info] 	at scalus.uplc.eval.PlutusVM.evaluateScript(PlutusVM.scala:61)
+[info] 	at scalus.uplc.eval.CekJVMBenchmark.bench(CekJVMBenchmark.scala:57)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_avgt_jmhStub(CekJVMBenchmark_bench_jmhTest.java:236)
+[info] 	at scalus.uplc.eval.jmh_generated.CekJVMBenchmark_bench_jmhTest.bench_AverageTime(CekJVMBenchmark_bench_jmhTest.java:176)
+[info] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+[info] 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:527)
+[info] 	at org.openjdk.jmh.runner.BenchmarkHandler$BenchmarkTask.call(BenchmarkHandler.java:504)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+[info] 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+[info] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+[info] 	at java.base/java.lang.Thread.run(Thread.java:1583)
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-01.flat)
+[info] # Run progress: 59.55% complete, ETA 00:05:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 328.370 us/op
+[info] Iteration   1: 311.067 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   311.067 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-02.flat)
+[info] # Run progress: 60.67% complete, ETA 00:04:58
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 320.200 us/op
+[info] Iteration   1: 306.016 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   306.016 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-03.flat)
+[info] # Run progress: 61.80% complete, ETA 00:04:51
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 334.038 us/op
+[info] Iteration   1: 311.822 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   311.822 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-04.flat)
+[info] # Run progress: 62.92% complete, ETA 00:04:44
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 323.168 us/op
+[info] Iteration   1: 315.785 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   315.785 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-05.flat)
+[info] # Run progress: 64.04% complete, ETA 00:04:36
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 484.385 us/op
+[info] Iteration   1: 456.394 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   456.394 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-06.flat)
+[info] # Run progress: 65.17% complete, ETA 00:04:28
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 328.072 us/op
+[info] Iteration   1: 309.655 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   309.655 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-07.flat)
+[info] # Run progress: 66.29% complete, ETA 00:04:21
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 319.953 us/op
+[info] Iteration   1: 306.597 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   306.597 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-08.flat)
+[info] # Run progress: 67.42% complete, ETA 00:04:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 323.703 us/op
+[info] Iteration   1: 315.898 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   315.898 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-09.flat)
+[info] # Run progress: 68.54% complete, ETA 00:04:05
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 323.830 us/op
+[info] Iteration   1: 305.863 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   305.863 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = multisig-sm-10.flat)
+[info] # Run progress: 69.66% complete, ETA 00:03:57
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 472.173 us/op
+[info] Iteration   1: 454.100 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   454.100 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = ping-pong-1.flat)
+[info] # Run progress: 70.79% complete, ETA 00:03:49
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 276.304 us/op
+[info] Iteration   1: 260.561 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   260.561 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = ping-pong-2.flat)
+[info] # Run progress: 71.91% complete, ETA 00:03:41
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 273.594 us/op
+[info] Iteration   1: 254.839 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   254.839 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = ping-pong_2-1.flat)
+[info] # Run progress: 73.03% complete, ETA 00:03:33
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 161.305 us/op
+[info] Iteration   1: 152.513 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   152.513 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = prism-1.flat)
+[info] # Run progress: 74.16% complete, ETA 00:03:24
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 129.517 us/op
+[info] Iteration   1: 121.506 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   121.506 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = prism-2.flat)
+[info] # Run progress: 75.28% complete, ETA 00:03:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 335.043 us/op
+[info] Iteration   1: 316.848 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   316.848 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = prism-3.flat)
+[info] # Run progress: 76.40% complete, ETA 00:03:08
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 300.395 us/op
+[info] Iteration   1: 287.509 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   287.509 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = pubkey-1.flat)
+[info] # Run progress: 77.53% complete, ETA 00:02:59
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 114.414 us/op
+[info] Iteration   1: 108.644 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   108.644 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-1.flat)
+[info] # Run progress: 78.65% complete, ETA 00:02:51
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 827.688 us/op
+[info] Iteration   1: 767.546 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   767.546 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-2.flat)
+[info] # Run progress: 79.78% complete, ETA 00:02:42
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 152.719 us/op
+[info] Iteration   1: 146.576 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   146.576 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-3.flat)
+[info] # Run progress: 80.90% complete, ETA 00:02:33
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 947.002 us/op
+[info] Iteration   1: 889.084 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   889.084 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-4.flat)
+[info] # Run progress: 82.02% complete, ETA 00:02:25
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 161.431 us/op
+[info] Iteration   1: 153.549 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   153.549 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-5.flat)
+[info] # Run progress: 83.15% complete, ETA 00:02:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 1188.484 us/op
+[info] Iteration   1: 1085.260 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   1085.260 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_1-6.flat)
+[info] # Run progress: 84.27% complete, ETA 00:02:07
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 196.603 us/op
+[info] Iteration   1: 187.278 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   187.278 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_2-1.flat)
+[info] # Run progress: 85.39% complete, ETA 00:01:58
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 824.877 us/op
+[info] Iteration   1: 775.519 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   775.519 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_2-2.flat)
+[info] # Run progress: 86.52% complete, ETA 00:01:49
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 152.231 us/op
+[info] Iteration   1: 145.378 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   145.378 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_2-3.flat)
+[info] # Run progress: 87.64% complete, ETA 00:01:40
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 963.923 us/op
+[info] Iteration   1: 879.317 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   879.317 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = stablecoin_2-4.flat)
+[info] # Run progress: 88.76% complete, ETA 00:01:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 162.707 us/op
+[info] Iteration   1: 154.881 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   154.881 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = token-account-1.flat)
+[info] # Run progress: 89.89% complete, ETA 00:01:22
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 152.967 us/op
+[info] Iteration   1: 146.433 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   146.433 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = token-account-2.flat)
+[info] # Run progress: 91.01% complete, ETA 00:01:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 270.665 us/op
+[info] Iteration   1: 256.755 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   256.755 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-1.flat)
+[info] # Run progress: 92.13% complete, ETA 00:01:04
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 358.948 us/op
+[info] Iteration   1: 337.987 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   337.987 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-2.flat)
+[info] # Run progress: 93.26% complete, ETA 00:00:55
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 179.323 us/op
+[info] Iteration   1: 168.739 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   168.739 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-3.flat)
+[info] # Run progress: 94.38% complete, ETA 00:00:46
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 1386.797 us/op
+[info] Iteration   1: 1319.552 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   1319.552 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-4.flat)
+[info] # Run progress: 95.51% complete, ETA 00:00:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 253.400 us/op
+[info] Iteration   1: 242.963 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   242.963 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-5.flat)
+[info] # Run progress: 96.63% complete, ETA 00:00:27
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 898.051 us/op
+[info] Iteration   1: 835.994 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   835.994 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = uniswap-6.flat)
+[info] # Run progress: 97.75% complete, ETA 00:00:18
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 250.307 us/op
+[info] Iteration   1: 237.053 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   237.053 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.CekJVMBenchmark.bench
+[info] # Parameters: (file = vesting-1.flat)
+[info] # Run progress: 98.88% complete, ETA 00:00:09
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: 290.579 us/op
+[info] Iteration   1: 270.592 us/op
+[info] Result "scalus.uplc.eval.CekJVMBenchmark.bench":
+[info]   270.592 us/op
+[info] # Run complete. Total time: 00:13:51
+[info] REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+[info] why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+[info] experiments, perform baseline and negative tests that provide experimental control, make sure
+[info] the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+[info] Do not assume the numbers tell you what you want them to tell.
+[info] NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+[info] extra caution when trusting the results, look into the generated code to check the benchmark still
+[info] works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+[info] different JVMs are already problematic, the performance difference caused by different Blackhole
+[info] modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+[info] Benchmark                                     (file)  Mode  Cnt     Score   Error  Units
+[info] CekJVMBenchmark.bench               auction_1-1.flat  avgt        131.345          us/op
+[info] CekJVMBenchmark.bench               auction_1-2.flat  avgt        514.609          us/op
+[info] CekJVMBenchmark.bench               auction_1-3.flat  avgt        514.910          us/op
+[info] CekJVMBenchmark.bench               auction_1-4.flat  avgt        167.255          us/op
+[info] CekJVMBenchmark.bench               auction_2-1.flat  avgt        131.202          us/op
+[info] CekJVMBenchmark.bench               auction_2-2.flat  avgt        528.345          us/op
+[info] CekJVMBenchmark.bench               auction_2-3.flat  avgt        684.646          us/op
+[info] CekJVMBenchmark.bench               auction_2-4.flat  avgt        516.400          us/op
+[info] CekJVMBenchmark.bench               auction_2-5.flat  avgt        167.598          us/op
+[info] CekJVMBenchmark.bench    crowdfunding-success-1.flat  avgt        151.984          us/op
+[info] CekJVMBenchmark.bench    crowdfunding-success-2.flat  avgt        149.196          us/op
+[info] CekJVMBenchmark.bench    crowdfunding-success-3.flat  avgt        151.777          us/op
+[info] CekJVMBenchmark.bench                currency-1.flat  avgt        199.839          us/op
+[info] CekJVMBenchmark.bench         escrow-redeem_1-1.flat  avgt        269.969          us/op
+[info] CekJVMBenchmark.bench         escrow-redeem_1-2.flat  avgt        269.167          us/op
+[info] CekJVMBenchmark.bench         escrow-redeem_2-1.flat  avgt        318.579          us/op
+[info] CekJVMBenchmark.bench         escrow-redeem_2-2.flat  avgt        310.932          us/op
+[info] CekJVMBenchmark.bench         escrow-redeem_2-3.flat  avgt        316.806          us/op
+[info] CekJVMBenchmark.bench           escrow-refund-1.flat  avgt        118.071          us/op
+[info] CekJVMBenchmark.bench  future-increase-margin-1.flat  avgt        199.819          us/op
+[info] CekJVMBenchmark.bench  future-increase-margin-2.flat  avgt        433.151          us/op
+[info] CekJVMBenchmark.bench  future-increase-margin-3.flat  avgt        416.918          us/op
+[info] CekJVMBenchmark.bench  future-increase-margin-4.flat  avgt        388.635          us/op
+[info] CekJVMBenchmark.bench  future-increase-margin-5.flat  avgt        706.098          us/op
+[info] CekJVMBenchmark.bench          future-pay-out-1.flat  avgt        192.918          us/op
+[info] CekJVMBenchmark.bench          future-pay-out-2.flat  avgt        433.371          us/op
+[info] CekJVMBenchmark.bench          future-pay-out-3.flat  avgt        419.852          us/op
+[info] CekJVMBenchmark.bench          future-pay-out-4.flat  avgt        688.669          us/op
+[info] CekJVMBenchmark.bench     future-settle-early-1.flat  avgt        199.807          us/op
+[info] CekJVMBenchmark.bench     future-settle-early-2.flat  avgt        417.361          us/op
+[info] CekJVMBenchmark.bench     future-settle-early-3.flat  avgt        424.888          us/op
+[info] CekJVMBenchmark.bench     future-settle-early-4.flat  avgt        519.873          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_1-1.flat  avgt        292.429          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_1-2.flat  avgt        145.675          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_1-3.flat  avgt        513.575          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_1-4.flat  avgt        173.886          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-1.flat  avgt        294.556          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-2.flat  avgt        148.133          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-3.flat  avgt        510.338          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-4.flat  avgt        169.337          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-5.flat  avgt        519.872          us/op
+[info] CekJVMBenchmark.bench       game-sm-success_2-6.flat  avgt        169.914          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-01.flat  avgt        311.067          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-02.flat  avgt        306.016          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-03.flat  avgt        311.822          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-04.flat  avgt        315.785          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-05.flat  avgt        456.394          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-06.flat  avgt        309.655          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-07.flat  avgt        306.597          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-08.flat  avgt        315.898          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-09.flat  avgt        305.863          us/op
+[info] CekJVMBenchmark.bench            multisig-sm-10.flat  avgt        454.100          us/op
+[info] CekJVMBenchmark.bench               ping-pong-1.flat  avgt        260.561          us/op
+[info] CekJVMBenchmark.bench               ping-pong-2.flat  avgt        254.839          us/op
+[info] CekJVMBenchmark.bench             ping-pong_2-1.flat  avgt        152.513          us/op
+[info] CekJVMBenchmark.bench                   prism-1.flat  avgt        121.506          us/op
+[info] CekJVMBenchmark.bench                   prism-2.flat  avgt        316.848          us/op
+[info] CekJVMBenchmark.bench                   prism-3.flat  avgt        287.509          us/op
+[info] CekJVMBenchmark.bench                  pubkey-1.flat  avgt        108.644          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-1.flat  avgt        767.546          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-2.flat  avgt        146.576          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-3.flat  avgt        889.084          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-4.flat  avgt        153.549          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-5.flat  avgt       1085.260          us/op
+[info] CekJVMBenchmark.bench            stablecoin_1-6.flat  avgt        187.278          us/op
+[info] CekJVMBenchmark.bench            stablecoin_2-1.flat  avgt        775.519          us/op
+[info] CekJVMBenchmark.bench            stablecoin_2-2.flat  avgt        145.378          us/op
+[info] CekJVMBenchmark.bench            stablecoin_2-3.flat  avgt        879.317          us/op
+[info] CekJVMBenchmark.bench            stablecoin_2-4.flat  avgt        154.881          us/op
+[info] CekJVMBenchmark.bench           token-account-1.flat  avgt        146.433          us/op
+[info] CekJVMBenchmark.bench           token-account-2.flat  avgt        256.755          us/op
+[info] CekJVMBenchmark.bench                 uniswap-1.flat  avgt        337.987          us/op
+[info] CekJVMBenchmark.bench                 uniswap-2.flat  avgt        168.739          us/op
+[info] CekJVMBenchmark.bench                 uniswap-3.flat  avgt       1319.552          us/op
+[info] CekJVMBenchmark.bench                 uniswap-4.flat  avgt        242.963          us/op
+[info] CekJVMBenchmark.bench                 uniswap-5.flat  avgt        835.994          us/op
+[info] CekJVMBenchmark.bench                 uniswap-6.flat  avgt        237.053          us/op
+[info] CekJVMBenchmark.bench                 vesting-1.flat  avgt        270.592          us/op
+[info] Benchmark result is saved to /results/2026-03-16/scalus-cek-jmh.csv
+[success] Total time: 823 s (0:13:43.0), completed Mar 16, 2026, 3:04:40 PM
