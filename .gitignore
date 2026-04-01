@@ -32,5 +32,8 @@ Thumbs.db
 # Benchmark raw output (intermediate)
 /tmp-results/
 
-# Benchmark results (generated, not tracked)
-results/
+# Benchmark raw output (keep results/ tracked for historical data)
+# Skip heavy Criterion/BenchmarkDotNet artifacts (SVGs, per-bench HTML, JSON samples)
+results/**/criterion-output*/
+results/**/PlutusUseCasesBenchmarks-report-full-compressed.json
+results/**/PlutusUseCasesBenchmarks-report.html
