@@ -187,6 +187,7 @@ RUN cabal build plutus-benchmark:bench:validation -j
 FROM ubuntu:24.04 AS runner
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV HOME=/root
 
 # Install .NET SDK
 RUN apt-get update \
