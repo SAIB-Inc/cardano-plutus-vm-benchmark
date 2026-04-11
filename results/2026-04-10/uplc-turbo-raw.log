@@ -1,0 +1,742 @@
+Gnuplot not found, using plotters backend
+>>> Benchmarking in AST interpreter mode
+Benchmarking auction_1-1
+Benchmarking auction_1-1: Warming up for 3.0000 s
+Benchmarking auction_1-1: Collecting 100 samples in estimated 10.058 s (71k iterations)
+Benchmarking auction_1-1: Analyzing
+auction_1-1             time:   [142.57 µs 143.02 µs 143.50 µs]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+Benchmarking auction_1-2
+Benchmarking auction_1-2: Warming up for 3.0000 s
+Benchmarking auction_1-2: Collecting 100 samples in estimated 11.998 s (30k iterations)
+Benchmarking auction_1-2: Analyzing
+auction_1-2             time:   [395.44 µs 395.78 µs 396.18 µs]
+Found 10 outliers among 100 measurements (10.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking auction_1-3
+Benchmarking auction_1-3: Warming up for 3.0000 s
+Benchmarking auction_1-3: Collecting 100 samples in estimated 10.040 s (25k iterations)
+Benchmarking auction_1-3: Analyzing
+auction_1-3             time:   [397.64 µs 399.08 µs 400.52 µs]
+Found 14 outliers among 100 measurements (14.00%)
+  2 (2.00%) high mild
+  12 (12.00%) high severe
+
+Benchmarking auction_1-4
+Benchmarking auction_1-4: Warming up for 3.0000 s
+Benchmarking auction_1-4: Collecting 100 samples in estimated 10.443 s (61k iterations)
+Benchmarking auction_1-4: Analyzing
+auction_1-4             time:   [172.80 µs 173.37 µs 173.95 µs]
+Found 19 outliers among 100 measurements (19.00%)
+  17 (17.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking auction_2-1
+Benchmarking auction_2-1: Warming up for 3.0000 s
+Benchmarking auction_2-1: Collecting 100 samples in estimated 10.035 s (71k iterations)
+Benchmarking auction_2-1: Analyzing
+auction_2-1             time:   [141.30 µs 141.43 µs 141.58 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  1 (1.00%) low mild
+  5 (5.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking auction_2-2
+Benchmarking auction_2-2: Warming up for 3.0000 s
+Benchmarking auction_2-2: Collecting 100 samples in estimated 11.997 s (30k iterations)
+Benchmarking auction_2-2: Analyzing
+auction_2-2             time:   [397.38 µs 398.63 µs 399.88 µs]
+
+Benchmarking auction_2-3
+Benchmarking auction_2-3: Warming up for 3.0000 s
+Benchmarking auction_2-3: Collecting 100 samples in estimated 11.899 s (25k iterations)
+Benchmarking auction_2-3: Analyzing
+auction_2-3             time:   [473.40 µs 474.94 µs 476.51 µs]
+Found 15 outliers among 100 measurements (15.00%)
+  4 (4.00%) high mild
+  11 (11.00%) high severe
+
+Benchmarking auction_2-4
+Benchmarking auction_2-4: Warming up for 3.0000 s
+Benchmarking auction_2-4: Collecting 100 samples in estimated 10.064 s (25k iterations)
+Benchmarking auction_2-4: Analyzing
+auction_2-4             time:   [397.46 µs 398.89 µs 400.22 µs]
+Found 19 outliers among 100 measurements (19.00%)
+  12 (12.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking auction_2-5
+Benchmarking auction_2-5: Warming up for 3.0000 s
+Benchmarking auction_2-5: Collecting 100 samples in estimated 10.322 s (61k iterations)
+Benchmarking auction_2-5: Analyzing
+auction_2-5             time:   [171.04 µs 171.61 µs 172.16 µs]
+Found 14 outliers among 100 measurements (14.00%)
+  2 (2.00%) high mild
+  12 (12.00%) high severe
+
+Benchmarking coop-1
+Benchmarking coop-1: Warming up for 3.0000 s
+Benchmarking coop-1: Collecting 100 samples in estimated 10.706 s (71k iterations)
+Benchmarking coop-1: Analyzing
+coop-1                  time:   [151.42 µs 151.75 µs 152.13 µs]
+Found 10 outliers among 100 measurements (10.00%)
+  3 (3.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking coop-2
+Benchmarking coop-2: Warming up for 3.0000 s
+Benchmarking coop-2: Collecting 100 samples in estimated 11.995 s (25k iterations)
+Benchmarking coop-2: Analyzing
+coop-2                  time:   [478.00 µs 479.62 µs 481.14 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  7 (7.00%) high mild
+
+Benchmarking coop-3
+Benchmarking coop-3: Warming up for 3.0000 s
+Benchmarking coop-3: Collecting 100 samples in estimated 10.221 s (10k iterations)
+Benchmarking coop-3: Analyzing
+coop-3                  time:   [1.0077 ms 1.0090 ms 1.0105 ms]
+Found 10 outliers among 100 measurements (10.00%)
+  1 (1.00%) low mild
+  7 (7.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking coop-4
+Benchmarking coop-4: Warming up for 3.0000 s
+Benchmarking coop-4: Collecting 100 samples in estimated 10.159 s (20k iterations)
+Benchmarking coop-4: Analyzing
+coop-4                  time:   [501.38 µs 501.79 µs 502.26 µs]
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking coop-5
+Benchmarking coop-5: Warming up for 3.0000 s
+Benchmarking coop-5: Collecting 100 samples in estimated 11.278 s (40k iterations)
+Benchmarking coop-5: Analyzing
+coop-5                  time:   [278.30 µs 278.49 µs 278.71 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking coop-6
+Benchmarking coop-6: Warming up for 3.0000 s
+Benchmarking coop-6: Collecting 100 samples in estimated 10.604 s (25k iterations)
+Benchmarking coop-6: Analyzing
+coop-6                  time:   [416.56 µs 416.84 µs 417.13 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  2 (2.00%) low mild
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking coop-7
+Benchmarking coop-7: Warming up for 3.0000 s
+Benchmarking coop-7: Collecting 100 samples in estimated 10.738 s (50k iterations)
+Benchmarking coop-7: Analyzing
+coop-7                  time:   [212.11 µs 212.26 µs 212.45 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) low mild
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking crowdfunding-success-1
+Benchmarking crowdfunding-success-1: Warming up for 3.0000 s
+Benchmarking crowdfunding-success-1: Collecting 100 samples in estimated 10.061 s (61k iterations)
+Benchmarking crowdfunding-success-1: Analyzing
+crowdfunding-success-1  time:   [165.60 µs 165.73 µs 165.86 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  6 (6.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking crowdfunding-success-2
+Benchmarking crowdfunding-success-2: Warming up for 3.0000 s
+Benchmarking crowdfunding-success-2: Collecting 100 samples in estimated 10.061 s (61k iterations)
+Benchmarking crowdfunding-success-2: Analyzing
+crowdfunding-success-2  time:   [166.03 µs 166.26 µs 166.54 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking crowdfunding-success-3
+Benchmarking crowdfunding-success-3: Warming up for 3.0000 s
+Benchmarking crowdfunding-success-3: Collecting 100 samples in estimated 10.143 s (61k iterations)
+Benchmarking crowdfunding-success-3: Analyzing
+crowdfunding-success-3  time:   [167.16 µs 167.62 µs 168.09 µs]
+Found 14 outliers among 100 measurements (14.00%)
+  14 (14.00%) high mild
+
+Benchmarking currency-1
+Benchmarking currency-1: Warming up for 3.0000 s
+Benchmarking currency-1: Collecting 100 samples in estimated 10.569 s (61k iterations)
+Benchmarking currency-1: Analyzing
+currency-1              time:   [173.20 µs 173.32 µs 173.46 µs]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+Benchmarking escrow-redeem_1-1
+Benchmarking escrow-redeem_1-1: Warming up for 3.0000 s
+Benchmarking escrow-redeem_1-1: Collecting 100 samples in estimated 10.962 s (45k iterations)
+Benchmarking escrow-redeem_1-1: Analyzing
+escrow-redeem_1-1       time:   [239.82 µs 240.43 µs 241.09 µs]
+Found 18 outliers among 100 measurements (18.00%)
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  15 (15.00%) high severe
+
+Benchmarking escrow-redeem_1-2
+Benchmarking escrow-redeem_1-2: Warming up for 3.0000 s
+Benchmarking escrow-redeem_1-2: Collecting 100 samples in estimated 10.892 s (45k iterations)
+Benchmarking escrow-redeem_1-2: Analyzing
+escrow-redeem_1-2       time:   [240.20 µs 241.10 µs 242.21 µs]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+Benchmarking escrow-redeem_2-1
+Benchmarking escrow-redeem_2-1: Warming up for 3.0000 s
+Benchmarking escrow-redeem_2-1: Collecting 100 samples in estimated 10.726 s (40k iterations)
+Benchmarking escrow-redeem_2-1: Analyzing
+escrow-redeem_2-1       time:   [265.45 µs 265.71 µs 266.07 µs]
+Found 13 outliers among 100 measurements (13.00%)
+  1 (1.00%) low severe
+  3 (3.00%) low mild
+  5 (5.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking escrow-redeem_2-2
+Benchmarking escrow-redeem_2-2: Warming up for 3.0000 s
+Benchmarking escrow-redeem_2-2: Collecting 100 samples in estimated 10.754 s (40k iterations)
+Benchmarking escrow-redeem_2-2: Analyzing
+escrow-redeem_2-2       time:   [266.20 µs 266.88 µs 267.60 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  3 (3.00%) high mild
+  9 (9.00%) high severe
+
+Benchmarking escrow-redeem_2-3
+Benchmarking escrow-redeem_2-3: Warming up for 3.0000 s
+Benchmarking escrow-redeem_2-3: Collecting 100 samples in estimated 10.759 s (40k iterations)
+Benchmarking escrow-redeem_2-3: Analyzing
+escrow-redeem_2-3       time:   [266.42 µs 267.44 µs 268.41 µs]
+
+Benchmarking escrow-refund-1
+Benchmarking escrow-refund-1: Warming up for 3.0000 s
+Benchmarking escrow-refund-1: Collecting 100 samples in estimated 10.085 s (66k iterations)
+Benchmarking escrow-refund-1: Analyzing
+escrow-refund-1         time:   [155.15 µs 155.88 µs 156.77 µs]
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking future-increase-margin-1
+Benchmarking future-increase-margin-1: Warming up for 3.0000 s
+Benchmarking future-increase-margin-1: Collecting 100 samples in estimated 10.500 s (61k iterations)
+Benchmarking future-increase-margin-1: Analyzing
+future-increase-margin-1
+                        time:   [173.87 µs 174.45 µs 175.07 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking future-increase-margin-2
+Benchmarking future-increase-margin-2: Warming up for 3.0000 s
+Benchmarking future-increase-margin-2: Collecting 100 samples in estimated 11.563 s (35k iterations)
+Benchmarking future-increase-margin-2: Analyzing
+future-increase-margin-2
+                        time:   [326.84 µs 327.77 µs 328.77 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  9 (9.00%) high mild
+
+Benchmarking future-increase-margin-3
+Benchmarking future-increase-margin-3: Warming up for 3.0000 s
+Benchmarking future-increase-margin-3: Collecting 100 samples in estimated 11.526 s (35k iterations)
+Benchmarking future-increase-margin-3: Analyzing
+future-increase-margin-3
+                        time:   [325.86 µs 326.18 µs 326.55 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  3 (3.00%) low mild
+  4 (4.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking future-increase-margin-4
+Benchmarking future-increase-margin-4: Warming up for 3.0000 s
+Benchmarking future-increase-margin-4: Collecting 100 samples in estimated 11.030 s (30k iterations)
+Benchmarking future-increase-margin-4: Analyzing
+future-increase-margin-4
+                        time:   [364.98 µs 365.46 µs 366.03 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking future-increase-margin-5
+Benchmarking future-increase-margin-5: Warming up for 3.0000 s
+Benchmarking future-increase-margin-5: Collecting 100 samples in estimated 10.302 s (20k iterations)
+Benchmarking future-increase-margin-5: Analyzing
+future-increase-margin-5
+                        time:   [513.89 µs 517.79 µs 522.57 µs]
+Found 10 outliers among 100 measurements (10.00%)
+  8 (8.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking future-pay-out-1
+Benchmarking future-pay-out-1: Warming up for 3.0000 s
+Benchmarking future-pay-out-1: Collecting 100 samples in estimated 10.518 s (61k iterations)
+Benchmarking future-pay-out-1: Analyzing
+future-pay-out-1        time:   [173.09 µs 173.22 µs 173.38 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking future-pay-out-2
+Benchmarking future-pay-out-2: Warming up for 3.0000 s
+Benchmarking future-pay-out-2: Collecting 100 samples in estimated 11.650 s (35k iterations)
+Benchmarking future-pay-out-2: Analyzing
+future-pay-out-2        time:   [326.91 µs 327.77 µs 328.65 µs]
+Found 10 outliers among 100 measurements (10.00%)
+  2 (2.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking future-pay-out-3
+Benchmarking future-pay-out-3: Warming up for 3.0000 s
+Benchmarking future-pay-out-3: Collecting 100 samples in estimated 11.585 s (35k iterations)
+Benchmarking future-pay-out-3: Analyzing
+future-pay-out-3        time:   [325.56 µs 325.84 µs 326.12 µs]
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking future-pay-out-4
+Benchmarking future-pay-out-4: Warming up for 3.0000 s
+Benchmarking future-pay-out-4: Collecting 100 samples in estimated 10.189 s (20k iterations)
+Benchmarking future-pay-out-4: Analyzing
+future-pay-out-4        time:   [503.46 µs 505.15 µs 507.00 µs]
+Found 3 outliers among 100 measurements (3.00%)
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking future-settle-early-1
+Benchmarking future-settle-early-1: Warming up for 3.0000 s
+Benchmarking future-settle-early-1: Collecting 100 samples in estimated 10.576 s (61k iterations)
+Benchmarking future-settle-early-1: Analyzing
+future-settle-early-1   time:   [175.95 µs 177.08 µs 178.51 µs]
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+
+Benchmarking future-settle-early-2
+Benchmarking future-settle-early-2: Warming up for 3.0000 s
+Benchmarking future-settle-early-2: Collecting 100 samples in estimated 11.576 s (35k iterations)
+Benchmarking future-settle-early-2: Analyzing
+future-settle-early-2   time:   [327.90 µs 328.95 µs 330.24 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking future-settle-early-3
+Benchmarking future-settle-early-3: Warming up for 3.0000 s
+Benchmarking future-settle-early-3: Collecting 100 samples in estimated 11.576 s (35k iterations)
+Benchmarking future-settle-early-3: Analyzing
+future-settle-early-3   time:   [325.65 µs 325.92 µs 326.23 µs]
+Found 4 outliers among 100 measurements (4.00%)
+  3 (3.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking future-settle-early-4
+Benchmarking future-settle-early-4: Warming up for 3.0000 s
+Benchmarking future-settle-early-4: Collecting 100 samples in estimated 10.665 s (25k iterations)
+Benchmarking future-settle-early-4: Analyzing
+future-settle-early-4   time:   [422.10 µs 423.42 µs 424.85 µs]
+Found 19 outliers among 100 measurements (19.00%)
+  5 (5.00%) high mild
+  14 (14.00%) high severe
+
+Benchmarking game-sm-success_1-1
+Benchmarking game-sm-success_1-1: Warming up for 3.0000 s
+Benchmarking game-sm-success_1-1: Collecting 100 samples in estimated 10.702 s (35k iterations)
+Benchmarking game-sm-success_1-1: Analyzing
+game-sm-success_1-1     time:   [298.60 µs 299.52 µs 300.47 µs]
+Found 18 outliers among 100 measurements (18.00%)
+  1 (1.00%) low mild
+  9 (9.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking game-sm-success_1-2
+Benchmarking game-sm-success_1-2: Warming up for 3.0000 s
+Benchmarking game-sm-success_1-2: Collecting 100 samples in estimated 10.456 s (71k iterations)
+Benchmarking game-sm-success_1-2: Analyzing
+game-sm-success_1-2     time:   [147.57 µs 148.09 µs 148.66 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+
+Benchmarking game-sm-success_1-3
+Benchmarking game-sm-success_1-3: Warming up for 3.0000 s
+Benchmarking game-sm-success_1-3: Collecting 100 samples in estimated 10.127 s (25k iterations)
+Benchmarking game-sm-success_1-3: Analyzing
+game-sm-success_1-3     time:   [402.89 µs 404.12 µs 405.40 µs]
+
+Benchmarking game-sm-success_1-4
+Benchmarking game-sm-success_1-4: Warming up for 3.0000 s
+Benchmarking game-sm-success_1-4: Collecting 100 samples in estimated 10.089 s (61k iterations)
+Benchmarking game-sm-success_1-4: Analyzing
+game-sm-success_1-4     time:   [167.45 µs 167.96 µs 168.50 µs]
+
+Benchmarking game-sm-success_2-1
+Benchmarking game-sm-success_2-1: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-1: Collecting 100 samples in estimated 10.629 s (35k iterations)
+Benchmarking game-sm-success_2-1: Analyzing
+game-sm-success_2-1     time:   [297.53 µs 298.19 µs 298.95 µs]
+
+Benchmarking game-sm-success_2-2
+Benchmarking game-sm-success_2-2: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-2: Collecting 100 samples in estimated 10.394 s (71k iterations)
+Benchmarking game-sm-success_2-2: Analyzing
+game-sm-success_2-2     time:   [147.19 µs 147.50 µs 147.89 µs]
+Found 16 outliers among 100 measurements (16.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  10 (10.00%) high severe
+
+Benchmarking game-sm-success_2-3
+Benchmarking game-sm-success_2-3: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-3: Collecting 100 samples in estimated 10.197 s (25k iterations)
+Benchmarking game-sm-success_2-3: Analyzing
+game-sm-success_2-3     time:   [400.42 µs 401.33 µs 402.36 µs]
+Found 16 outliers among 100 measurements (16.00%)
+  15 (15.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking game-sm-success_2-4
+Benchmarking game-sm-success_2-4: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-4: Collecting 100 samples in estimated 10.143 s (61k iterations)
+Benchmarking game-sm-success_2-4: Analyzing
+game-sm-success_2-4     time:   [165.25 µs 165.61 µs 165.95 µs]
+Found 10 outliers among 100 measurements (10.00%)
+  5 (5.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking game-sm-success_2-5
+Benchmarking game-sm-success_2-5: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-5: Collecting 100 samples in estimated 10.158 s (25k iterations)
+Benchmarking game-sm-success_2-5: Analyzing
+game-sm-success_2-5     time:   [400.30 µs 401.49 µs 402.78 µs]
+
+Benchmarking game-sm-success_2-6
+Benchmarking game-sm-success_2-6: Warming up for 3.0000 s
+Benchmarking game-sm-success_2-6: Collecting 100 samples in estimated 10.077 s (61k iterations)
+Benchmarking game-sm-success_2-6: Analyzing
+game-sm-success_2-6     time:   [165.83 µs 166.35 µs 166.98 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+
+Benchmarking guardrail-sorted-large
+Benchmarking guardrail-sorted-large: Warming up for 3.0000 s
+Benchmarking guardrail-sorted-large: Collecting 100 samples in estimated 10.607 s (35k iterations)
+Benchmarking guardrail-sorted-large: Analyzing
+guardrail-sorted-large  time:   [298.73 µs 299.45 µs 300.26 µs]
+
+Benchmarking guardrail-sorted-small
+Benchmarking guardrail-sorted-small: Warming up for 3.0000 s
+Benchmarking guardrail-sorted-small: Collecting 100 samples in estimated 10.110 s (152k iterations)
+Benchmarking guardrail-sorted-small: Analyzing
+guardrail-sorted-small  time:   [66.328 µs 66.558 µs 66.796 µs]
+Found 18 outliers among 100 measurements (18.00%)
+  15 (15.00%) high mild
+  3 (3.00%) high severe
+
+Benchmarking guardrail-unsorted-large
+Benchmarking guardrail-unsorted-large: Warming up for 3.0000 s
+Benchmarking guardrail-unsorted-large: Collecting 100 samples in estimated 11.025 s (30k iterations)
+Benchmarking guardrail-unsorted-large: Analyzing
+guardrail-unsorted-large
+                        time:   [358.59 µs 359.03 µs 359.54 µs]
+Found 5 outliers among 100 measurements (5.00%)
+  5 (5.00%) high mild
+
+Benchmarking guardrail-unsorted-small
+Benchmarking guardrail-unsorted-small: Warming up for 3.0000 s
+Benchmarking guardrail-unsorted-small: Collecting 100 samples in estimated 10.071 s (152k iterations)
+Benchmarking guardrail-unsorted-small: Analyzing
+guardrail-unsorted-small
+                        time:   [65.474 µs 65.674 µs 65.909 µs]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high severe
+
+Benchmarking multisig-sm-01
+Benchmarking multisig-sm-01: Warming up for 3.0000 s
+Benchmarking multisig-sm-01: Collecting 100 samples in estimated 11.004 s (35k iterations)
+Benchmarking multisig-sm-01: Analyzing
+multisig-sm-01          time:   [310.09 µs 310.98 µs 311.94 µs]
+
+Benchmarking multisig-sm-02
+Benchmarking multisig-sm-02: Warming up for 3.0000 s
+Benchmarking multisig-sm-02: Collecting 100 samples in estimated 10.800 s (35k iterations)
+Benchmarking multisig-sm-02: Analyzing
+multisig-sm-02          time:   [305.88 µs 306.60 µs 307.42 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  9 (9.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking multisig-sm-03
+Benchmarking multisig-sm-03: Warming up for 3.0000 s
+Benchmarking multisig-sm-03: Collecting 100 samples in estimated 11.020 s (35k iterations)
+Benchmarking multisig-sm-03: Analyzing
+multisig-sm-03          time:   [307.71 µs 308.48 µs 309.32 µs]
+Found 15 outliers among 100 measurements (15.00%)
+  3 (3.00%) high mild
+  12 (12.00%) high severe
+
+Benchmarking multisig-sm-04
+Benchmarking multisig-sm-04: Warming up for 3.0000 s
+Benchmarking multisig-sm-04: Collecting 100 samples in estimated 11.106 s (35k iterations)
+Benchmarking multisig-sm-04: Analyzing
+multisig-sm-04          time:   [308.70 µs 308.99 µs 309.32 µs]
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking multisig-sm-05
+Benchmarking multisig-sm-05: Warming up for 3.0000 s
+Benchmarking multisig-sm-05: Collecting 100 samples in estimated 11.427 s (30k iterations)
+Benchmarking multisig-sm-05: Analyzing
+multisig-sm-05          time:   [371.61 µs 372.37 µs 373.25 µs]
+
+Benchmarking multisig-sm-06
+Benchmarking multisig-sm-06: Warming up for 3.0000 s
+Benchmarking multisig-sm-06: Collecting 100 samples in estimated 11.091 s (35k iterations)
+Benchmarking multisig-sm-06: Analyzing
+multisig-sm-06          time:   [309.15 µs 309.66 µs 310.28 µs]
+
+Benchmarking multisig-sm-07
+Benchmarking multisig-sm-07: Warming up for 3.0000 s
+Benchmarking multisig-sm-07: Collecting 100 samples in estimated 10.941 s (35k iterations)
+Benchmarking multisig-sm-07: Analyzing
+multisig-sm-07          time:   [306.82 µs 308.02 µs 309.71 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking multisig-sm-08
+Benchmarking multisig-sm-08: Warming up for 3.0000 s
+Benchmarking multisig-sm-08: Collecting 100 samples in estimated 10.892 s (35k iterations)
+Benchmarking multisig-sm-08: Analyzing
+multisig-sm-08          time:   [309.12 µs 310.00 µs 310.97 µs]
+
+Benchmarking multisig-sm-09
+Benchmarking multisig-sm-09: Warming up for 3.0000 s
+Benchmarking multisig-sm-09: Collecting 100 samples in estimated 10.938 s (35k iterations)
+Benchmarking multisig-sm-09: Analyzing
+multisig-sm-09          time:   [309.98 µs 310.44 µs 311.01 µs]
+
+Benchmarking multisig-sm-10
+Benchmarking multisig-sm-10: Warming up for 3.0000 s
+Benchmarking multisig-sm-10: Collecting 100 samples in estimated 11.284 s (30k iterations)
+Benchmarking multisig-sm-10: Analyzing
+multisig-sm-10          time:   [371.90 µs 372.73 µs 373.71 µs]
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+
+Benchmarking ping-pong-1
+Benchmarking ping-pong-1: Warming up for 3.0000 s
+Benchmarking ping-pong-1: Collecting 100 samples in estimated 10.642 s (40k iterations)
+Benchmarking ping-pong-1: Analyzing
+ping-pong-1             time:   [261.23 µs 262.25 µs 263.31 µs]
+Found 18 outliers among 100 measurements (18.00%)
+  6 (6.00%) high mild
+  12 (12.00%) high severe
+
+Benchmarking ping-pong-2
+Benchmarking ping-pong-2: Warming up for 3.0000 s
+Benchmarking ping-pong-2: Collecting 100 samples in estimated 10.551 s (40k iterations)
+Benchmarking ping-pong-2: Analyzing
+ping-pong-2             time:   [260.01 µs 260.30 µs 260.63 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  7 (7.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking ping-pong_2-1
+Benchmarking ping-pong_2-1: Warming up for 3.0000 s
+Benchmarking ping-pong_2-1: Collecting 100 samples in estimated 10.478 s (50k iterations)
+Benchmarking ping-pong_2-1: Analyzing
+ping-pong_2-1           time:   [205.16 µs 205.44 µs 205.77 µs]
+Found 5 outliers among 100 measurements (5.00%)
+  1 (1.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking prism-1
+Benchmarking prism-1: Warming up for 3.0000 s
+Benchmarking prism-1: Collecting 100 samples in estimated 10.242 s (81k iterations)
+Benchmarking prism-1: Analyzing
+prism-1                 time:   [125.10 µs 125.24 µs 125.41 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking prism-2
+Benchmarking prism-2: Warming up for 3.0000 s
+Benchmarking prism-2: Collecting 100 samples in estimated 11.148 s (35k iterations)
+Benchmarking prism-2: Analyzing
+prism-2                 time:   [310.03 µs 310.67 µs 311.53 µs]
+Found 7 outliers among 100 measurements (7.00%)
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking prism-3
+Benchmarking prism-3: Warming up for 3.0000 s
+Benchmarking prism-3: Collecting 100 samples in estimated 10.844 s (45k iterations)
+Benchmarking prism-3: Analyzing
+prism-3                 time:   [237.98 µs 238.52 µs 239.15 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking pubkey-1
+Benchmarking pubkey-1: Warming up for 3.0000 s
+Benchmarking pubkey-1: Collecting 100 samples in estimated 10.503 s (91k iterations)
+Benchmarking pubkey-1: Analyzing
+pubkey-1                time:   [115.30 µs 115.60 µs 115.94 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+Benchmarking stablecoin_1-1
+Benchmarking stablecoin_1-1: Warming up for 3.0000 s
+Benchmarking stablecoin_1-1: Collecting 100 samples in estimated 11.982 s (20k iterations)
+Benchmarking stablecoin_1-1: Analyzing
+stablecoin_1-1          time:   [592.82 µs 594.19 µs 595.77 µs]
+
+Benchmarking stablecoin_1-2
+Benchmarking stablecoin_1-2: Warming up for 3.0000 s
+Benchmarking stablecoin_1-2: Collecting 100 samples in estimated 10.205 s (66k iterations)
+Benchmarking stablecoin_1-2: Analyzing
+stablecoin_1-2          time:   [149.09 µs 149.63 µs 150.30 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  1 (1.00%) high mild
+  10 (10.00%) high severe
+
+Benchmarking stablecoin_1-3
+Benchmarking stablecoin_1-3: Warming up for 3.0000 s
+Benchmarking stablecoin_1-3: Collecting 100 samples in estimated 13.130 s (20k iterations)
+Benchmarking stablecoin_1-3: Analyzing
+stablecoin_1-3          time:   [647.68 µs 649.02 µs 650.59 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  9 (9.00%) high mild
+  2 (2.00%) high severe
+
+Benchmarking stablecoin_1-4
+Benchmarking stablecoin_1-4: Warming up for 3.0000 s
+Benchmarking stablecoin_1-4: Collecting 100 samples in estimated 10.244 s (66k iterations)
+Benchmarking stablecoin_1-4: Analyzing
+stablecoin_1-4          time:   [155.26 µs 155.64 µs 156.05 µs]
+Found 11 outliers among 100 measurements (11.00%)
+  3 (3.00%) high mild
+  8 (8.00%) high severe
+
+Benchmarking stablecoin_1-5
+Benchmarking stablecoin_1-5: Warming up for 3.0000 s
+Benchmarking stablecoin_1-5: Collecting 100 samples in estimated 11.795 s (15k iterations)
+Benchmarking stablecoin_1-5: Analyzing
+stablecoin_1-5          time:   [766.23 µs 767.16 µs 768.20 µs]
+
+Benchmarking stablecoin_1-6
+Benchmarking stablecoin_1-6: Warming up for 3.0000 s
+Benchmarking stablecoin_1-6: Collecting 100 samples in estimated 10.276 s (56k iterations)
+Benchmarking stablecoin_1-6: Analyzing
+stablecoin_1-6          time:   [182.47 µs 183.20 µs 184.00 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  5 (5.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking stablecoin_2-1
+Benchmarking stablecoin_2-1: Warming up for 3.0000 s
+Benchmarking stablecoin_2-1: Collecting 100 samples in estimated 11.921 s (20k iterations)
+Benchmarking stablecoin_2-1: Analyzing
+stablecoin_2-1          time:   [593.26 µs 594.98 µs 596.87 µs]
+
+Benchmarking stablecoin_2-2
+Benchmarking stablecoin_2-2: Warming up for 3.0000 s
+Benchmarking stablecoin_2-2: Collecting 100 samples in estimated 10.545 s (71k iterations)
+Benchmarking stablecoin_2-2: Analyzing
+stablecoin_2-2          time:   [149.59 µs 150.09 µs 150.62 µs]
+
+Benchmarking stablecoin_2-3
+Benchmarking stablecoin_2-3: Warming up for 3.0000 s
+Benchmarking stablecoin_2-3: Collecting 100 samples in estimated 13.079 s (20k iterations)
+Benchmarking stablecoin_2-3: Analyzing
+stablecoin_2-3          time:   [650.84 µs 652.89 µs 655.05 µs]
+
+Benchmarking stablecoin_2-4
+Benchmarking stablecoin_2-4: Warming up for 3.0000 s
+Benchmarking stablecoin_2-4: Collecting 100 samples in estimated 10.256 s (66k iterations)
+Benchmarking stablecoin_2-4: Analyzing
+stablecoin_2-4          time:   [155.13 µs 155.56 µs 156.06 µs]
+Found 13 outliers among 100 measurements (13.00%)
+  12 (12.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking token-account-1
+Benchmarking token-account-1: Warming up for 3.0000 s
+Benchmarking token-account-1: Collecting 100 samples in estimated 10.570 s (71k iterations)
+Benchmarking token-account-1: Analyzing
+token-account-1         time:   [148.91 µs 149.30 µs 149.73 µs]
+Found 19 outliers among 100 measurements (19.00%)
+  5 (5.00%) high mild
+  14 (14.00%) high severe
+
+Benchmarking token-account-2
+Benchmarking token-account-2: Warming up for 3.0000 s
+Benchmarking token-account-2: Collecting 100 samples in estimated 10.774 s (50k iterations)
+Benchmarking token-account-2: Analyzing
+token-account-2         time:   [212.83 µs 213.23 µs 213.71 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+  5 (5.00%) high severe
+
+Benchmarking uniswap-1
+Benchmarking uniswap-1: Warming up for 3.0000 s
+Benchmarking uniswap-1: Collecting 100 samples in estimated 10.639 s (45k iterations)
+Benchmarking uniswap-1: Analyzing
+uniswap-1               time:   [233.74 µs 234.30 µs 234.95 µs]
+Found 16 outliers among 100 measurements (16.00%)
+  10 (10.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking uniswap-2
+Benchmarking uniswap-2: Warming up for 3.0000 s
+Benchmarking uniswap-2: Collecting 100 samples in estimated 10.311 s (61k iterations)
+Benchmarking uniswap-2: Analyzing
+uniswap-2               time:   [169.26 µs 169.73 µs 170.27 µs]
+
+Benchmarking uniswap-3
+Benchmarking uniswap-3: Warming up for 3.0000 s
+Benchmarking uniswap-3: Collecting 100 samples in estimated 12.969 s (15k iterations)
+Benchmarking uniswap-3: Analyzing
+uniswap-3               time:   [848.98 µs 851.37 µs 853.91 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  12 (12.00%) high mild
+
+Benchmarking uniswap-4
+Benchmarking uniswap-4: Warming up for 3.0000 s
+Benchmarking uniswap-4: Collecting 100 samples in estimated 10.509 s (45k iterations)
+Benchmarking uniswap-4: Analyzing
+uniswap-4               time:   [231.06 µs 231.85 µs 232.70 µs]
+
+Benchmarking uniswap-5
+Benchmarking uniswap-5: Warming up for 3.0000 s
+Benchmarking uniswap-5: Collecting 100 samples in estimated 12.922 s (20k iterations)
+Benchmarking uniswap-5: Analyzing
+uniswap-5               time:   [640.23 µs 642.62 µs 645.64 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high severe
+
+Benchmarking uniswap-6
+Benchmarking uniswap-6: Warming up for 3.0000 s
+Benchmarking uniswap-6: Collecting 100 samples in estimated 10.030 s (45k iterations)
+Benchmarking uniswap-6: Analyzing
+uniswap-6               time:   [220.67 µs 221.36 µs 222.11 µs]
+
+Benchmarking vesting-1
+Benchmarking vesting-1: Warming up for 3.0000 s
+Benchmarking vesting-1: Collecting 100 samples in estimated 10.865 s (45k iterations)
+Benchmarking vesting-1: Analyzing
+vesting-1               time:   [237.93 µs 238.68 µs 239.51 µs]
+
