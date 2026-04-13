@@ -139,6 +139,34 @@ WORKDIR /src
 RUN sbt bench/Jmh/compile
 
 # =============================================================================
+# Build stage: Julc (Java / GraalVM / JMH)
+# =============================================================================
+FROM debian:bookworm-slim AS build-julc
+
+ARG JULC_REPO
+ARG JULC_SHA
+ARG JDK_SDK_VERSION
+
+RUN apt-get update \
+    && apt-get install -y curl git zip unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install GraalVM JDK 25 via SDKMAN (required for Java 25 source)
+RUN curl -s "https://get.sdkman.io" | bash \
+    && bash -c "source /root/.sdkman/bin/sdkman-init.sh \
+    && sdk install java ${JDK_SDK_VERSION}"
+ENV JAVA_HOME=/root/.sdkman/candidates/java/current
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+RUN git clone "$JULC_REPO" /src \
+    && cd /src && git checkout "$JULC_SHA"
+
+WORKDIR /src
+
+# Build fat JMH benchmark JAR (includes all dependencies)
+RUN ./gradlew :julc-benchmark:jmhJar --no-daemon
+
+# =============================================================================
 # Build stage: plutus-core / Haskell (GHC / Criterion)
 # =============================================================================
 FROM debian:bookworm AS build-haskell
@@ -264,12 +292,18 @@ COPY --from=build-scalus /root/.sbt /root/.sbt
 COPY --from=build-scalus /root/.cache /root/.cache
 RUN ln -sf /opt/sbt/bin/sbt /usr/local/bin/sbt
 
-# Install JDK for Scalus + GHC runtime deps for Haskell
+# Julc: fat JMH benchmark JAR (no sbt/gradle needed at runtime)
+COPY --from=build-julc /src/julc-benchmark/build/libs/*-jmh.jar /bench/julc/julc-benchmark-jmh.jar
+
+# Install JDK 21 for Scalus + GHC runtime deps for Haskell
 RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-21-jre-headless \
     libgmp10 libsodium-dev libsecp256k1-dev libstdc++6 \
     && rm -rf /var/lib/apt/lists/* \
     && ldconfig
+
+# Copy GraalVM JDK 25 from build stage for Julc (Java 25 bytecode requires JDK 25)
+COPY --from=build-julc /root/.sdkman/candidates/java/current /opt/jdk-25
 
 # --- Copy benchmark data and scripts ---
 COPY data/ /bench/data/

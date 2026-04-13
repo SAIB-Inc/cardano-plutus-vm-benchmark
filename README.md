@@ -31,6 +31,7 @@ Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framew
 | **Plutigo** | Go | testing.B | [blinklabs-io/plutigo](https://github.com/blinklabs-io/plutigo) |
 | **blaze-plutus** | TypeScript | Vitest bench (V8 + JSC) | [butaneprotocol/blaze-cardano](https://github.com/butaneprotocol/blaze-cardano) |
 | **opshin-uplc** | Python | Custom | [OpShin/uplc](https://github.com/OpShin/uplc) |
+| **Julc** | Java | JMH (CEK) | [bloxbean/julc](https://github.com/bloxbean/julc) |
 
 ## What's Measured
 

@@ -20,8 +20,11 @@ services:
         - HASKELL_SHA
         - SCALUS_REPO
         - SCALUS_SHA
+        - JULC_REPO
+        - JULC_SHA
         - ZIG_VERSION
         - GHC_VERSION
+        - JDK_SDK_VERSION
     cap_add:
       - SYS_NICE
     user: "${UID:-1000}:${GID:-1000}"
