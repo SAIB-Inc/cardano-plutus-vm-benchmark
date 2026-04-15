@@ -9,6 +9,7 @@ from collections import defaultdict
 
 VM_ORDER = [
     "haskell", "scalus-jit", "scalus-cek",
+    "llvm-uplc-jit",
     "uplc-turbo-bc", "uplc-turbo",
     "plutuz", "chrysalis", "chrysalis-aot",
     "plutigo", "blaze-jsc", "blaze-v8", "opshin",
@@ -26,6 +27,7 @@ VM_LABELS = {
     "haskell": "plutus-core (Haskell / GHC)",
     "scalus-cek": "Scalus CEK (Scala / JVM)",
     "scalus-jit": "Scalus Hybrid JIT (Scala / JVM)",
+    "llvm-uplc-jit": "llvm-uplc (C++ / LLVM JIT)",
 }
 
 

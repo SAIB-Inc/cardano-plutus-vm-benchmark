@@ -20,8 +20,11 @@ services:
         - HASKELL_SHA
         - SCALUS_REPO
         - SCALUS_SHA
+        - LLVM_UPLC_REPO
+        - LLVM_UPLC_SHA
         - ZIG_VERSION
         - GHC_VERSION
+        - LLVM_VERSION
     cap_add:
       - SYS_NICE
     user: "${UID:-1000}:${GID:-1000}"

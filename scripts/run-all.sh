@@ -36,7 +36,7 @@ cat "$RUN_DIR/environment.txt"
 echo ""
 
 # Track which VMs to run (default: all)
-VMS="${BENCH_VMS:-chrysalis,chrysalis-aot,uplc-turbo,uplc-turbo-bc,plutigo,blaze-jsc,blaze-v8,plutuz,opshin,haskell,scalus-cek,scalus-jit}"
+VMS="${BENCH_VMS:-chrysalis,chrysalis-aot,uplc-turbo,uplc-turbo-bc,plutigo,blaze-jsc,blaze-v8,plutuz,opshin,haskell,scalus-cek,scalus-jit,llvm-uplc-jit}"
 
 run_vm() {
     local vm_name="$1"
