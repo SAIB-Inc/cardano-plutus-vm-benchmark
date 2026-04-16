@@ -16,6 +16,7 @@ HEADER = "vm,script,mean_ns,median_ns,min_ns,max_ns,stddev_ns,iterations"
 BENCH_TO_VM = {
     "CekJVMBenchmark.bench": "scalus-cek",
     "JITHybridBenchmark.benchJIT_Hybrid": "scalus-jit",
+    "CekJavaBenchmark.bench": "julc-java",
 }
 
 # Unit conversion to nanoseconds
