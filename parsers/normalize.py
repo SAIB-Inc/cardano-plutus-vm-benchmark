@@ -19,6 +19,7 @@ VM_FILES = [
     "scalus-cek.csv",
     "scalus-jit.csv",
     "julc-java.csv",
+    "llvm-uplc-jit.csv",
 ]
 
 HEADER = ["vm", "script", "mean_ns", "median_ns", "min_ns", "max_ns", "stddev_ns", "iterations"]

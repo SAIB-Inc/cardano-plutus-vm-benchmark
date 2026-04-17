@@ -22,9 +22,12 @@ services:
         - SCALUS_SHA
         - JULC_REPO
         - JULC_SHA
+        - LLVM_UPLC_REPO
+        - LLVM_UPLC_SHA
         - ZIG_VERSION
         - GHC_VERSION
         - JDK_SDK_VERSION
+        - LLVM_VERSION
     cap_add:
       - SYS_NICE
     user: "${UID:-1000}:${GID:-1000}"

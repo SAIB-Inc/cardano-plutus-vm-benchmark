@@ -33,6 +33,7 @@ Each VM uses its own benchmark framework rather than a uniform harness:
 | blaze-plutus | Vitest bench | Automatic | Auto | Auto |
 | Plutuz | Custom | 5 iterations | 50 | 5s |
 | opshin-uplc | Custom | 5 iterations | 50 | 5s |
+| llvm-uplc | Custom (`uplcbench`) | 5 iterations | 50 | 5s |
 
 Each framework handles warmup, iteration count, and outlier detection using its own proven methodology. Reimplementing this in a uniform harness would be less accurate and harder to maintain.
 
