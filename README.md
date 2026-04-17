@@ -32,6 +32,7 @@ Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framew
 | **blaze-plutus** | TypeScript | Vitest bench (V8 + JSC) | [butaneprotocol/blaze-cardano](https://github.com/butaneprotocol/blaze-cardano) |
 | **opshin-uplc** | Python | Custom | [OpShin/uplc](https://github.com/OpShin/uplc) |
 | **Julc** | Java | JMH (CEK) | [bloxbean/julc](https://github.com/bloxbean/julc) |
+| **llvm-uplc** | C++ / LLVM | Custom (`uplcbench`, JSON) | [SeungheonOh/llvm-uplc](https://github.com/SeungheonOh/llvm-uplc) |
 
 ## What's Measured
 

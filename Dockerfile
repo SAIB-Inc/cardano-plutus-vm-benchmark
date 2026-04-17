@@ -210,6 +210,68 @@ RUN cabal update
 RUN cabal build plutus-benchmark:bench:validation -j
 
 # =============================================================================
+# Build stage: llvm-uplc (C++ / LLVM LLJIT)
+# =============================================================================
+FROM ubuntu:24.04 AS build-llvm-uplc
+
+ARG LLVM_UPLC_REPO
+ARG LLVM_UPLC_SHA
+ARG LLVM_VERSION
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Derive the LLVM major version (e.g. 22) from LLVM_VERSION (e.g. 22.1.0)
+# for use with apt.llvm.org package naming.
+RUN LLVM_MAJOR="${LLVM_VERSION%%.*}" \
+    && echo "LLVM_MAJOR=${LLVM_MAJOR}" > /etc/environment
+
+# Build toolchain + llvm-uplc runtime library deps.
+# xxd is needed by runtime/CMakeLists.txt to embed bitcode blobs.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates git cmake ninja-build pkg-config \
+       wget gnupg lsb-release software-properties-common \
+       build-essential xxd \
+       libgmp-dev libsodium-dev libsecp256k1-dev libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install LLVM ${LLVM_VERSION} from the official apt.llvm.org repository
+RUN set -eux; \
+    LLVM_MAJOR="${LLVM_VERSION%%.*}"; \
+    wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key \
+        | gpg --dearmor -o /usr/share/keyrings/llvm-archive-keyring.gpg; \
+    . /etc/os-release; \
+    echo "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-${LLVM_MAJOR} main" \
+        > /etc/apt/sources.list.d/llvm.list; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        "clang-${LLVM_MAJOR}" "lld-${LLVM_MAJOR}" \
+        "llvm-${LLVM_MAJOR}-dev" "libclang-${LLVM_MAJOR}-dev" \
+        "libpolly-${LLVM_MAJOR}-dev"; \
+    rm -rf /var/lib/apt/lists/*
+
+RUN git clone "$LLVM_UPLC_REPO" /src \
+    && cd /src && git checkout "$LLVM_UPLC_SHA" \
+    && git submodule update --init --recursive
+
+WORKDIR /src
+
+# Configure + build only the benchmark harness target; this pulls in
+# uplc::frontend/codegen/runtime transitively and vendors BLST via
+# FetchContent during the configure step. Prepend /usr/lib/llvm-${MAJOR}/bin
+# so the unversioned clang/llvm-link/opt that runtime/CMakeLists.txt looks
+# up via find_program(... REQUIRED) resolve to the apt.llvm.org toolchain.
+RUN set -eux; \
+    LLVM_MAJOR="${LLVM_VERSION%%.*}"; \
+    export PATH="/usr/lib/llvm-${LLVM_MAJOR}/bin:${PATH}"; \
+    cmake -S . -B build -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_C_COMPILER="clang-${LLVM_MAJOR}" \
+        -DCMAKE_CXX_COMPILER="clang++-${LLVM_MAJOR}" \
+        -DLLVM_DIR="/usr/lib/llvm-${LLVM_MAJOR}/lib/cmake/llvm"; \
+    cmake --build build --target uplcbench -j"$(nproc)"
+
+# =============================================================================
 # Runtime stage: single ubuntu:24.04 image for all benchmarks
 # =============================================================================
 FROM ubuntu:24.04 AS runner
@@ -295,15 +357,36 @@ RUN ln -sf /opt/sbt/bin/sbt /usr/local/bin/sbt
 # Julc: fat JMH benchmark JAR (no sbt/gradle needed at runtime)
 COPY --from=build-julc /src/julc-benchmark/build/libs/*-jmh.jar /bench/julc/julc-benchmark-jmh.jar
 
-# Install JDK 21 for Scalus + GHC runtime deps for Haskell
+# Install JDK 21 for Scalus + GHC runtime deps for Haskell + libssl runtime for llvm-uplc
 RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-21-jre-headless \
-    libgmp10 libsodium-dev libsecp256k1-dev libstdc++6 \
+    libgmp10 libsodium-dev libsecp256k1-dev libstdc++6 libssl3t64 \
     && rm -rf /var/lib/apt/lists/* \
     && ldconfig
 
 # Copy GraalVM JDK 25 from build stage for Julc (Java 25 bytecode requires JDK 25)
 COPY --from=build-julc /root/.sdkman/candidates/java/current /opt/jdk-25
+
+# llvm-uplc: install LLVM runtime lib from apt.llvm.org and copy the
+# pre-built uplcbench binary. The harness links against libLLVM-${MAJOR}
+# dynamically; static runtime/frontend libs are force_loaded into the
+# executable at build time so we only need the LLVM shared lib at runtime.
+ARG LLVM_VERSION
+RUN set -eux; \
+    LLVM_MAJOR="${LLVM_VERSION%%.*}"; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends gnupg wget; \
+    wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key \
+        | gpg --dearmor -o /usr/share/keyrings/llvm-archive-keyring.gpg; \
+    . /etc/os-release; \
+    echo "deb [signed-by=/usr/share/keyrings/llvm-archive-keyring.gpg] http://apt.llvm.org/${UBUNTU_CODENAME}/ llvm-toolchain-${UBUNTU_CODENAME}-${LLVM_MAJOR} main" \
+        > /etc/apt/sources.list.d/llvm.list; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends "libllvm${LLVM_MAJOR}"; \
+    rm -rf /var/lib/apt/lists/*; \
+    ldconfig
+
+COPY --from=build-llvm-uplc /src/build/tools/bench/uplcbench /bench/llvm-uplc/uplcbench
 
 # --- Copy benchmark data and scripts ---
 COPY data/ /bench/data/
