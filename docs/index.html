@@ -547,38 +547,19 @@
     </a>
   </div>
 
-  <div class="note">
-    <strong>Method:</strong> flat-decode + CEK evaluate on 89 Plutus scripts. Each VM uses its native benchmark framework. Sequential execution, single Docker container.
-  </div>
-
   <div class="section">
-    <div class="section-title">Execution Model</div>
-    <div class="note" style="margin-bottom:0.6rem">VMs differ in <em>how</em> they execute UPLC. This matters when comparing numbers — a UPLC-level JIT compiler is doing fundamentally different work than a CEK interpreter, even when both happen to run on a JIT-compiled host runtime like JVM or .NET.</div>
-    <div class="engine-groups" id="engine-groups"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Rankings <em>by execution model</em></div>
-    <div class="note" style="margin-bottom:0.85rem">Within each category VMs are doing comparable work, so geometric means are computed only from scripts where every VM in that category succeeded. Cross-category times are <em>not</em> directly comparable — a UPLC JIT compiler doing real compilation work and a CEK interpreter walking an AST are fundamentally different measurements.</div>
-
     <div class="cat-filter" id="cat-filter"></div>
     <div id="rankings-by-cat"></div>
-
     <details class="overall-details">
       <summary>Show overall cross-category ranking</summary>
-      <div class="note" style="margin-bottom:0.7rem">Combined leaderboard with the penalty rule (missing/failed scripts get the slowest competitor's time). Useful for a single-number view, but remember the categorical caveat above.</div>
+      <div class="note" style="margin-bottom:0.7rem">Combined leaderboard with the penalty rule (missing/failed scripts get the slowest competitor's time). Useful for a single-number view, but cross-category numbers are not directly comparable &mdash; see <a href="#exec-model" style="color:var(--purple-bright);text-decoration:none">Execution Model</a> below.</div>
       <div class="overall-table" id="overall-table"></div>
     </details>
   </div>
 
   <div class="section">
-    <div class="section-title">Geometric Mean</div>
+    <div class="section-title">Geometric Mean <em>visualised</em></div>
     <div class="bar-chart" id="bar-chart"></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Toolchain</div>
-    <div class="toolchain" id="toolchain"></div>
   </div>
 
   <div class="section">
@@ -590,6 +571,22 @@
         <tbody id="table-body"></tbody>
       </table>
     </div>
+  </div>
+
+  <div class="section" id="exec-model">
+    <div class="section-title">Execution Model <em>why categories matter</em></div>
+    <div class="note" style="margin-bottom:0.85rem">VMs differ in <em>how</em> they execute UPLC. A UPLC-level JIT compiler is doing fundamentally different work than a CEK interpreter, even when both happen to run on a JIT-compiled host runtime like JVM or .NET. Within-category numbers are like-for-like; cross-category numbers are not directly comparable.</div>
+    <div class="engine-groups" id="engine-groups"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Toolchain</div>
+    <div class="toolchain" id="toolchain"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Method</div>
+    <div class="note" style="margin:0">flat-decode + CEK evaluate on 89 Plutus scripts. Each VM uses its native benchmark framework. Sequential execution, single Docker container. Geometric means within each category are computed only from scripts where every VM in that category produced a successful result &mdash; that is the only fair like-for-like comparison.</div>
   </div>
 
   <footer>
