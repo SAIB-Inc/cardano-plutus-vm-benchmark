@@ -17,43 +17,43 @@ memory: 47Gi
 
 | VM | Language | Geo Mean | vs Fastest |
 |---|---|---|---|
-| **llvm-uplc (C++ / LLVM JIT)** | C++ / LLVM JIT | 95.09 us | 1.00x |
-| **Scalus Hybrid JIT (Scala / JVM)** | Scala / JVM | 169.09 us | 1.78x |
-| **plutus-core (Haskell / GHC)** | Haskell / GHC | 176.05 us | 1.85x |
-| **uplc-turbo Bytecode (Rust / AOT)** | Rust / AOT | 205.45 us | 2.16x |
-| **Plutigo (Go)** | Go | 231.87 us | 2.44x |
+| **llvm-uplc UPLC→native JIT (C++ / LLVM)** | C++ / LLVM | 95.09 us | 1.00x |
+| **Scalus UPLC→JVM JIT (Scala / JVM)** | Scala / JVM | 169.09 us | 1.78x |
+| **plutus-core CEK (Haskell / GHC)** | Haskell / GHC | 176.05 us | 1.85x |
+| **uplc-turbo Bytecode VM (Rust)** | Rust | 205.45 us | 2.16x |
+| **Plutigo CEK (Go)** | Go | 231.87 us | 2.44x |
 | **Julc CEK (Java / GraalVM)** | Java / GraalVM | 247.62 us | 2.60x |
-| **uplc-turbo AST (Rust)** | Rust | 267.72 us | 2.82x |
+| **uplc-turbo AST walker (Rust)** | Rust | 267.72 us | 2.82x |
 | **Scalus CEK (Scala / JVM)** | Scala / JVM | 282.70 us | 2.97x |
-| **Plutuz (Zig)** | Zig | 365.69 us | 3.85x |
-| **Chrysalis (C# / .NET JIT)** | C# / .NET JIT | 386.98 us | 4.07x |
-| **Chrysalis (C# / .NET AOT)** | C# / .NET AOT | 388.27 us | 4.08x |
-| **blaze-plutus (TypeScript / Bun JSC)** | TypeScript / Bun JSC | 1.20 ms | 12.66x |
-| **blaze-plutus (TypeScript / Node V8)** | TypeScript / Node V8 | 1.21 ms | 12.72x |
-| **opshin (Python / CPython)** | Python / CPython | 49.69 ms | 522.52x |
+| **Plutuz CEK (Zig)** | Zig | 365.69 us | 3.85x |
+| **Chrysalis CEK (C# / .NET)** | C# / .NET | 386.98 us | 4.07x |
+| **Chrysalis CEK (C# / .NET AOT)** | C# / .NET AOT | 388.27 us | 4.08x |
+| **blaze-plutus CEK (TypeScript / Bun JSC)** | TypeScript / Bun JSC | 1.20 ms | 12.66x |
+| **blaze-plutus CEK (TypeScript / Node V8)** | TypeScript / Node V8 | 1.21 ms | 12.72x |
+| **opshin CEK (Python / CPython)** | Python / CPython | 49.69 ms | 522.52x |
 
 ### Script Coverage
 
 | VM | Passed | Failed | Missing | Total |
 |---|---|---|---|---|
-| llvm-uplc (C++ / LLVM JIT) | 89 | 0 | 0 | 89 |
-| Scalus Hybrid JIT (Scala / JVM) | 89 | 0 | 0 | 89 |
-| plutus-core (Haskell / GHC) | 89 | 0 | 0 | 89 |
-| uplc-turbo Bytecode (Rust / AOT) | 89 | 0 | 0 | 89 |
-| Plutigo (Go) | 89 | 0 | 0 | 89 |
+| llvm-uplc UPLC→native JIT (C++ / LLVM) | 89 | 0 | 0 | 89 |
+| Scalus UPLC→JVM JIT (Scala / JVM) | 89 | 0 | 0 | 89 |
+| plutus-core CEK (Haskell / GHC) | 89 | 0 | 0 | 89 |
+| uplc-turbo Bytecode VM (Rust) | 89 | 0 | 0 | 89 |
+| Plutigo CEK (Go) | 89 | 0 | 0 | 89 |
 | Julc CEK (Java / GraalVM) | 89 | 0 | 0 | 89 |
-| uplc-turbo AST (Rust) | 89 | 0 | 0 | 89 |
+| uplc-turbo AST walker (Rust) | 89 | 0 | 0 | 89 |
 | Scalus CEK (Scala / JVM) | 89 | 0 | 0 | 89 |
-| Plutuz (Zig) | 89 | 0 | 0 | 89 |
-| Chrysalis (C# / .NET JIT) | 89 | 0 | 0 | 89 |
-| Chrysalis (C# / .NET AOT) | 89 | 0 | 0 | 89 |
-| blaze-plutus (TypeScript / Bun JSC) | 89 | 0 | 0 | 89 |
-| blaze-plutus (TypeScript / Node V8) | 89 | 0 | 0 | 89 |
-| opshin (Python / CPython) | 70 | 19 | 0 | 89 |
+| Plutuz CEK (Zig) | 89 | 0 | 0 | 89 |
+| Chrysalis CEK (C# / .NET) | 89 | 0 | 0 | 89 |
+| Chrysalis CEK (C# / .NET AOT) | 89 | 0 | 0 | 89 |
+| blaze-plutus CEK (TypeScript / Bun JSC) | 89 | 0 | 0 | 89 |
+| blaze-plutus CEK (TypeScript / Node V8) | 89 | 0 | 0 | 89 |
+| opshin CEK (Python / CPython) | 70 | 19 | 0 | 89 |
 
 ## Per-Script Results
 
-| Script | plutus-core (Haskell / GHC) | Scalus Hybrid JIT (Scala / JVM) | Scalus CEK (Scala / JVM) | Julc CEK (Java / GraalVM) | llvm-uplc (C++ / LLVM JIT) | uplc-turbo Bytecode (Rust / AOT) | uplc-turbo AST (Rust) | Plutuz (Zig) | Chrysalis (C# / .NET JIT) | Chrysalis (C# / .NET AOT) | Plutigo (Go) | blaze-plutus (TypeScript / Bun JSC) | blaze-plutus (TypeScript / Node V8) | opshin (Python / CPython) |
+| Script | plutus-core CEK (Haskell / GHC) | Scalus UPLC→JVM JIT (Scala / JVM) | Scalus CEK (Scala / JVM) | Julc CEK (Java / GraalVM) | llvm-uplc UPLC→native JIT (C++ / LLVM) | uplc-turbo Bytecode VM (Rust) | uplc-turbo AST walker (Rust) | Plutuz CEK (Zig) | Chrysalis CEK (C# / .NET) | Chrysalis CEK (C# / .NET AOT) | Plutigo CEK (Go) | blaze-plutus CEK (TypeScript / Bun JSC) | blaze-plutus CEK (TypeScript / Node V8) | opshin CEK (Python / CPython) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | auction_1-1 | 78.93 us | **27.50 us** | 123.90 us | 110.70 us | 41.44 us | 100.03 us | 142.65 us | 188.08 us | 182.94 us | 185.01 us | 112.40 us | 537.40 us | 541.00 us | 83.67 ms |
 | auction_1-2 | 299.55 us | 794.59 us | 484.89 us | 396.79 us | **148.69 us** | 323.21 us | 395.88 us | 578.22 us | 655.20 us | 655.19 us | 385.99 us | 1.72 ms | 1.83 ms | 307.29 ms |

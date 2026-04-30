@@ -16,20 +16,20 @@ VM_ORDER = [
     "plutigo", "blaze-jsc", "blaze-v8", "opshin",
 ]
 VM_LABELS = {
-    "uplc-turbo": "uplc-turbo AST (Rust)",
-    "uplc-turbo-bc": "uplc-turbo Bytecode (Rust / AOT)",
-    "plutuz": "Plutuz (Zig)",
-    "chrysalis": "Chrysalis (C# / .NET JIT)",
-    "chrysalis-aot": "Chrysalis (C# / .NET AOT)",
-    "plutigo": "Plutigo (Go)",
-    "blaze-jsc": "blaze-plutus (TypeScript / Bun JSC)",
-    "blaze-v8": "blaze-plutus (TypeScript / Node V8)",
-    "opshin": "opshin (Python / CPython)",
-    "haskell": "plutus-core (Haskell / GHC)",
+    "uplc-turbo": "uplc-turbo AST walker (Rust)",
+    "uplc-turbo-bc": "uplc-turbo Bytecode VM (Rust)",
+    "plutuz": "Plutuz CEK (Zig)",
+    "chrysalis": "Chrysalis CEK (C# / .NET)",
+    "chrysalis-aot": "Chrysalis CEK (C# / .NET AOT)",
+    "plutigo": "Plutigo CEK (Go)",
+    "blaze-jsc": "blaze-plutus CEK (TypeScript / Bun JSC)",
+    "blaze-v8": "blaze-plutus CEK (TypeScript / Node V8)",
+    "opshin": "opshin CEK (Python / CPython)",
+    "haskell": "plutus-core CEK (Haskell / GHC)",
     "scalus-cek": "Scalus CEK (Scala / JVM)",
-    "scalus-jit": "Scalus Hybrid JIT (Scala / JVM)",
+    "scalus-jit": "Scalus UPLC→JVM JIT (Scala / JVM)",
     "julc-java": "Julc CEK (Java / GraalVM)",
-    "llvm-uplc-jit": "llvm-uplc (C++ / LLVM JIT)",
+    "llvm-uplc-jit": "llvm-uplc UPLC→native JIT (C++ / LLVM)",
 }
 
 
