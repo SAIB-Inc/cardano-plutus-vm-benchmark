@@ -1,0 +1,2115 @@
+[info] welcome to sbt 1.12.2 (Ubuntu Java 21.0.10)
+[info] loading settings for project scalus-build from plugins.sbt...
+[info] loading project definition from /bench/scalus/project
+[info] loading settings for project root from build.sbt...
+[info] resolving key references (23307 settings) ...
+[info] 
+[info]   ███████╗ ██████╗ █████╗ ██╗     ██╗   ██╗███████╗
+[info]   ██╔════╝██╔════╝██╔══██╗██║     ██║   ██║██╔════╝
+[info]   ███████╗██║     ███████║██║     ██║   ██║███████╗
+[info]   ╚════██║██║     ██╔══██║██║     ██║   ██║╚════██║
+[info]   ███████║╚██████╗██║  ██║███████╗╚██████╔╝███████║
+[info]   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+[info] 
+[info]   Version: HEAD+20260408-2110 Scala 3.3.7
+[info] 
+[info] Useful sbt tasks:
+[info] a. ~compile - Compile with file-watch enabled
+[info] b. quick - Format all, compile and quick test everything on JVM
+[info] c. precommit - Format all, clean compile and test everything on JVM
+[info] d. ci - Clean compile, check formatting and test everything, build docs, run MiMa
+[info] e. benchmark - Run benchmarks
+[info] f. mima - Check binary compatibility with the previous version using MiMa
+[info] Copied shared files to target /bench/scalus/scalus-plugin/src/main/shared/scala
+[info] compiling 268 Scala sources to /bench/scalus/scalus-core/jvm/target/scala-3.3.7/classes ...
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/intrinsics/ListIntrinsics.scala:99:26 
+[warn] 99 |    import ListReprRules.{atRule, dropRule, headRule, isEmptyRule, tailRule}
+[warn]    |                          ^^^^^^
+[warn]    |                          unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/intrinsics/ListIntrinsics.scala:99:34 
+[warn] 99 |    import ListReprRules.{atRule, dropRule, headRule, isEmptyRule, tailRule}
+[warn]    |                                  ^^^^^^^^
+[warn]    |                                  unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/intrinsics/MapIntrinsics.scala:9:28 
+[warn] 9 |import scalus.uplc.builtin.{BuiltinList, BuiltinPair, Data}
+[warn]   |                            ^^^^^^^^^^^
+[warn]   |                            unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/intrinsics/MapIntrinsics.scala:9:41 
+[warn] 9 |import scalus.uplc.builtin.{BuiltinList, BuiltinPair, Data}
+[warn]   |                                         ^^^^^^^^^^^
+[warn]   |                                         unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/intrinsics/MapIntrinsics.scala:9:54 
+[warn] 9 |import scalus.uplc.builtin.{BuiltinList, BuiltinPair, Data}
+[warn]   |                                                      ^^^^
+[warn]   |                                                      unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/lowering/typegens/ProductCaseUplcOnlySirTypeGenerator.scala:57:65 
+[warn] 57 |        import scalus.compiler.sir.lowering.LoweredValue.Builder.*
+[warn]    |                                                                 ^
+[warn]    |                                                           unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/lowering/typegens/SumCaseSirTypeGenerator.scala:8:20 
+[warn] 8 |import scalus.uplc.{Term, UplcAnnotation}
+[warn]   |                    ^^^^
+[warn]   |                    unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/lowering/typegens/SumCaseSirTypeGenerator.scala:8:26 
+[warn] 8 |import scalus.uplc.{Term, UplcAnnotation}
+[warn]   |                          ^^^^^^^^^^^^^^
+[warn]   |                          unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/lowering/typegens/SumCaseSirTypeGenerator.scala:9:28 
+[warn] 9 |import org.typelevel.paiges.Doc
+[warn]   |                            ^^^
+[warn]   |                            unused import
+[warn] -- [E198] Unused Symbol Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/crypto/tree/IncrementalMerkleTree.scala:33:33 
+[warn] 33 |    import IncrementalMerkleTree.*
+[warn]    |                                 ^
+[warn]    |                                 unused import
+[warn] -- [E030] Match case Unreachable Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/PrettyPrinter.scala:294:45 
+[warn] 294 |                    case SIRType.TypeVarKind.Fixed       => ""
+[warn]     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]     |                         Unreachable case
+[warn] -- [E030] Match case Unreachable Warning: /bench/scalus/scalus-core/shared/src/main/scala/scalus/compiler/sir/lowering/LoweredValueRepresentation.scala:1208:29 
+[warn] 1208 |            case TypeVarKind.Fixed       => ""
+[warn]      |                 ^^^^^^^^^^^^^^^^^
+[warn]      |                 Unreachable case
+[warn] 12 warnings found
+[warn] 12 warnings found
+[info] done compiling
+[info] compiling 17 Scala sources to /bench/scalus/scalus-uplc-jit-compiler/target/scala-3.3.7/classes ...
+[info] compiling 84 Scala sources to /bench/scalus/scalus-cardano-ledger/jvm/target/scala-3.3.7/classes ...
+[info] done compiling
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionBuilder.scala:624:29 
+[warn] 624 |        expectedSigners: Set[ExpectedSigner],
+[warn]     |                             ^^^^^^^^^^^^^^
+[warn]     |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionBuilder.scala:646:16 
+[warn] 646 |            Set[ExpectedSigner],
+[warn]     |                ^^^^^^^^^^^^^^
+[warn]     |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionBuilder.scala:876:32 
+[warn] 876 |          expectedSigners = Set.empty,
+[warn]     |                            ^^^^^^^^^
+[warn]     |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionStepsProcessor.scala:218:45 
+[warn] 218 |                    } yield usePubKeyWitness(ExpectedSigner(keyHash))
+[warn]     |                                             ^^^^^^^^^^^^^^
+[warn]     |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionStepsProcessor.scala:951:55 
+[warn] 951 |                                Right(usePubKeyWitness(ExpectedSigner(keyHash)))
+[warn]     |                                                       ^^^^^^^^^^^^^^
+[warn]     |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionStepsProcessor.scala:1104:49 
+[warn] 1104 |    private def usePubKeyWitness(expectedSigner: ExpectedSigner): Unit =
+[warn]      |                                                 ^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionStepsProcessor.scala:1142:61 
+[warn] 1142 |        modify0(Focus[Context](_.expectedSigners).modify(_ + ExpectedSigner(hash)))
+[warn]      |                                                             ^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TxBuilder.scala:1786:88 
+[warn] 1786 |                  expectedSigners = ctxWithAttachments.expectedSigners ++ sponsorSigner.toSet
+[warn]      |                                                                          ^^^^^^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TxBuilder.scala:1903:63 
+[warn] 1903 |    private def extractSponsorSigner(sponsor: Address): Option[ExpectedSigner] = {
+[warn]      |                                                               ^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TxBuilder.scala:1907:62 
+[warn] 1907 |                    case ShelleyPaymentPart.Key(hash) => Some(ExpectedSigner(hash))
+[warn]      |                                                              ^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn] -- Deprecation Warning: /bench/scalus/scalus-cardano-ledger/shared/src/main/scala/scalus/cardano/txbuilder/TransactionStepsProcessor.scala:1105:30 
+[warn] 1105 |        modify0(Focus[Context](_.expectedSigners).modify(_ + expectedSigner))
+[warn]      |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[warn]      |class ExpectedSigner in package scalus.cardano.txbuilder is deprecated since 0.15.1: Use TxBuilder.requireSignature() instead
+[warn]      |--------------------------------------------------------------------------
+[warn]      |Inline stack trace
+[warn]      |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[warn]      |This location contains code that was inlined from SelectFieldGenerator.scala:24
+[warn]      |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[warn]      |This location contains code that was inlined from SelectFieldGenerator.scala:24
+[warn]       --------------------------------------------------------------------------
+[warn] 11 warnings found
+[info] done compiling
+[info] compiling 4 Scala sources and 1 Java source to /bench/scalus/bloxbean-cardano-client-lib/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] compiling 15 Scala sources to /bench/scalus/bloxbean-cardano-client-lib/target/scala-3.3.7/test-classes ...
+[info] done compiling
+[info] compiling 5 Scala sources to /bench/scalus/bench/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /bench/scalus/bench/target/scala-3.3.7/classes /bench/scalus/bench/target/scala-3.3.7/src_managed/jmh /bench/scalus/bench/target/scala-3.3.7/resource_managed/jmh default
+[info] Processing 42 classes from /bench/scalus/bench/target/scala-3.3.7/classes with "reflection" generator
+[info] Writing out Java source to /bench/scalus/bench/target/scala-3.3.7/src_managed/jmh and resources to /bench/scalus/bench/target/scala-3.3.7/resource_managed/jmh
+[info] compiling 31 Java sources to /bench/scalus/bench/target/scala-3.3.7/classes ...
+[info] done compiling
+[info] running (fork) org.openjdk.jmh.Main -i 1 -wi 1 -w 5s -r 5s -f 1 -t 1 -rff /results/2026-04-08/scalus-jit-jmh.csv -p file=auction_1-1.flat,auction_1-2.flat,auction_1-3.flat,auction_1-4.flat,auction_2-1.flat,auction_2-2.flat,auction_2-3.flat,auction_2-4.flat,auction_2-5.flat,coop-1.flat,coop-2.flat,coop-3.flat,coop-4.flat,coop-5.flat,coop-6.flat,coop-7.flat,crowdfunding-success-1.flat,crowdfunding-success-2.flat,crowdfunding-success-3.flat,currency-1.flat,escrow-redeem_1-1.flat,escrow-redeem_1-2.flat,escrow-redeem_2-1.flat,escrow-redeem_2-2.flat,escrow-redeem_2-3.flat,escrow-refund-1.flat,future-increase-margin-1.flat,future-increase-margin-2.flat,future-increase-margin-3.flat,future-increase-margin-4.flat,future-increase-margin-5.flat,future-pay-out-1.flat,future-pay-out-2.flat,future-pay-out-3.flat,future-pay-out-4.flat,future-settle-early-1.flat,future-settle-early-2.flat,future-settle-early-3.flat,future-settle-early-4.flat,game-sm-success_1-1.flat,game-sm-success_1-2.flat,game-sm-success_1-3.flat,game-sm-success_1-4.flat,game-sm-success_2-1.flat,game-sm-success_2-2.flat,game-sm-success_2-3.flat,game-sm-success_2-4.flat,game-sm-success_2-5.flat,game-sm-success_2-6.flat,guardrail-sorted-large.flat,guardrail-sorted-small.flat,guardrail-unsorted-large.flat,guardrail-unsorted-small.flat,multisig-sm-01.flat,multisig-sm-02.flat,multisig-sm-03.flat,multisig-sm-04.flat,multisig-sm-05.flat,multisig-sm-06.flat,multisig-sm-07.flat,multisig-sm-08.flat,multisig-sm-09.flat,multisig-sm-10.flat,ping-pong-1.flat,ping-pong-2.flat,ping-pong_2-1.flat,prism-1.flat,prism-2.flat,prism-3.flat,pubkey-1.flat,stablecoin_1-1.flat,stablecoin_1-2.flat,stablecoin_1-3.flat,stablecoin_1-4.flat,stablecoin_1-5.flat,stablecoin_1-6.flat,stablecoin_2-1.flat,stablecoin_2-2.flat,stablecoin_2-3.flat,stablecoin_2-4.flat,token-account-1.flat,token-account-2.flat,uniswap-1.flat,uniswap-2.flat,uniswap-3.flat,uniswap-4.flat,uniswap-5.flat,uniswap-6.flat,vesting-1.flat .*JITHybridBenchmark
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_1-1.flat)
+[info] # Run progress: 0.00% complete, ETA 00:14:50
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682650913
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 20702 ms
+[info] 281.762 us/op
+[info] Iteration   1: 27.503 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   27.503 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_1-2.flat)
+[info] # Run progress: 1.12% complete, ETA 00:45:41
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682682007
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 71969 ms
+[info] 1852.216 us/op
+[info] Iteration   1: 794.589 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   794.589 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_1-3.flat)
+[info] # Run progress: 2.25% complete, ETA 01:22:25
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682764582
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 72246 ms
+[info] 1462.966 us/op
+[info] Iteration   1: 579.010 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   579.010 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_1-4.flat)
+[info] # Run progress: 3.37% complete, ETA 01:33:53
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682847401
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 20239 ms
+[info] 153.769 us/op
+[info] Iteration   1: 39.962 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   39.962 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_2-1.flat)
+[info] # Run progress: 4.49% complete, ETA 01:20:27
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682878061
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 20870 ms
+[info] 282.532 us/op
+[info] Iteration   1: 27.300 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   27.300 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_2-2.flat)
+[info] # Run progress: 5.62% complete, ETA 01:12:22
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682909363
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 71916 ms
+[info] 1808.198 us/op
+[info] Iteration   1: 753.078 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   753.078 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_2-3.flat)
+[info] # Run progress: 6.74% complete, ETA 01:18:35
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775682991722
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 72029 ms
+[info] 1948.021 us/op
+[info] Iteration   1: 795.324 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   795.324 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_2-4.flat)
+[info] # Run progress: 7.87% complete, ETA 01:22:39
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683074245
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 71679 ms
+[info] 1709.695 us/op
+[info] Iteration   1: 671.887 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   671.887 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = auction_2-5.flat)
+[info] # Run progress: 8.99% complete, ETA 01:25:20
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683156576
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 21296 ms
+[info] 208.705 us/op
+[info] Iteration   1: 46.725 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   46.725 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-1.flat)
+[info] # Run progress: 10.11% complete, ETA 01:19:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683188301
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 8894 ms
+[info] 89.525 us/op
+[info] Iteration   1: 63.049 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   63.049 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-2.flat)
+[info] # Run progress: 11.24% complete, ETA 01:13:18
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683207628
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 34099 ms
+[info] 462.861 us/op
+[info] Iteration   1: 217.627 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   217.627 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-3.flat)
+[info] # Run progress: 12.36% complete, ETA 01:11:03
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683252189
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 34499 ms
+[info] 1432.908 us/op
+[info] Iteration   1: 726.525 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   726.525 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-4.flat)
+[info] # Run progress: 13.48% complete, ETA 01:09:06
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683297148
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 33296 ms
+[info] 822.598 us/op
+[info] Iteration   1: 282.220 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   282.220 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-5.flat)
+[info] # Run progress: 14.61% complete, ETA 01:07:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683351685
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22025 ms
+[info] 286.149 us/op
+[info] Iteration   1: 121.959 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   121.959 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-6.flat)
+[info] # Run progress: 15.73% complete, ETA 01:05:28
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683384134
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 10366 ms
+[info] 269.657 us/op
+[info] Iteration   1: 185.238 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   185.238 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = coop-7.flat)
+[info] # Run progress: 16.85% complete, ETA 01:02:00
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683404931
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 10505 ms
+[info] 117.589 us/op
+[info] Iteration   1: 87.645 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   87.645 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = crowdfunding-success-1.flat)
+[info] # Run progress: 17.98% complete, ETA 00:58:55
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683425835
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16197 ms
+[info] 230.715 us/op
+[info] Iteration   1: 32.813 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   32.813 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = crowdfunding-success-2.flat)
+[info] # Run progress: 19.10% complete, ETA 00:56:34
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683452444
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16476 ms
+[info] 267.404 us/op
+[info] Iteration   1: 36.522 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   36.522 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = crowdfunding-success-3.flat)
+[info] # Run progress: 20.22% complete, ETA 00:54:27
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683479357
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16446 ms
+[info] 234.230 us/op
+[info] Iteration   1: 34.399 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   34.399 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = currency-1.flat)
+[info] # Run progress: 21.35% complete, ETA 00:52:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683517027
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 20152 ms
+[info] 361.461 us/op
+[info] Iteration   1: 31.113 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   31.113 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-redeem_1-1.flat)
+[info] # Run progress: 22.47% complete, ETA 00:51:33
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683547604
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22338 ms
+[info] 546.330 us/op
+[info] Iteration   1: 59.638 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   59.638 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-redeem_1-2.flat)
+[info] # Run progress: 23.60% complete, ETA 00:50:09
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683580345
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22218 ms
+[info] 514.090 us/op
+[info] Iteration   1: 62.464 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   62.464 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-redeem_2-1.flat)
+[info] # Run progress: 24.72% complete, ETA 00:48:50
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683612987
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22144 ms
+[info] 539.448 us/op
+[info] Iteration   1: 71.975 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   71.975 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-redeem_2-2.flat)
+[info] # Run progress: 25.84% complete, ETA 00:47:34
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683645549
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22712 ms
+[info] 593.429 us/op
+[info] Iteration   1: 76.126 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   76.126 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-redeem_2-3.flat)
+[info] # Run progress: 26.97% complete, ETA 00:46:23
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683678671
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22086 ms
+[info] 557.777 us/op
+[info] Iteration   1: 68.274 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   68.274 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = escrow-refund-1.flat)
+[info] # Run progress: 28.09% complete, ETA 00:45:14
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683711171
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 21749 ms
+[info] 351.013 us/op
+[info] Iteration   1: 18.675 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   18.675 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-increase-margin-1.flat)
+[info] # Run progress: 29.21% complete, ETA 00:44:07
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683743363
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 31457 ms
+[info] 412.318 us/op
+[info] Iteration   1: 35.024 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   35.024 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-increase-margin-2.flat)
+[info] # Run progress: 30.34% complete, ETA 00:43:24
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683785279
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22025 ms
+[info] 640.257 us/op
+[info] Iteration   1: 116.555 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   116.555 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-increase-margin-3.flat)
+[info] # Run progress: 31.46% complete, ETA 00:42:22
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683817735
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 32793 ms
+[info] 640.714 us/op
+[info] Iteration   1: 125.950 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   125.950 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-increase-margin-4.flat)
+[info] # Run progress: 32.58% complete, ETA 00:41:21
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775683850197
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 139308 ms
+[info] 1936.176 us/op
+[info] Iteration   1: 1056.187 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   1056.187 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-increase-margin-5.flat)
+[info] # Run progress: 33.71% complete, ETA 00:44:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684000135
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 137266 ms
+[info] 3189.872 us/op
+[info] Iteration   1: 1613.174 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   1613.174 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-pay-out-1.flat)
+[info] # Run progress: 34.83% complete, ETA 00:46:40
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684147842
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 31345 ms
+[info] 341.760 us/op
+[info] Iteration   1: 29.362 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   29.362 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-pay-out-2.flat)
+[info] # Run progress: 35.96% complete, ETA 00:45:40
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684189623
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22030 ms
+[info] 651.898 us/op
+[info] Iteration   1: 131.395 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   131.395 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-pay-out-3.flat)
+[info] # Run progress: 37.08% complete, ETA 00:44:26
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684232917
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 11052 ms
+[info] 642.761 us/op
+[info] Iteration   1: 135.700 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   135.700 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-pay-out-4.flat)
+[info] # Run progress: 38.20% complete, ETA 00:43:13
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684254418
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 137614 ms
+[info] 3056.971 us/op
+[info] Iteration   1: 1499.443 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   1499.443 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-settle-early-1.flat)
+[info] # Run progress: 39.33% complete, ETA 00:45:02
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684413305
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 20530 ms
+[info] 349.678 us/op
+[info] Iteration   1: 33.356 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   33.356 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-settle-early-2.flat)
+[info] # Run progress: 40.45% complete, ETA 00:44:00
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684444289
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22167 ms
+[info] 685.020 us/op
+[info] Iteration   1: 146.185 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   146.185 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-settle-early-3.flat)
+[info] # Run progress: 41.57% complete, ETA 00:42:46
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684476916
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 22311 ms
+[info] 1022.048 us/op
+[info] Iteration   1: 136.279 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   136.279 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = future-settle-early-4.flat)
+[info] # Run progress: 42.70% complete, ETA 00:41:34
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684509666
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 138602 ms
+[info] 2779.633 us/op
+[info] Iteration   1: 1455.072 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   1455.072 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_1-1.flat)
+[info] # Run progress: 43.82% complete, ETA 00:42:54
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684658721
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 69067 ms
+[info] 1223.510 us/op
+[info] Iteration   1: 464.919 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   464.919 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_1-2.flat)
+[info] # Run progress: 44.94% complete, ETA 00:42:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684738248
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16989 ms
+[info] 145.935 us/op
+[info] Iteration   1: 33.627 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   33.627 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_1-3.flat)
+[info] # Run progress: 46.07% complete, ETA 00:41:15
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684765723
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 69628 ms
+[info] 1624.676 us/op
+[info] Iteration   1: 595.553 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   595.553 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_1-4.flat)
+[info] # Run progress: 47.19% complete, ETA 00:40:56
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684846014
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16672 ms
+[info] 114.476 us/op
+[info] Iteration   1: 35.656 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   35.656 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-1.flat)
+[info] # Run progress: 48.31% complete, ETA 00:39:37
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684873075
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 69247 ms
+[info] 1220.622 us/op
+[info] Iteration   1: 453.433 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   453.433 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-2.flat)
+[info] # Run progress: 49.44% complete, ETA 00:39:14
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684952781
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 17050 ms
+[info] 120.347 us/op
+[info] Iteration   1: 31.844 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   31.844 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-3.flat)
+[info] # Run progress: 50.56% complete, ETA 00:37:57
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775684980298
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 67745 ms
+[info] 3039.973 us/op
+[info] Iteration   1: 882.340 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   882.340 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-4.flat)
+[info] # Run progress: 51.69% complete, ETA 00:37:30
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685069334
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 6330 ms
+[info] 136.873 us/op
+[info] Iteration   1: 37.694 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   37.694 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-5.flat)
+[info] # Run progress: 52.81% complete, ETA 00:36:16
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685086082
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 67187 ms
+[info] 1470.309 us/op
+[info] Iteration   1: 619.913 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   619.913 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = game-sm-success_2-6.flat)
+[info] # Run progress: 53.93% complete, ETA 00:35:46
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685163964
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16855 ms
+[info] 130.083 us/op
+[info] Iteration   1: 36.330 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   36.330 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = guardrail-sorted-large.flat)
+[info] # Run progress: 55.06% complete, ETA 00:34:33
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685191251
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 7981 ms
+[info] 368.819 us/op
+[info] Iteration   1: 298.298 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   298.298 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = guardrail-sorted-small.flat)
+[info] # Run progress: 56.18% complete, ETA 00:33:15
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685209645
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 7936 ms
+[info] 138.029 us/op
+[info] Iteration   1: 99.188 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   99.188 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = guardrail-unsorted-large.flat)
+[info] # Run progress: 57.30% complete, ETA 00:32:00
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685228003
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 8800 ms
+[info] 448.074 us/op
+[info] Iteration   1: 344.171 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   344.171 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = guardrail-unsorted-small.flat)
+[info] # Run progress: 58.43% complete, ETA 00:30:47
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685247251
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 8269 ms
+[info] 116.237 us/op
+[info] Iteration   1: 93.528 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   93.528 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-01.flat)
+[info] # Run progress: 59.55% complete, ETA 00:29:36
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685265932
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 96446 ms
+[info] 1349.508 us/op
+[info] Iteration   1: 620.540 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   620.540 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-02.flat)
+[info] # Run progress: 60.67% complete, ETA 00:29:24
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685372976
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 96913 ms
+[info] 1474.417 us/op
+[info] Iteration   1: 603.352 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   603.352 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-03.flat)
+[info] # Run progress: 61.80% complete, ETA 00:29:09
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685480608
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 95625 ms
+[info] 1883.661 us/op
+[info] Iteration   1: 831.355 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   831.355 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-04.flat)
+[info] # Run progress: 62.92% complete, ETA 00:28:50
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685586706
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 95801 ms
+[info] 1531.177 us/op
+[info] Iteration   1: 648.730 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   648.730 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-05.flat)
+[info] # Run progress: 64.04% complete, ETA 00:28:27
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685693101
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 96011 ms
+[info] 1932.492 us/op
+[info] Iteration   1: 831.609 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   831.609 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-06.flat)
+[info] # Run progress: 65.17% complete, ETA 00:28:03
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685810626
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 84723 ms
+[info] 1307.770 us/op
+[info] Iteration   1: 569.133 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   569.133 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-07.flat)
+[info] # Run progress: 66.29% complete, ETA 00:27:35
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775685906026
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 94431 ms
+[info] 1460.013 us/op
+[info] Iteration   1: 584.312 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   584.312 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-08.flat)
+[info] # Run progress: 67.42% complete, ETA 00:27:04
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686011370
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 93988 ms
+[info] 1377.683 us/op
+[info] Iteration   1: 553.016 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   553.016 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-09.flat)
+[info] # Run progress: 68.54% complete, ETA 00:26:30
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686115798
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 95855 ms
+[info] 1461.788 us/op
+[info] Iteration   1: 642.679 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   642.679 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = multisig-sm-10.flat)
+[info] # Run progress: 69.66% complete, ETA 00:25:55
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686222384
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 94473 ms
+[info] 1843.459 us/op
+[info] Iteration   1: 774.431 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   774.431 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = ping-pong-1.flat)
+[info] # Run progress: 70.79% complete, ETA 00:25:17
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686327278
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 58651 ms
+[info] 940.542 us/op
+[info] Iteration   1: 311.094 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   311.094 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = ping-pong-2.flat)
+[info] # Run progress: 71.91% complete, ETA 00:24:23
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686396376
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 57159 ms
+[info] 903.176 us/op
+[info] Iteration   1: 248.407 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   248.407 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = ping-pong_2-1.flat)
+[info] # Run progress: 73.03% complete, ETA 00:23:27
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686464058
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 58050 ms
+[info] 744.276 us/op
+[info] Iteration   1: 181.961 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   181.961 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = prism-1.flat)
+[info] # Run progress: 74.16% complete, ETA 00:22:32
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686532797
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 15089 ms
+[info] 139.280 us/op
+[info] Iteration   1: 12.939 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   12.939 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = prism-2.flat)
+[info] # Run progress: 75.28% complete, ETA 00:21:23
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686558318
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 70743 ms
+[info] 1100.513 us/op
+[info] Iteration   1: 402.085 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   402.085 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = prism-3.flat)
+[info] # Run progress: 76.40% complete, ETA 00:20:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686639682
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 30653 ms
+[info] 451.570 us/op
+[info] Iteration   1: 69.361 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   69.361 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = pubkey-1.flat)
+[info] # Run progress: 77.53% complete, ETA 00:19:28
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686680749
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 13292 ms
+[info] 55.293 us/op
+[info] Iteration   1: 10.720 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   10.720 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-1.flat)
+[info] # Run progress: 78.65% complete, ETA 00:18:20
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686704468
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 198207 ms
+[info] 5051.111 us/op
+[info] Iteration   1: 4249.613 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   4249.613 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-2.flat)
+[info] # Run progress: 79.78% complete, ETA 00:18:00
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686913085
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 27825 ms
+[info] 204.351 us/op
+[info] Iteration   1: 36.314 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   36.314 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-3.flat)
+[info] # Run progress: 80.90% complete, ETA 00:16:52
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775686940465
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 197781 ms
+[info] 5361.802 us/op
+[info] Iteration   1: 4061.366 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   4061.366 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-4.flat)
+[info] # Run progress: 82.02% complete, ETA 00:16:25
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687148817
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16651 ms
+[info] 121.159 us/op
+[info] Iteration   1: 33.779 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   33.779 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-5.flat)
+[info] # Run progress: 83.15% complete, ETA 00:15:17
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687175882
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 197474 ms
+[info] 5584.625 us/op
+[info] Iteration   1: 3996.939 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   3996.939 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_1-6.flat)
+[info] # Run progress: 84.27% complete, ETA 00:14:43
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687383790
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16765 ms
+[info] 145.700 us/op
+[info] Iteration   1: 41.829 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   41.829 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_2-1.flat)
+[info] # Run progress: 85.39% complete, ETA 00:13:34
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687410974
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 195162 ms
+[info] 6607.305 us/op
+[info] Iteration   1: 4215.329 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   4215.329 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_2-2.flat)
+[info] # Run progress: 86.52% complete, ETA 00:12:53
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687616583
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16659 ms
+[info] 119.604 us/op
+[info] Iteration   1: 33.906 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   33.906 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_2-3.flat)
+[info] # Run progress: 87.64% complete, ETA 00:11:44
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687643690
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 195489 ms
+[info] 5946.863 us/op
+[info] Iteration   1: 4301.825 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   4301.825 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = stablecoin_2-4.flat)
+[info] # Run progress: 88.76% complete, ETA 00:10:58
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687849623
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 16964 ms
+[info] 133.529 us/op
+[info] Iteration   1: 34.179 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   34.179 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = token-account-1.flat)
+[info] # Run progress: 89.89% complete, ETA 00:09:47
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687876995
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 30176 ms
+[info] 354.623 us/op
+[info] Iteration   1: 21.794 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   21.794 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = token-account-2.flat)
+[info] # Run progress: 91.01% complete, ETA 00:08:40
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687917587
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 14524 ms
+[info] 233.952 us/op
+[info] Iteration   1: 45.000 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   45.000 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-1.flat)
+[info] # Run progress: 92.13% complete, ETA 00:07:31
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687942526
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 31050 ms
+[info] 396.578 us/op
+[info] Iteration   1: 49.786 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   49.786 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-2.flat)
+[info] # Run progress: 93.26% complete, ETA 00:06:25
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775687984015
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 31019 ms
+[info] 380.142 us/op
+[info] Iteration   1: 36.462 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   36.462 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-3.flat)
+[info] # Run progress: 94.38% complete, ETA 00:05:19
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775688025482
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 81474 ms
+[info] 2105.526 us/op
+[info] Iteration   1: 693.779 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   693.779 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-4.flat)
+[info] # Run progress: 95.51% complete, ETA 00:04:17
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775688117805
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 26197 ms
+[info] 196.296 us/op
+[info] Iteration   1: 57.917 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   57.917 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-5.flat)
+[info] # Run progress: 96.63% complete, ETA 00:03:11
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775688143543
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 90739 ms
+[info] 2315.094 us/op
+[info] Iteration   1: 689.106 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   689.106 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = uniswap-6.flat)
+[info] # Run progress: 97.75% complete, ETA 00:02:08
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775688234235
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 15137 ms
+[info] 202.268 us/op
+[info] Iteration   1: 53.283 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   53.283 us/op
+[info] # JMH version: 1.37
+[info] # VM version: JDK 21.0.10, OpenJDK 64-Bit Server VM, 21.0.10+7-Ubuntu-124.04
+[info] # VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+[info] # VM options: -Xss64m -Xmx4g
+[info] # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+[info] # Warmup: 1 iterations, 5 s each
+[info] # Measurement: 1 iterations, 5 s each
+[info] # Timeout: 10 min per iteration
+[info] # Threads: 1 thread, will synchronize iterations
+[info] # Benchmark mode: Average time, time/op
+[info] # Benchmark: scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid
+[info] # Parameters: (file = vesting-1.flat)
+[info] # Run progress: 98.88% complete, ETA 00:01:03
+[info] # Fork: 1 of 1
+[info] # Warmup Iteration   1: Starting JIT compilation (Hybrid) at 1775688259802
+[info] Calling Hybrid.compile...
+[info] JIT compilation (Hybrid) completed in 21637 ms
+[info] 865.621 us/op
+[info] Iteration   1: 111.833 us/op
+[info] Result "scalus.uplc.eval.JITHybridBenchmark.benchJIT_Hybrid":
+[info]   111.833 us/op
+[info] # Run complete. Total time: 01:34:01
+[info] REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+[info] why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+[info] experiments, perform baseline and negative tests that provide experimental control, make sure
+[info] the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+[info] Do not assume the numbers tell you what you want them to tell.
+[info] NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+[info] extra caution when trusting the results, look into the generated code to check the benchmark still
+[info] works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+[info] different JVMs are already problematic, the performance difference caused by different Blackhole
+[info] modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+[info] Benchmark                                                  (file)  Mode  Cnt     Score   Error  Units
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_1-1.flat  avgt         27.503          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_1-2.flat  avgt        794.589          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_1-3.flat  avgt        579.010          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_1-4.flat  avgt         39.962          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_2-1.flat  avgt         27.300          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_2-2.flat  avgt        753.078          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_2-3.flat  avgt        795.324          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_2-4.flat  avgt        671.887          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               auction_2-5.flat  avgt         46.725          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-1.flat  avgt         63.049          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-2.flat  avgt        217.627          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-3.flat  avgt        726.525          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-4.flat  avgt        282.220          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-5.flat  avgt        121.959          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-6.flat  avgt        185.238          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                    coop-7.flat  avgt         87.645          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid    crowdfunding-success-1.flat  avgt         32.813          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid    crowdfunding-success-2.flat  avgt         36.522          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid    crowdfunding-success-3.flat  avgt         34.399          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                currency-1.flat  avgt         31.113          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid         escrow-redeem_1-1.flat  avgt         59.638          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid         escrow-redeem_1-2.flat  avgt         62.464          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid         escrow-redeem_2-1.flat  avgt         71.975          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid         escrow-redeem_2-2.flat  avgt         76.126          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid         escrow-redeem_2-3.flat  avgt         68.274          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid           escrow-refund-1.flat  avgt         18.675          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  future-increase-margin-1.flat  avgt         35.024          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  future-increase-margin-2.flat  avgt        116.555          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  future-increase-margin-3.flat  avgt        125.950          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  future-increase-margin-4.flat  avgt       1056.187          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  future-increase-margin-5.flat  avgt       1613.174          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid          future-pay-out-1.flat  avgt         29.362          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid          future-pay-out-2.flat  avgt        131.395          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid          future-pay-out-3.flat  avgt        135.700          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid          future-pay-out-4.flat  avgt       1499.443          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid     future-settle-early-1.flat  avgt         33.356          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid     future-settle-early-2.flat  avgt        146.185          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid     future-settle-early-3.flat  avgt        136.279          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid     future-settle-early-4.flat  avgt       1455.072          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_1-1.flat  avgt        464.919          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_1-2.flat  avgt         33.627          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_1-3.flat  avgt        595.553          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_1-4.flat  avgt         35.656          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-1.flat  avgt        453.433          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-2.flat  avgt         31.844          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-3.flat  avgt        882.340          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-4.flat  avgt         37.694          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-5.flat  avgt        619.913          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid       game-sm-success_2-6.flat  avgt         36.330          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid    guardrail-sorted-large.flat  avgt        298.298          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid    guardrail-sorted-small.flat  avgt         99.188          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  guardrail-unsorted-large.flat  avgt        344.171          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid  guardrail-unsorted-small.flat  avgt         93.528          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-01.flat  avgt        620.540          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-02.flat  avgt        603.352          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-03.flat  avgt        831.355          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-04.flat  avgt        648.730          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-05.flat  avgt        831.609          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-06.flat  avgt        569.133          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-07.flat  avgt        584.312          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-08.flat  avgt        553.016          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-09.flat  avgt        642.679          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            multisig-sm-10.flat  avgt        774.431          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               ping-pong-1.flat  avgt        311.094          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid               ping-pong-2.flat  avgt        248.407          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid             ping-pong_2-1.flat  avgt        181.961          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                   prism-1.flat  avgt         12.939          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                   prism-2.flat  avgt        402.085          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                   prism-3.flat  avgt         69.361          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                  pubkey-1.flat  avgt         10.720          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-1.flat  avgt       4249.613          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-2.flat  avgt         36.314          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-3.flat  avgt       4061.366          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-4.flat  avgt         33.779          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-5.flat  avgt       3996.939          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_1-6.flat  avgt         41.829          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_2-1.flat  avgt       4215.329          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_2-2.flat  avgt         33.906          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_2-3.flat  avgt       4301.825          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid            stablecoin_2-4.flat  avgt         34.179          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid           token-account-1.flat  avgt         21.794          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid           token-account-2.flat  avgt         45.000          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-1.flat  avgt         49.786          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-2.flat  avgt         36.462          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-3.flat  avgt        693.779          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-4.flat  avgt         57.917          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-5.flat  avgt        689.106          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 uniswap-6.flat  avgt         53.283          us/op
+[info] JITHybridBenchmark.benchJIT_Hybrid                 vesting-1.flat  avgt        111.833          us/op
+[info] Benchmark result is saved to /results/2026-04-08/scalus-jit-jmh.csv
+[success] Total time: 5684 s (01:34:44.0), completed Apr 8, 2026, 10:44:51 PM
