@@ -135,6 +135,15 @@ RUN git clone "$SCALUS_REPO" /src \
 
 WORKDIR /src
 
+# Patch: raise NativeStack JIT depth threshold from 1000 to 25000 so the
+# Hybrid JIT no longer falls back to CEK on moderately-recursive scripts.
+# Default 1000 makes scripts like future-pay-out-4 pay both JIT-up-to-1000
+# AND full CEK re-evaluation. 25000 covers all plutus_use_cases scripts
+# tested while staying well within -Xss512m (~5MB native stack usage).
+RUN sed -i 's/val MAX_STACK_DEPTH = 1000$/val MAX_STACK_DEPTH = 25000/' \
+    scalus-uplc-jit-compiler/src/main/scala/scalus/uplc/jit/nativestack/NativeStackContext.scala \
+    && grep "MAX_STACK_DEPTH" scalus-uplc-jit-compiler/src/main/scala/scalus/uplc/jit/nativestack/NativeStackContext.scala
+
 # Pre-compile JMH benchmarks (this downloads deps + compiles everything)
 RUN sbt bench/Jmh/compile
 
