@@ -2,7 +2,7 @@
 
 Reproducible, cross-language benchmark suite for Plutus (UPLC) virtual machine implementations.
 
-Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framework**, and generates a unified comparison report. [View full results](https://saib-inc.github.io/cardano-plutus-vm-benchmark/)
+Builds 14 VM variants from source inside Docker, runs each VM's **native benchmark framework**, and generates a unified comparison report. [View full results](https://saib-inc.github.io/cardano-plutus-vm-benchmark/)
 
 ## Latest Results (2026-03-10)
 
@@ -19,7 +19,18 @@ Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framew
 | **Plutigo** | Go | 2.28 ms | 5.59x |
 | **opshin** | Python | 169 ms | 414x |
 
-*Geometric mean of 78 plutus_use_cases scripts. Lower is better.*
+*Geometric mean of 89 plutus_use_cases scripts. Lower is better. The table above predates Scalus integration; the next Ryzen refresh will include both Scalus variants.*
+
+### Scalus performance (preview, dev hardware)
+
+> Apple M3 Max, 14 cores, 36 GB RAM, macOS arm64, Docker — not directly comparable to the Ryzen table above
+
+| VM | Language | Geo Mean | vs CEK baseline |
+|---|---|---|---|
+| **Scalus JIT** (Hybrid, UPLC→JVM) | Scala / GraalVM 25 | **84 µs** | **3.85x faster** |
+| **Scalus CEK** | Scala / GraalVM 25 | 280 µs | 1.16x faster |
+
+*CEK baseline is Scalus CEK on JDK 21 (325 µs). Both rows use GraalVM JDK 25, compact object headers (JEP 519), Scala-friendly inlining, and `MAX_STACK_DEPTH=25000` for the JIT NativeStack path. See [#37](https://github.com/SAIB-Inc/cardano-plutus-vm-benchmark/pull/37) for the engineering details.*
 
 ## VMs Benchmarked
 
@@ -33,10 +44,11 @@ Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framew
 | **opshin-uplc** | Python | Custom | [OpShin/uplc](https://github.com/OpShin/uplc) |
 | **Julc** | Java | JMH (CEK) | [bloxbean/julc](https://github.com/bloxbean/julc) |
 | **llvm-uplc** | C++ / LLVM | Custom (`uplcbench`, JSON) | [SeungheonOh/llvm-uplc](https://github.com/SeungheonOh/llvm-uplc) |
+| **Scalus** | Scala / GraalVM 25 | JMH (CEK + Hybrid JIT) | [scalus3/scalus](https://github.com/scalus3/scalus) |
 
 ## What's Measured
 
-Each VM: **flat-decode + CEK evaluate** on 78 real-world Plutus smart contract scripts (auction, escrow, uniswap, stablecoin, etc.).
+Each VM: **flat-decode + CEK evaluate** on 89 real-world Plutus smart contract scripts (auction, escrow, uniswap, stablecoin, etc.).
 
 All VMs use the same canonical `.flat` test data committed in `data/plutus_use_cases/`.
 
