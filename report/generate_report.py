@@ -12,13 +12,14 @@ VM_ORDER = [
     "julc-java",
     "llvm-uplc-jit",
     "uplc-turbo-bc", "uplc-turbo",
-    "plutuz", "chrysalis", "chrysalis-aot",
+    "plutuz", "cardano-c", "chrysalis", "chrysalis-aot",
     "plutigo", "blaze-jsc", "blaze-v8", "opshin",
 ]
 VM_LABELS = {
     "uplc-turbo": "uplc-turbo AST walker (Rust)",
     "uplc-turbo-bc": "uplc-turbo Bytecode VM (Rust)",
     "plutuz": "Plutuz CEK (Zig)",
+    "cardano-c": "cardano-c CEK (C)",
     "chrysalis": "Chrysalis CEK (C# / .NET)",
     "chrysalis-aot": "Chrysalis CEK (C# / .NET AOT)",
     "plutigo": "Plutigo CEK (Go)",

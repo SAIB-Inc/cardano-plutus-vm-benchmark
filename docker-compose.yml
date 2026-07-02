@@ -24,6 +24,8 @@ services:
         - JULC_SHA
         - LLVM_UPLC_REPO
         - LLVM_UPLC_SHA
+        - CARDANO_C_REPO
+        - CARDANO_C_SHA
         - ZIG_VERSION
         - GHC_VERSION
         - JDK_SDK_VERSION
