@@ -33,6 +33,7 @@ Builds 6 VMs from source inside Docker, runs each VM's **native benchmark framew
 | **opshin-uplc** | Python | Custom | [OpShin/uplc](https://github.com/OpShin/uplc) |
 | **Julc** | Java | JMH (CEK) | [bloxbean/julc](https://github.com/bloxbean/julc) |
 | **llvm-uplc** | C++ / LLVM | Custom (`uplcbench`, JSON) | [SeungheonOh/llvm-uplc](https://github.com/SeungheonOh/llvm-uplc) |
+| **cardano-c** | C | Custom (`uplc-bench`, JSON) | [Biglup/cardano-c](https://github.com/Biglup/cardano-c) |
 
 ## What's Measured
 

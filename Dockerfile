@@ -210,6 +210,33 @@ RUN cabal update
 RUN cabal build plutus-benchmark:bench:validation -j
 
 # =============================================================================
+# Build stage: cardano-c (C / CMake)
+# =============================================================================
+FROM ubuntu:24.04 AS build-cardano-c
+
+ARG CARDANO_C_REPO
+ARG CARDANO_C_SHA
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates git cmake ninja-build build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone "$CARDANO_C_REPO" /src \
+    && cd /src && git checkout "$CARDANO_C_SHA"
+
+WORKDIR /src
+
+# Static release build with LTO; the uplc-bench harness links libcardano-c.a
+RUN cmake -S . -B build -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_STATIC_LIBS=ON \
+        -DBENCHMARKS_ENABLED=ON \
+    && cmake --build build --target uplc-bench -j"$(nproc)"
+
+# =============================================================================
 # Build stage: llvm-uplc (C++ / LLVM LLJIT)
 # =============================================================================
 FROM ubuntu:24.04 AS build-llvm-uplc
@@ -387,6 +414,9 @@ RUN set -eux; \
     ldconfig
 
 COPY --from=build-llvm-uplc /src/build/tools/bench/uplcbench /bench/llvm-uplc/uplcbench
+
+# cardano-c: statically linked bench binary, no runtime deps beyond libc/libm
+COPY --from=build-cardano-c /src/build/build/release/benchmarks/uplc-bench /bench/cardano-c/uplc-bench
 
 # --- Copy benchmark data and scripts ---
 COPY data/ /bench/data/
